@@ -1,3 +1,34 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "hero-industrial",
+      "description": "Modern construction site at sunset",
+      "imageUrl": "https://picsum.photos/seed/construction-hero/1920/1080",
+      "imageHint": "construction site"
+    },
+    {
+      "id": "project-roma-1",
+      "description": "Apartment renovation in Rome",
+      "imageUrl": "https://picsum.photos/seed/roma-apt/800/600",
+      "imageHint": "modern interior"
+    },
+    {
+      "id": "project-terracina-1",
+      "description": "New villa construction in Terracina",
+      "imageUrl": "https://picsum.photos/seed/terracina-villa/800/600",
+      "imageHint": "modern villa"
+    },
+    {
+      "id": "project-latina-1",
+      "description": "Office building in Latina",
+      "imageUrl": "https://picsum.photos/seed/latina-office/800/600",
+      "imageHint": "office building"
+    },
+    {
+      "id": "service-renovation",
+      "description": "General renovation services",
+      "imageUrl": "https://picsum.photos/seed/renovation/600/400",
+      "imageHint": "renovation tools"
+    }
+  ]
 }
