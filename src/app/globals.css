@@ -1,27 +1,26 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    --background: 210 40% 98%; /* Slate 50 */
-    --foreground: 222 47% 11%; /* Slate 900 */
+    --background: 210 40% 98%; /* Slate 50: #F8FAFC */
+    --foreground: 222 47% 11%; /* Slate 900: #0F172A */
     --card: 0 0% 100%;
     --card-foreground: 222 47% 11%;
     --popover: 0 0% 100%;
     --popover-foreground: 222 47% 11%;
-    --primary: 222 47% 11%; /* Slate 900 */
+    --primary: 222 47% 11%; /* Slate 900: #0F172A */
     --primary-foreground: 210 40% 98%;
-    --secondary: 214 32% 91%; /* Slate 200 */
+    --secondary: 214 32% 91%; /* Slate 200: #E2E8F0 */
     --secondary-foreground: 222 47% 11%;
     --muted: 214 32% 91%;
-    --muted-foreground: 215 16% 47%; /* Slate 600 */
-    --accent: 38 92% 50%; /* Amber 500 */
+    --muted-foreground: 215 16% 47%; /* Slate 600: #475569 */
+    --accent: 38 92% 50%; /* Amber 500: #F59E0B */
     --accent-foreground: 222 47% 11%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
-    --border: 214 32% 91%; /* Slate 200 */
+    --border: 214 32% 91%; /* Slate 200: #E2E8F0 */
     --input: 214 32% 91%;
     --ring: 38 92% 50%;
     --radius: 0.75rem;
