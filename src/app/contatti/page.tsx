@@ -21,7 +21,7 @@ export default function ContactsPage() {
             
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               {[
-                { icon: MapPin, label: "Indirizzo", value: "Via Appia Antica 122, Terracina (LT)" },
+                { icon: MapPin, label: "Indirizzo", value: "Via Appia Antica 22, Terracina (LT)" },
                 { icon: Phone, label: "Telefono", value: "+39 0773 000000" },
                 { icon: Mail, label: "Email", value: "info@li-costruzioni.it" },
                 { icon: Clock, label: "Orari", value: "Lun-Ven: 08:30 - 18:30" },

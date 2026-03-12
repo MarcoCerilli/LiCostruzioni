@@ -3,7 +3,7 @@
     {
       "id": "logo-aziendale",
       "description": "Logo LI-COSTRUZIONI SRL",
-      "imageUrl": "https://picsum.photos/seed/li-logo/200/200",
+      "imageUrl": "/logo.png",
       "imageHint": "construction logo"
     },
     {

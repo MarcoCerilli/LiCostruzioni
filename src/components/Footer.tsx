@@ -41,7 +41,7 @@ export function Footer() {
           <ul className="space-y-4 text-sm text-primary-foreground/80">
             <li className="flex items-center gap-3">
               <MapPin className="h-4 w-4 text-accent" />
-              Via Appia Antica 122, Terracina (LT)
+              Via Appia Antica 22, Terracina (LT)
             </li>
             <li className="flex items-center gap-3">
               <Phone className="h-4 w-4 text-accent" />

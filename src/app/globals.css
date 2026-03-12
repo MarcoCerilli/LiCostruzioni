@@ -4,23 +4,29 @@
 
 @layer base {
   :root {
-    --background: 210 40% 98%; /* Slate 50: #F8FAFC */
-    --foreground: 222 47% 11%; /* Slate 900: #0F172A */
+    --background: 210 40% 98%; /* Slate 50 */
+    --foreground: 222 47% 11%; /* Slate 900 */
     --card: 0 0% 100%;
     --card-foreground: 222 47% 11%;
     --popover: 0 0% 100%;
     --popover-foreground: 222 47% 11%;
-    --primary: 222 47% 11%; /* Slate 900: #0F172A */
+    
+    /* PRIMARY: Lo manteniamo Slate 900 per i testi, ma... */
+    --primary: 222 47% 11%; 
     --primary-foreground: 210 40% 98%;
-    --secondary: 214 32% 91%; /* Slate 200: #E2E8F0 */
+    
+    --secondary: 214 32% 91%; /* Slate 200 */
     --secondary-foreground: 222 47% 11%;
     --muted: 214 32% 91%;
-    --muted-foreground: 215 16% 47%; /* Slate 600: #475569 */
-    --accent: 38 92% 50%; /* Amber 500: #F59E0B */
-    --accent-foreground: 222 47% 11%;
+    --muted-foreground: 215 16% 47%;
+    
+    /* ACCENT: Questo è il tuo AMBRA. Usalo per i bottoni che devono risaltare! */
+    --accent: 38 92% 50%; /* #F59E0B */
+    --accent-foreground: 222 47% 11%; /* Testo scuro per leggibilità */
+    
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
-    --border: 214 32% 91%; /* Slate 200: #E2E8F0 */
+    --border: 214 32% 91%;
     --input: 214 32% 91%;
     --ring: 38 92% 50%;
     --radius: 0.75rem;
@@ -31,32 +37,21 @@
     --foreground: 210 40% 98%;
     --card: 222 47% 11%;
     --card-foreground: 210 40% 98%;
-    --popover: 222 47% 11%;
-    --popover-foreground: 210 40% 98%;
     --primary: 210 40% 98%;
     --primary-foreground: 222 47% 11%;
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
     --accent: 38 92% 50%;
     --accent-foreground: 222 47% 11%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
     --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
     --ring: 38 92% 50%;
   }
 }
 
 @layer base {
-  * {
-    @apply border-border;
-  }
-  body {
-    @apply bg-background text-foreground font-body antialiased;
-  }
+  * { @apply border-border; }
+  body { @apply bg-background text-foreground antialiased; }
+  
+  /* Correzione Titoli: NON usare primary se primary è Slate 900 e sei su sfondo scuro */
   h1, h2, h3, h4, h5, h6 {
-    @apply text-primary font-bold tracking-tight;
+    @apply font-bold tracking-tight text-foreground;
   }
 }

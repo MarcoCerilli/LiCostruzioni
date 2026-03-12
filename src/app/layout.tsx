@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
-import './globals.css';
+// @ts-ignore
+import "@/app/globals.css";
 import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
 import { Chatbot } from '@/components/Chatbot';
@@ -21,7 +22,7 @@ export default function RootLayout({
     "name": "LI-COSTRUZIONI SRL",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "Via Appia Antica 122",
+      "streetAddress": "Via Appia Antica 22",
       "addressLocality": "Terracina",
       "addressRegion": "LT",
       "postalCode": "04019",
