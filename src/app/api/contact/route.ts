@@ -8,7 +8,7 @@ export async function POST(req: Request) {
     const { nome, email, telefono, intervento, messaggio } = await req.json();
 
     const { data, error } = await resend.emails.send({
-      from: "Sito Li-Costruzioni <onboarding@resend.dev>", // Poi lo cambierai col tuo dominio
+      from: "Sito Li-Costruzioni Srl <onboarding@resend.dev>", // Poi lo cambierai col tuo dominio
       to: ["cerillimarco15@gmail.com"], // Tua email o del team
       // ... dentro resend.emails.send({
       subject: `🛠️ ${intervento} - ${nome}`,

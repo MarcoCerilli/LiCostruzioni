@@ -1,162 +1,81 @@
 "use server";
-/**
- * @fileOverview This file defines a Genkit flow for an AI-powered 'Digital Geometer' chatbot.
- * The chatbot answers technical construction questions and uses a tool to collect leads (name and phone)
- * for sopralluogo requests, saving them to Firebase Firestore.
- *
- * - chatWithDigitalGeometer - The main function to interact with the chatbot.
- * - ChatWithDigitalGeometerInput - The input type for the chatWithDigitalGeometer function.
- * - ChatWithDigitalGeometerOutput - The return type for the chatWithDigitalGeometer function.
- */
 
-import { ai } from "@/ai/genkit";
-import { z } from "genkit";
-import * as admin from "firebase-admin"; // Import firebase-admin
+import { genkit, z } from 'genkit';
+import * as admin from "firebase-admin";
 
-// Initialize Firebase Admin if not already initialized
-// This pattern helps prevent re-initialization in development/HMR scenarios.
-// For production, ensure FIREBASE_PROJECT_ID or GOOGLE_APPLICATION_CREDENTIALS
-// are correctly set in the environment.
 if (!admin.apps.length) {
-  admin.initializeApp({
-    // projectId: process.env.FIREBASE_PROJECT_ID, // Uncomment and set if explicit project ID is needed
-  });
+  admin.initializeApp();
 }
-const db = admin.firestore(); // Get Firestore instance
+const db = admin.firestore();
 
-// Input schema for the chatbot
-const ChatWithDigitalGeometerInputSchema = z.object({
-  message: z
-    .string()
-    .describe("The user's message or question to the chatbot."),
-  chatHistory: z
-    .array(
-      z.object({
-        role: z.enum(["user", "model"]),
-        content: z.string(),
-      }),
-    )
-    .optional()
-    .describe(
-      "Optional chat history to provide context for the current message.",
-    ),
-});
-export type ChatWithDigitalGeometerInput = z.infer<
-  typeof ChatWithDigitalGeometerInputSchema
->;
+const ai = genkit({});
 
-// Output schema for the chatbot
-const ChatWithDigitalGeometerOutputSchema = z.object({
-  response: z.string().describe("The chatbot's response to the user."),
-  leadCollected: z
-    .boolean()
-    .optional()
-    .describe("True if a lead (name and phone) was collected and saved."),
-});
-export type ChatWithDigitalGeometerOutput = z.infer<
-  typeof ChatWithDigitalGeometerOutputSchema
->;
-
-// Define a tool to save leads to Firebase Firestore
-const saveLeadTool = ai.defineTool(
+export const chatWithDigitalGeometer = ai.defineFlow(
   {
-    name: "saveLead",
-    description:
-      "Saves the client's name and phone number as a lead for a sopralluogo request.",
+    name: 'chatWithDigitalGeometer',
     inputSchema: z.object({
-      name: z.string().describe("The name of the client."),
-      phone: z.string().describe("The phone number of the client."),
-    }),
-    outputSchema: z.object({
-      status: z.string(),
-      leadId: z.string().optional(),
-      message: z.string().optional(),
+      message: z.string(),
+      chatHistory: z.array(z.object({
+        role: z.enum(['user', 'model']),
+        content: z.string(),
+      })).optional(),
     }),
   },
   async (input) => {
+    const API_KEY = process.env.GOOGLE_GENAI_API_KEY;
+    const url = `https://generativelanguage.googleapis.com/v1/models/gemini-2.5-flash:generateContent?key=${API_KEY}`;
+
+    // OTTIMIZZAZIONE: Istruzioni per non mozzare e restare nei limiti
+    const systemInstruction = `Sei il Geometra Digitale di LI-COSTRUZIONI SRL (Terracina). 
+    Rispondi in modo professionale ma CONCISO. 
+    Usa elenchi puntati brevi. 
+    NON superare le 200 parole per risposta. 
+    Se l'utente vuole un sopralluogo, chiedi Nome e Telefono.`;
+
+    const contents = [
+      { role: "user", parts: [{ text: systemInstruction }] },
+      ...(input.chatHistory || []).map(h => ({
+        role: h.role === "model" ? "model" : "user",
+        parts: [{ text: h.content }]
+      })),
+      { role: "user", parts: [{ text: input.message }] }
+    ];
+
     try {
-      const docRef = await db.collection("leads").add({
-        name: input.name,
-        phone: input.phone,
-        timestamp: admin.firestore.FieldValue.serverTimestamp(),
+      const response = await fetch(url, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ 
+          contents, 
+          generationConfig: { 
+            temperature: 0.8,
+            maxOutputTokens: 2000, // Aumentato a 2000 per evitare tagli
+            topP: 0.95
+          } 
+        })
       });
-      console.log("Lead saved:", docRef.id);
-      return { status: "success", leadId: docRef.id };
-    } catch (error) {
-      console.error("Error saving lead:", error);
-      return { status: "error", message: (error as Error).message };
-    }
-  },
-);
 
-// Define the prompt for the Digital Geometer
-const chatWithDigitalGeometerPrompt = ai.definePrompt({
-  name: "digitalGeometerPrompt",
-  input: { schema: ChatWithDigitalGeometerInputSchema },
-  output: {
-    schema: z.string().describe("The chatbot's conversational response."),
-  }, // Expects a conversational string response
-  tools: [saveLeadTool],
-  system: `Sei il Geometra Digitale di LI-COSTRUZIONI SRL. La tua sede è a Terracina (Via Appia Antica 22), ma siete operativi anche a Roma e Latina.
-  Il tuo compito è rispondere a dubbi tecnici e fornire informazioni sui servizi di costruzione e ristrutturazione offerti da LI-COSTRUZIONI.
-  È fondamentale che, se l'utente esprime interesse per un sopralluogo o desidera maggiori informazioni sui servizi, tu chieda sempre il suo "Nome" e "Numero di Telefono".
-  Una volta ottenuti questi dati, usa lo strumento 'saveLead' per registrarli.
-  Mantieni un tono professionale, competente e amichevole.
-  Fornisci risposte concise e pertinenti.`,
-  prompt: `{{#if chatHistory}}
-  {{#each chatHistory}}
-  {{#ifEquals role "user"}}User: {{content}}
-  {{else}}Assistant: {{content}}
-  {{/ifEquals}}
-  {{/each}}
-  {{/if}}
-  User: {{message}}
-  Assistant: `,
-});
+      const data = await response.json();
 
-// Define the Genkit flow for the chatbot
-const chatWithDigitalGeometerFlow = ai.defineFlow(
-  {
-    name: "chatWithDigitalGeometerFlow",
-    inputSchema: ChatWithDigitalGeometerInputSchema,
-    outputSchema: ChatWithDigitalGeometerOutputSchema,
-  },
-  // All'interno di ai.defineFlow...
-  async (input) => {
-    let leadCollected = false;
+      if (!response.ok) throw new Error("Errore API Google");
 
-    // Eseguiamo il prompt
-    const response = await chatWithDigitalGeometerPrompt(input);
+      const responseText = data.candidates[0].content.parts[0].text;
 
-    // ERRORE FIX: In Genkit, se definisci un output schema di tipo stringa,
-    // i tool calls si trovano nell'oggetto di risposta grezzo se non usi la modalità automatica.
-
-    // Per risolvere il tuo errore specifico di TypeScript, usa 'output' se presente o
-    // casta la risposta per accedere ai dati del messaggio:
-    const rawResponse = response as any;
-
-    if (rawResponse.toolCalls && rawResponse.toolCalls.length > 0) {
-      for (const toolCall of rawResponse.toolCalls) {
-        if (toolCall.name === "saveLead") {
-          const toolOutput = await saveLeadTool(toolCall.input);
-          if (toolOutput.status === "success") {
-            leadCollected = true;
-          }
-        }
+      // Logica Lead Avanzata: Cattura Nome e Telefono
+      const phoneMatch = input.message.match(/\d{7,}/);
+      if (phoneMatch) {
+        await db.collection("leads").add({
+          fullMessage: input.message,
+          detectedPhone: phoneMatch[0],
+          timestamp: admin.firestore.FieldValue.serverTimestamp(),
+          source: "gemini_2.5_optimized"
+        });
       }
+
+      return { response: responseText };
+    } catch (error) {
+      console.error("ERRORE:", error);
+      return { response: "C'è stato un piccolo intoppo tecnico. Mi lasci il suo numero così la richiamo?" };
     }
-
-    return {
-      // response.text spesso è response nell'output schema string
-      response:
-        typeof response === "string" ? response : (response as any).text,
-      leadCollected: leadCollected,
-    };
-  },
+  }
 );
-
-export async function chatWithDigitalGeometer(
-  input: ChatWithDigitalGeometerInput,
-): Promise<ChatWithDigitalGeometerOutput> {
-  return chatWithDigitalGeometerFlow(input);
-}
