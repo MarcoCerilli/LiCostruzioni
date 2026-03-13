@@ -1,4 +1,4 @@
 import { config } from 'dotenv';
 config();
 
-import '@/ai/flows/chat-with-digital-geometer.ts';
+import '@/ai/flows/chat-with-digital-geometer';
