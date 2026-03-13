@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-// @ts-ignore
+//@ts-ignore
 import "@/app/globals.css";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
@@ -7,9 +7,26 @@ import { Chatbot } from "@/components/Chatbot";
 import { Toaster } from "@/components/ui/toaster";
 
 export const metadata: Metadata = {
-  title: "LI-Costruzioni | Eccellenza nell'Edilizia a Terracina, Roma e Latina",
+  title: "Costruzioni e Ristrutturazioni Terracina, Roma e Latina | LI-Costruzioni",
   description:
-    "Impresa edile specializzata in costruzioni e ristrutturazioni d'eccellenza. Operativi a Terracina, Roma, Latina e dintorni.",
+    "LI-Costruzioni: impresa edile specializzata in ristrutturazioni d'eccellenza e nuove costruzioni a Terracina, Roma e Latina. Qualità artigianale e preventivi gratuiti.",
+  keywords: ["impresa edile Terracina", "ristrutturazioni Roma", "costruzioni Latina", "edilizia d'eccellenza", "ristrutturare casa Latina"],
+  authors: [{ name: "LI-Costruzioni SRL" }],
+  openGraph: {
+    title: "LI-Costruzioni | Eccellenza nell'Edilizia",
+    description: "Operativi a Terracina, Roma e Latina con progetti edili di alto livello.",
+    url: "https://li-costruzionisrl.it",
+    siteName: "LI-Costruzioni",
+    images: [
+      {
+        url: "/og-image.jpg", // Crea un'immagine 1200x630 con il logo e un cantiere bello
+        width: 1200,
+        height: 630,
+      },
+    ],
+    locale: "it_IT",
+    type: "website",
+  },
   icons: {
     icon: "/icon.png",
     shortcut: "/icon.png",
@@ -25,45 +42,45 @@ export default function RootLayout({
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "ConstructionBusiness",
-    name: "LI-COSTRUZIONI SRL",
-    address: {
+    "name": "LI-COSTRUZIONI SRL",
+    "image": "https://li-costruzionisrl.it/logo-seo.jpg", // Molto importante per Google Maps/Search
+    "address": {
       "@type": "PostalAddress",
-      streetAddress: "Via Appia Antica 22",
-      addressLocality: "Terracina",
-      addressRegion: "LT",
-      postalCode: "04019",
-      addressCountry: "IT",
+      "streetAddress": "Via Appia Antica 22",
+      "addressLocality": "Terracina",
+      "addressRegion": "LT",
+      "postalCode": "04019",
+      "addressCountry": "IT",
     },
-    geo: {
+    "geo": {
       "@type": "GeoCoordinates",
-      latitude: "41.2858",
-      longitude: "13.2486",
+      "latitude": "41.2858",
+      "longitude": "13.2486",
     },
-    url: "https://li-costruzioni.it",
-    telephone: "+390773000000",
-    areaServed: [
-      "Terracina",
-      "Latina",
-      "Roma",
-      "Sabaudia",
-      "San Felice Circeo",
+    "url": "https://li-costruzionisrl.it",
+    "telephone": "+390773000000",
+    "openingHours": "Mo-Fr 08:00-18:00",
+    "areaServed": [
+      { "@type": "City", "name": "Terracina" },
+      { "@type": "City", "name": "Roma" },
+      { "@type": "City", "name": "Latina" },
+      { "@type": "City", "name": "Sabaudia" },
+      { "@type": "City", "name": "San Felice Circeo" }
     ],
-    priceRange: "$$$",
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Servizi Edili",
+      "itemListElement": [
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Ristrutturazioni d'interni" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Nuove Costruzioni" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Consulenza Tecnica" } }
+      ]
+    }
   };
 
   return (
     <html lang="it">
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="anonymous"
-        />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
-          rel="stylesheet"
-        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

@@ -1,29 +1,37 @@
+"use client";
+
 import { Hero } from "@/components/Hero";
+import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
-import { Building2, Home, Paintbrush, HardHat } from "lucide-react";
+import { Building2, Home, Paintbrush, HardHat, CheckCircle2 } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 const features = [
   {
-    title: "Ristrutturazioni",
-    desc: "Rinnoviamo i vostri spazi con materiali di pregio e finiture impeccabili.",
+    title: "Ristrutturazioni Chiavi in Mano", // Titolo più specifico
+    desc: "Trasformiamo appartamenti e ville con materiali di pregio e gestione totale del cantiere.",
     icon: Paintbrush,
+    href: "/servizi/ristrutturazioni"
   },
   {
     title: "Nuove Costruzioni",
-    desc: "Edifici moderni, sicuri ed energeticamente efficienti.",
+    desc: "Realizzazione di edifici residenziali moderni in classe A+, sicuri ed ecosostenibili.",
     icon: Building2,
+    href: "/servizi/nuove-costruzioni"
   },
   {
-    title: "Manutenzione",
-    desc: "Interventi rapidi e risolutivi per ogni esigenza del tuo immobile.",
+    title: "Manutenzione Edile",
+    desc: "Interventi strutturali e manutenzioni ordinarie per condomini e privati.",
     icon: HardHat,
+    href: "/servizi/manutenzione"
   },
   {
-    title: "Design d'Interni",
-    desc: "Progettazione degli spazi per coniugare estetica e funzionalità.",
+    title: "Design & Progettazione",
+    desc: "Supporto tecnico e architettonico per coniugare estetica e funzionalità abitativa.",
     icon: Home,
+    href: "/servizi/progettazione"
   },
 ];
 
@@ -36,80 +44,90 @@ export default function HomePage() {
     <>
       <Hero />
 
-      <section className="py-20 px-6 bg-card/50">
+      {/* Sezione Servizi con Keyword Locali */}
+      <section className="py-24 px-6 bg-card/50">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-black mb-4 tracking-tight">
-              I Nostri Servizi
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-5xl font-black mb-4 tracking-tighter text-primary">
+              Servizi Edili d'Eccellenza a Terracina e Provincia
             </h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              Offriamo una gamma completa di servizi edilizi, curando ogni
-              dettaglio con la massima professionalità.
+            <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
+              Dalla ristrutturazione del casale a Sabaudia alla nuova costruzione a Roma, 
+              portiamo la nostra esperienza decennale in ogni cantiere.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {features.map((feature, idx) => (
-              <Card
-                key={idx}
-                className="border-none bg-background/50 hover:bg-primary/5 transition-all duration-300 group shadow-sm hover:shadow-md"
-              >
-                <CardHeader>
-                  <div className="h-14 w-14 rounded-xl bg-primary/10 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-primary group-hover:text-white transition-all duration-300">
-                    <feature.icon className="h-7 w-7 transition-colors" />
-                  </div>
-                  <CardTitle className="text-xl font-bold">
-                    {feature.title}
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground text-sm leading-relaxed">
-                    {feature.desc}
-                  </p>
-                </CardContent>
-              </Card>
+              <Link href={feature.href} key={idx} className="block group">
+                <Card className="h-full border border-primary/5 bg-background hover:border-accent/50 transition-all duration-300 shadow-sm hover:shadow-xl hover:-translate-y-2">
+                  <CardHeader>
+                    <div className="h-14 w-14 rounded-2xl bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-accent group-hover:rotate-6 transition-all duration-500">
+                      <feature.icon className="h-7 w-7 text-primary group-hover:text-primary-foreground" />
+                    </div>
+                    <CardTitle className="text-xl font-black tracking-tight">
+                      {feature.title}
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-muted-foreground text-sm leading-relaxed">
+                      {feature.desc}
+                    </p>
+                  </CardContent>
+                </Card>
+              </Link>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="py-24 px-6">
+      {/* Sezione Chi Siamo / Qualità con Immagine Descrittiva */}
+      <section className="py-24 px-6 overflow-hidden">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          <div className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl">
-            {serviceImg && (
-              <Image
-                src={serviceImg.imageUrl}
-                alt={serviceImg.description}
-                fill
-                className="object-cover"
-                data-ai-hint={serviceImg.imageHint}
-              />
-            )}
-            <div className="absolute inset-0 bg-primary/10" />
+          <div className="relative group">
+            <div className="absolute -inset-4 bg-accent/20 rounded-3xl blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+            <div className="relative aspect-square md:aspect-video lg:aspect-square rounded-2xl overflow-hidden shadow-2xl border-8 border-white">
+              {serviceImg && (
+                <Image
+                  src={serviceImg.imageUrl}
+                  alt="Cantiere edile LI-COSTRUZIONI a Terracina - Qualità e Sicurezza"
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+              )}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-8">
+                <p className="text-white font-bold italic text-lg">"Costruiamo il futuro su basi solide."</p>
+              </div>
+            </div>
           </div>
+
           <div>
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">
-              Qualità Certificata e Affidabilità
+            <h2 className="text-3xl md:text-4xl font-black mb-6 tracking-tight">
+              Oltre 15 anni di esperienza nell'edilizia laziale
             </h2>
-            <p className="text-muted-foreground mb-6">
-              LI-COSTRUZIONI SRL opera nel settore edile da anni, portando
-              avanti una tradizione di eccellenza. La nostra sede a Terracina è
-              il cuore pulsante delle nostre attività, ma siamo orgogliosi di
-              servire clienti in tutta la provincia di Latina e Roma.
+            <p className="text-muted-foreground mb-8 text-lg leading-relaxed">
+              **LI-COSTRUZIONI SRL** non è solo un'impresa edile, ma un partner di fiducia. 
+              Fondata da **Simonelli Massimo**, l'azienda si distingue per la capacità di 
+              gestire progetti complessi garantendo tempi certi e costi trasparenti.
             </p>
-            <ul className="space-y-4">
+            
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
               {[
-                "Personale Specializzato",
-                "Materiali di Alta Qualità",
-                "Rispetto dei Tempi",
-                "Trasparenza Totale",
+                "Certificazione SOA",
+                "Sopralluoghi Gratuiti",
+                "Gestione Pratiche Sisma Bonus",
+                "Team Interno Specializzato",
               ].map((item, i) => (
-                <li key={i} className="flex items-center gap-3 font-medium">
-                  <div className="h-2 w-2 rounded-full bg-primary" />
-                  {item}
-                </li>
+                <div key={i} className="flex items-center gap-3 group">
+                  <CheckCircle2 className="h-5 w-5 text-accent shrink-0" />
+                  <span className="font-bold text-sm text-primary/80 group-hover:text-primary transition-colors">{item}</span>
+                </div>
               ))}
-            </ul>
+            </div>
+
+            <Button size="lg" className="rounded-full px-8 font-black uppercase tracking-widest bg-primary hover:bg-accent hover:text-primary transition-all" asChild>
+                <Link href="/chi-siamo">Scopri la nostra storia</Link>
+            </Button>
           </div>
         </div>
       </section>

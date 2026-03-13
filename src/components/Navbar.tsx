@@ -31,27 +31,29 @@ export function Navbar() {
     { name: "Contatti", href: "/contatti" },
   ];
 
+
   return (
-    <nav className={cn(
-      "fixed top-0 left-0 right-0 z-50 transition-all duration-500 px-6",
-      // Aumentato py-5 -> py-7 per dare più respiro iniziale
-      isTransparent 
-        ? "bg-transparent py-7" 
-        : "bg-white/90 backdrop-blur-xl border-b border-slate-200/50 shadow-md py-4"
-    )}>
+    <nav 
+      aria-label="Navigazione Principale" // SEO & Accessibilità
+      className={cn(
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-500 px-6",
+        isTransparent 
+          ? "bg-transparent py-7" 
+          : "bg-white/90 backdrop-blur-xl border-b border-slate-200/50 shadow-md py-4"
+      )}
+    >
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         
-        {/* LOGO & BRAND - Leggermente più grandi */}
-        <Link href="/" className="flex items-center gap-4 group shrink-0">
+        {/* LOGO - Titolo H1 rimosso (va solo nella Hero), usiamo una classe per il brand */}
+        <Link href="/" className="flex items-center gap-4 group shrink-0" aria-label="Torna alla Home">
           <div className={cn(
             "relative rounded-xl overflow-hidden shadow-2xl ring-1 ring-slate-200/50 group-hover:rotate-3 transition-all duration-500 bg-white",
-            // Logo passato da 12 a 14/16
             isTransparent ? "h-14 w-14 md:h-16 md:w-16" : "h-12 w-12 md:h-14 md:w-14"
           )}>
             {logo && (
               <Image 
                 src={logo.imageUrl} 
-                alt="LI-COSTRUZIONI Logo" 
+                alt="LI-COSTRUZIONI - Impresa Edile specializzata in ristrutturazioni a Terracina, Roma e Latina" // Keyword incluse
                 fill 
                 className="object-contain p-2"
                 priority
@@ -61,59 +63,63 @@ export function Navbar() {
           <div className="flex flex-col">
             <span className={cn(
               "font-black tracking-tighter transition-all leading-none",
-              // Font aumentato leggermente
               isTransparent ? "text-xl md:text-2xl text-white" : "text-lg md:text-xl text-slate-900"
             )}>
               LI-COSTRUZIONI <span className="text-amber-500">SRL</span>
             </span>
+            {/* Tagline locale - Ottima per la Local SEO */}
             <span className={cn(
               "text-[10px] font-bold uppercase tracking-[0.35em] transition-all duration-500",
               isTransparent ? "text-slate-200 mt-2" : "text-slate-500 mt-1",
-              isScrolled && "opacity-0 h-0"
+              isScrolled && "opacity-0 h-0 invisible" // Aggiunto invisible per accessibilità
             )}>
               Terracina · Roma · Latina
             </span>
           </div>
         </Link>
 
-        {/* MENU DESKTOP - Spaziatura aumentata */}
-        <div className={cn(
+        {/* MENU DESKTOP - Ora con struttura a lista per Google */}
+        <ul className={cn(
           "hidden md:flex items-center gap-10 font-bold",
           isTransparent ? "text-white/95" : "text-slate-700"
         )}>
           {navLinks.map((link) => {
             const isActive = pathname === link.href;
             return (
-              <Link 
-                key={link.name} 
-                href={link.href} 
-                className={cn(
-                  "text-sm uppercase tracking-wide relative py-1 transition-colors hover:text-amber-500 group/link",
-                  isActive && (isTransparent ? "text-amber-400" : "text-amber-600")
-                )}
-              >
-                {link.name}
-                <span className={cn(
-                  "absolute -bottom-1 left-0 h-[2px] bg-amber-500 transition-all duration-300",
-                  isActive ? "w-full" : "w-0 group-hover/link:w-full"
-                )} />
-              </Link>
+              <li key={link.name}> {/* Tag li aggiunto */}
+                <Link 
+                  href={link.href} 
+                  className={cn(
+                    "text-sm uppercase tracking-wide relative py-1 transition-colors hover:text-amber-500 group/link",
+                    isActive && (isTransparent ? "text-amber-400" : "text-amber-600")
+                  )}
+                >
+                  {link.name}
+                  <span className={cn(
+                    "absolute -bottom-1 left-0 h-[2px] bg-amber-500 transition-all duration-300",
+                    isActive ? "w-full" : "w-0 group-hover/link:w-full"
+                  )} />
+                </Link>
+              </li>
             );
           })}
-        </div>
+        </ul>
 
-        {/* AZIONE CTA - Più "presenza" */}
+        {/* CTA */}
         <div className="flex items-center gap-4">
           <Button 
             asChild 
             className={cn(
-              "hidden sm:flex font-black text-sm uppercase tracking-widest shadow-xl transition-all active:scale-95 rounded-full px-8 h-12",
+              "hidden sm:flex font-black text-[10px] uppercase tracking-[0.2em] shadow-xl transition-all active:scale-95 rounded-full px-8 h-12",
               isTransparent 
                 ? "bg-amber-500 text-slate-900 hover:bg-white" 
                 : "bg-slate-900 text-white hover:bg-amber-600 shadow-slate-200"
             )}
           >
-            <Link href="/contatti">Preventivo</Link>
+            {/* Titolo nel link CTA per chiarezza */}
+            <Link href="/contatti" title="Richiedi un preventivo gratuito per la tua ristrutturazione">
+              Preventivo Libero
+            </Link>
           </Button>
         </div>
       </div>

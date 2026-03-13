@@ -49,7 +49,7 @@ export async function POST(req: Request) {
     </div>
 
     <div style="background-color: #f1f5f9; padding: 16px; text-align: center; font-size: 12px; color: #94a3b8;">
-      Email generata automaticamente dal modulo contatti di Li-Costruzioni.it
+      Email generata automaticamente dal modulo contatti di li-costruzionisrl.it
     </div>
   </div>
 `,

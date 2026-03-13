@@ -1,77 +1,97 @@
-
 import Link from 'next/link';
 import Image from 'next/image';
-import { Mail, Phone, MapPin } from 'lucide-react';
+import { Mail, Phone, MapPin, ExternalLink } from 'lucide-react';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 export function Footer() {
   const logo = PlaceHolderImages.find(img => img.id === 'logo-aziendale');
+  
+  // SEO: Testi dei link ottimizzati con keyword + città
   const areas = [
-    { name: 'Terracina', slug: 'terracina' },
-    { name: 'Latina', slug: 'latina' },
-    { name: 'Roma', slug: 'roma' },
-    { name: 'Sabaudia', slug: 'sabaudia' },
+    { name: 'Impresa Edile Terracina', slug: 'terracina' },
+    { name: 'Ristrutturazioni Latina', slug: 'latina' },
+    { name: 'Cantieri a Roma', slug: 'roma' },
+    { name: 'Edilizia Sabaudia', slug: 'sabaudia' },
     { name: 'San Felice Circeo', slug: 'san-felice-circeo' }
   ];
 
   return (
-    <footer className="bg-primary text-primary-foreground pt-16 pb-8 border-t border-white/10">
+    <footer className="bg-[#1a1f1a] text-primary-foreground pt-16 pb-8 border-t border-white/5">
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+        
+        {/* BRAND & MISSION */}
         <div>
-          <Link href="/" className="flex items-center gap-3 mb-6">
-            <div className="relative h-10 w-10 rounded-lg overflow-hidden bg-white">
+          <Link href="/" className="flex items-center gap-3 mb-6 group">
+            <div className="relative h-11 w-11 rounded-xl overflow-hidden bg-white shadow-inner transition-transform group-hover:-rotate-3">
               {logo && (
                 <Image 
                   src={logo.imageUrl} 
-                  alt="LI-COSTRUZIONI Logo" 
+                  alt="LI-COSTRUZIONI SRL - Edilizia di eccellenza" 
                   fill 
-                  className="object-cover p-1"
+                  className="object-contain p-2"
                 />
               )}
             </div>
-            <span className="font-headline font-bold text-xl tracking-tighter text-white">LI-COSTRUZIONI</span>
+            <div className="flex flex-col">
+              <span className="font-headline font-black text-xl tracking-tighter text-white">LI-COSTRUZIONI</span>
+              <span className="text-[10px] text-accent font-bold tracking-widest uppercase">S.R.L.</span>
+            </div>
           </Link>
-          <p className="text-primary-foreground/70 text-sm leading-relaxed mb-6">
-            Eccellenza nelle costruzioni e ristrutturazioni dal 2009. Trasformiamo visioni in solide realtà abitative.
+          <p className="text-primary-foreground/60 text-sm leading-relaxed">
+            Specialisti in ristrutturazioni residenziali e commerciali. Portiamo la qualità dell'artigianato italiano in ogni cantiere tra Terracina e Roma.
           </p>
         </div>
 
+        {/* CONTATTI - Con link cliccabili per SEO/UX */}
         <div>
-          <h4 className="font-bold mb-6 text-accent">Contatti</h4>
+          <h4 className="font-bold mb-6 text-white text-sm uppercase tracking-widest">Contatti</h4>
           <ul className="space-y-4 text-sm text-primary-foreground/80">
-            <li className="flex items-center gap-3">
-              <MapPin className="h-4 w-4 text-accent" />
-              Via Appia Antica 22, Terracina (LT)
+            <li className="flex items-start gap-3">
+              <MapPin className="h-5 w-5 text-accent shrink-0" />
+              <a 
+                href="https://goo.gl/maps/xxxx" // Inserisci link Google Maps reale
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="hover:text-accent transition-colors"
+              >
+                Via Appia Antica 22,<br />04019 Terracina (LT)
+              </a>
             </li>
             <li className="flex items-center gap-3">
-              <Phone className="h-4 w-4 text-accent" />
-              +393248643886
+              <Phone className="h-5 w-5 text-accent shrink-0" />
+              <a href="tel:+393248643886" className="hover:text-accent transition-colors font-mono tracking-tight">
+                +39 324 864 3886
+              </a>
             </li>
             <li className="flex items-center gap-3">
-              <Mail className="h-4 w-4 text-accent" />
-              info@li-costruzioni.it
+              <Mail className="h-5 w-5 text-accent shrink-0" />
+              <a href="mailto:info@li-costruzionisrl.it" className="hover:text-accent transition-colors">
+                info@li-costruzionisrl.it
+              </a>
             </li>
           </ul>
         </div>
 
+        {/* LINK RAPIDI */}
         <div>
-          <h4 className="font-bold mb-6 text-accent">Link Rapidi</h4>
-          <ul className="space-y-3 text-sm text-primary-foreground/80">
-            <li><Link href="/servizi" className="hover:text-accent transition-colors">I Nostri Servizi</Link></li>
-            <li><Link href="/progetti" className="hover:text-accent transition-colors">Portafoglio Lavori</Link></li>
-            <li><Link href="/chi-siamo" className="hover:text-accent transition-colors">La Nostra Storia</Link></li>
-            <li><Link href="/contatti" className="hover:text-accent transition-colors">Richiedi Preventivo</Link></li>
+          <h4 className="font-bold mb-6 text-white text-sm uppercase tracking-widest">Azienda</h4>
+          <ul className="space-y-3 text-sm text-primary-foreground/70">
+            <li><Link href="/servizi" className="hover:text-accent flex items-center gap-2">I Nostri Servizi</Link></li>
+            <li><Link href="/progetti" className="hover:text-accent flex items-center gap-2">Progetti Realizzati</Link></li>
+            <li><Link href="/chi-siamo" className="hover:text-accent flex items-center gap-2">Certificazioni e Team</Link></li>
+            <li><Link href="/contatti" className="hover:text-accent flex items-center gap-2">Richiedi Sopralluogo</Link></li>
           </ul>
         </div>
 
+        {/* AREE SEO - Tag Cloud */}
         <div>
-          <h4 className="font-bold mb-6 text-accent">Aree di Intervento</h4>
+          <h4 className="font-bold mb-6 text-white text-sm uppercase tracking-widest">Copertura Territoriale</h4>
           <div className="flex flex-wrap gap-2">
             {areas.map((area) => (
               <Link 
                 key={area.slug} 
                 href={`/servizi/${area.slug}`}
-                className="text-xs bg-white/10 px-3 py-1.5 rounded-full border border-white/5 hover:border-accent hover:text-accent transition-all"
+                className="text-[10px] uppercase font-bold bg-white/5 px-3 py-2 rounded-lg border border-white/10 hover:border-accent/50 hover:bg-accent/10 hover:text-accent transition-all"
               >
                 {area.name}
               </Link>
@@ -80,11 +100,14 @@ export function Footer() {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-primary-foreground/50">
-        <p>© {new Date().getFullYear()} LI-COSTRUZIONI SRL. P.IVA 01234567890. Tutti i diritti riservati.</p>
-        <div className="flex gap-6">
-          <Link href="/privacy" className="hover:text-accent transition-colors">Privacy Policy</Link>
-          <Link href="/cookies" className="hover:text-accent transition-colors">Cookie Policy</Link>
+      {/* BOTTOM STRIP */}
+      <div className="max-w-7xl mx-auto px-6 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6 text-[10px] font-medium text-primary-foreground/40 uppercase tracking-widest">
+        <div className="text-center md:text-left">
+          © {new Date().getFullYear()} LI-COSTRUZIONI SRL • P.IVA 01234567890 • Capitale Sociale i.v. €10.000
+        </div>
+        <div className="flex gap-8">
+          <Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
+          <Link href="/cookies" className="hover:text-white transition-colors">Cookie Policy</Link>
         </div>
       </div>
     </footer>
