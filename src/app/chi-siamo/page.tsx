@@ -121,7 +121,7 @@ export default function AboutPage() {
         </section>
 
         {/* SEZIONE TEAM: I VOLTI */}
-        <section className="mb-40">
+      {/*   <section className="mb-40">
           <div className="text-center mb-20">
             <span className="text-amber-600 font-black uppercase tracking-[0.3em] text-[10px] mb-4 block">Il Cuore dell&apos;Azienda</span>
             <h2 className="text-4xl md:text-5xl font-black text-slate-900 tracking-tighter">La Direzione Tecnica</h2>
@@ -155,7 +155,7 @@ export default function AboutPage() {
               </div>
             ))}
           </div>
-        </section>
+        </section> */}
 
         {/* SEZIONE PARTNER */}
         <section className="mb-40">
