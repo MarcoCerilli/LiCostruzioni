@@ -9,31 +9,31 @@
     {
       "id": "hero-industrial",
       "description": "Cantiere edile moderno al tramonto",
-      "imageUrl": "https://picsum.photos/seed/construction-hero/1920/1080",
+      "imageUrl": "",
       "imageHint": "construction site"
     },
     {
       "id": "project-roma-1",
       "description": "Ristrutturazione appartamento a Roma",
-      "imageUrl": "https://picsum.photos/seed/roma-apt/800/600",
+      "imageUrl": "",
       "imageHint": "modern interior"
     },
     {
       "id": "project-terracina-1",
       "description": "Costruzione nuova villa a Terracina",
-      "imageUrl": "https://picsum.photos/seed/terracina-villa/800/600",
+      "imageUrl": "",
       "imageHint": "modern villa"
     },
     {
       "id": "project-latina-1",
       "description": "Edificio uffici a Latina",
-      "imageUrl": "https://picsum.photos/seed/latina-office/800/600",
+      "imageUrl": "",
       "imageHint": "office building"
     },
     {
       "id": "service-renovation",
       "description": "Servizi di ristrutturazione generale",
-      "imageUrl": "https://picsum.photos/seed/renovation/600/400",
+      "imageUrl": "",
       "imageHint": "renovation tools"
     }
   ]
