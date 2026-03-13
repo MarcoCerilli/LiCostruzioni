@@ -168,7 +168,7 @@ export default function ContactsPage() {
                     <Loader2 className="mr-2 h-5 w-5 animate-spin" />
                   ) : (
                     <>
-                      Richiedi Preventivo Gratis
+                      Richiedi Preventivo
                       <Send className="ml-2 h-5 w-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                     </>
                   )}
