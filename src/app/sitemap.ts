@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://www.li-costruzionisrl.it'
+  const baseUrl = 'https://www.L.I-Costruzionisrl.it'
   const cities = ['terracina', 'latina', 'roma', 'sabaudia', 'san-felice-circeo']
   
   // Pagine statiche

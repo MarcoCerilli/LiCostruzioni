@@ -90,7 +90,7 @@ export default function HomePage() {
               {serviceImg && (
                 <Image
                   src={serviceImg.imageUrl}
-                  alt="Cantiere edile LI-COSTRUZIONI a Terracina - Qualità e Sicurezza"
+                  alt="Cantiere edile L.I-Costruzioni a Terracina - Qualità e Sicurezza"
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-110"
                 />
@@ -106,7 +106,7 @@ export default function HomePage() {
               Oltre 15 anni di esperienza nell'edilizia laziale
             </h2>
             <p className="text-muted-foreground mb-8 text-lg leading-relaxed">
-              **LI-COSTRUZIONI SRL** non è solo un'impresa edile, ma un partner di fiducia. 
+              **L.I-Costruzioni SRL** non è solo un'impresa edile, ma un partner di fiducia. 
               Fondata da **Simonelli Massimo**, l'azienda si distingue per la capacità di 
               gestire progetti complessi garantendo tempi certi e costi trasparenti.
             </p>

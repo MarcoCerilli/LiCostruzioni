@@ -9,7 +9,7 @@ export default function ThankYouPage() {
         Messaggio Inviato!
       </h1>
       <p className="text-lg text-slate-600 mb-10">
-        Grazie per averci contattato. Il team di <strong>Li-Costruzioni</strong>{" "}
+        Grazie per averci contattato. Il team di <strong>L.I-Costruzioni</strong>{" "}
         ti risponderà nel più breve tempo possibile per fissare un sopralluogo.
       </p>
       <Link

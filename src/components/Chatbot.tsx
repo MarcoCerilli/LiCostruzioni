@@ -19,7 +19,7 @@ export function Chatbot() {
   const [messages, setMessages] = useState<Message[]>([
     {
       role: "model",
-      content: "Buongiorno! Sono il Consulente Tecnico di LI-COSTRUZIONI SRL. Come posso aiutarti oggi?",
+      content: "Buongiorno! Sono il Consulente Tecnico di L.I-Costruzioni SRL. Come posso aiutarti oggi?",
     },
   ]);
   const [input, setInput] = useState("");
@@ -92,7 +92,7 @@ export function Chatbot() {
               </div>
               <div className="leading-tight">
                 <h3 className="font-bold text-xs tracking-tight uppercase text-slate-800">Consulente Tecnico</h3>
-                <p className="text-[8px] text-amber-600 font-bold tracking-[0.2em]">LI-COSTRUZIONI</p>
+                <p className="text-[8px] text-amber-600 font-bold tracking-[0.2em]">L.I-Costruzioni</p>
               </div>
             </div>
             <Button variant="ghost" size="icon" onClick={() => setIsOpen(false)} className="h-7 w-7 hover:bg-slate-100 text-slate-400">

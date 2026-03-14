@@ -7,16 +7,16 @@ import { Chatbot } from "@/components/Chatbot";
 import { Toaster } from "@/components/ui/toaster";
 
 export const metadata: Metadata = {
-  title: "Costruzioni e Ristrutturazioni Terracina, Roma e Latina | LI-Costruzioni",
+  title: "Costruzioni e Ristrutturazioni Terracina, Roma e Latina | L.I-Costruzioni",
   description:
-    "LI-Costruzioni: impresa edile specializzata in ristrutturazioni d'eccellenza e nuove costruzioni a Terracina, Roma e Latina. Qualità artigianale e preventivi gratuiti.",
+    "L.I-Costruzioni: impresa edile specializzata in ristrutturazioni d'eccellenza e nuove costruzioni a Terracina, Roma e Latina. Qualità artigianale e preventivi gratuiti.",
   keywords: ["impresa edile Terracina", "ristrutturazioni Roma", "costruzioni Latina", "edilizia d'eccellenza", "ristrutturare casa Latina"],
-  authors: [{ name: "LI-Costruzioni SRL" }],
+  authors: [{ name: "L.I-Costruzioni SRL" }],
   openGraph: {
-    title: "LI-Costruzioni | Eccellenza nell'Edilizia",
+    title: "L.I-Costruzioni | Eccellenza nell'Edilizia",
     description: "Operativi a Terracina, Roma e Latina con progetti edili di alto livello.",
-    url: "https://li-costruzionisrl.it",
-    siteName: "LI-Costruzioni",
+    url: "https://L.I-Costruzionisrl.it",
+    siteName: "L.I-Costruzioni",
     images: [
       {
         url: "/og-image.jpg", // Crea un'immagine 1200x630 con il logo e un cantiere bello
@@ -42,8 +42,8 @@ export default function RootLayout({
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "ConstructionBusiness",
-    "name": "LI-COSTRUZIONI SRL",
-    "image": "https://li-costruzionisrl.it/logo-seo.jpg", // Molto importante per Google Maps/Search
+    "name": "L.I-Costruzioni SRL",
+    "image": "https://L.I-Costruzionisrl.it/logo-seo.jpg", // Molto importante per Google Maps/Search
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "Via Appia Antica 22",
@@ -57,7 +57,7 @@ export default function RootLayout({
       "latitude": "41.2858",
       "longitude": "13.2486",
     },
-    "url": "https://li-costruzionisrl.it",
+    "url": "https://L.I-Costruzionisrl.it",
     "telephone": "+390773000000",
     "openingHours": "Mo-Fr 08:00-18:00",
     "areaServed": [

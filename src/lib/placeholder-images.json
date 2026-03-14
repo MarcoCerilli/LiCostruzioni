@@ -2,14 +2,14 @@
   "placeholderImages": [
     {
       "id": "logo-aziendale",
-      "description": "Logo LI-COSTRUZIONI SRL",
+      "description": "Logo L.I-Costruzioni SRL",
       "imageUrl": "/logo.png",
       "imageHint": "construction logo"
     },
     {
       "id": "hero-industrial",
       "description": "Cantiere edile moderno al tramonto",
-      "imageUrl": "",
+      "imageUrl": "/hero.png",
       "imageHint": "construction site"
     },
     {

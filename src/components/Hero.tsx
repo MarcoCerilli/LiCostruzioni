@@ -18,22 +18,22 @@ export function Hero({ city }: HeroProps) {
 
   const subtitle = city
     ? `Specialisti in ristrutturazioni chiavi in mano e nuove costruzioni a ${city}. Realizziamo il tuo progetto con qualità certificata.`
-    : "Dal 19XX, LI-Costruzioni trasforma le vostre idee in realtà solide a Terracina, Roma e Latina con competenza artigianale.";
+    : "Dal 1990, L.I-Costruzioni trasforma le vostre idee in realtà solide a Terracina, Roma e Latina con competenza artigianale.";
 
   const heroImage = PlaceHolderImages.find(
     (img) => img.id === "hero-industrial",
   );
 
   return (
-    <section className="relative min-h-screen flex flex-col justify-center items-center overflow-hidden bg-[#1a1f1a] pt-20 pb-20">
+    <section className="relative min-h-screen flex flex-col justify-center items-center overflow-hidden bg-[#1a1f1a] pt-40 pb-20">
       {/* Background Section */}
       <div className="absolute inset-0 z-0">
         {heroImage && (
           <Image
             src={heroImage.imageUrl}
-            alt={`Lavori di edilizia e ristrutturazioni LI-Costruzioni ${city ? `a ${city}` : ''}`}
+            alt={`Lavori di edilizia e ristrutturazioni L.I-Costruzioni ${city ? `a ${city}` : ''}`}
             fill
-            className="object-cover opacity-40" // Ridotto l'uso di filtri CSS pesanti
+            className="object-cover opacity-60" // Ridotto l'uso di filtri CSS pesanti
             priority
             fetchPriority="high" // Dice al browser di scaricare questa immagine per prima
           />
@@ -48,7 +48,7 @@ export function Hero({ city }: HeroProps) {
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
             <span className="relative inline-flex rounded-full h-2 w-2 bg-amber-500"></span>
           </span>
-          LI-COSTRUZIONI SRL • Terracina • Roma • Latina
+          L.I-Costruzioni SRL • Terracina • Roma • Latina
         </div>
 
         {/* H1: Il cuore della SEO */}

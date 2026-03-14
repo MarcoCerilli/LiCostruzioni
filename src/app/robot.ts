@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: '/api/', // Protegge le tue API
     },
-    sitemap: 'https://www.li-costruzionisrl.it/sitemap.xml',
+    sitemap: 'https://www.L.I-Costruzionisrl.it/sitemap.xml',
   }
 }

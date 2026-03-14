@@ -19,10 +19,10 @@ const formatCityName = (slug: string) =>
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const city = formatCityName(params.city);
   return {
-    title: `Impresa Edile a ${city} | Ristrutturazioni e Costruzioni | LI-COSTRUZIONI`,
-    description: `Stai cercando un'impresa edile a ${city}? LI-COSTRUZIONI SRL è specializzata in ristrutturazioni chiavi in mano, nuove costruzioni e manutenzioni a ${city}. Richiedi un sopralluogo gratuito.`,
+    title: `Impresa Edile a ${city} | Ristrutturazioni e Costruzioni | L.I-Costruzioni`,
+    description: `Stai cercando un'impresa edile a ${city}? L.I-Costruzioni SRL è specializzata in ristrutturazioni chiavi in mano, nuove costruzioni e manutenzioni a ${city}. Richiedi un sopralluogo gratuito.`,
     alternates: {
-      canonical: `https://www.li-costruzionisrl.it/servizi/${params.city}`,
+      canonical: `https://www.L.I-Costruzionisrl.it/servizi/${params.city}`,
     }
   };
 }
@@ -38,7 +38,7 @@ export default function LocalServicePage({ params }: Props) {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "ConstructionBusiness",
-    "name": `LI-COSTRUZIONI SRL - ${city}`,
+    "name": `L.I-Costruzioni SRL - ${city}`,
     "description": `Servizi edili professionali a ${city}. Ristrutturazioni e nuove costruzioni.`,
     "areaServed": {
       "@type": "City",
@@ -69,7 +69,7 @@ export default function LocalServicePage({ params }: Props) {
               La tua Casa a <span className="text-amber-500">{city}</span>, Costruita per Durare.
             </h1>
             <p className="text-xl text-slate-400 mb-10 leading-relaxed">
-              Dalla ristrutturazione di appartamenti storici alle nuove costruzioni moderne, portiamo l&apos;eccellenza di LI-COSTRUZIONI direttamente nel cuore di {city}.
+              Dalla ristrutturazione di appartamenti storici alle nuove costruzioni moderne, portiamo l&apos;eccellenza di L.I-Costruzioni direttamente nel cuore di {city}.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Button size="lg" className="bg-amber-500 text-slate-900 font-black h-14 px-8 rounded-xl" asChild>
@@ -92,7 +92,7 @@ export default function LocalServicePage({ params }: Props) {
                 Esperti nell&apos;Edilizia Locale a {city}
               </h2>
               <p className="text-slate-600 text-lg mb-8 leading-relaxed">
-                Ogni zona ha le sue peculiarità. Che si tratti dei vincoli architettonici di <strong>Roma</strong>, delle sfide climatiche costiere di <strong>Terracina e Sabaudia</strong>, o dell&apos;urbanistica di <strong>Latina</strong>, LI-COSTRUZIONI ha l&apos;esperienza per gestire ogni cantiere con precisione chirurgica.
+                Ogni zona ha le sue peculiarità. Che si tratti dei vincoli architettonici di <strong>Roma</strong>, delle sfide climatiche costiere di <strong>Terracina e Sabaudia</strong>, o dell&apos;urbanistica di <strong>Latina</strong>, L.I-Costruzioni ha l&apos;esperienza per gestire ogni cantiere con precisione chirurgica.
               </p>
               <ul className="space-y-4">
                 {[

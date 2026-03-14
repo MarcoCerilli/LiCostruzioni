@@ -26,7 +26,7 @@ export const chatWithDigitalGeometer = ai.defineFlow(
     const url = `https://generativelanguage.googleapis.com/v1/models/gemini-2.5-flash:generateContent?key=${API_KEY}`;
 
     // OTTIMIZZAZIONE: Istruzioni per non mozzare e restare nei limiti
-    const systemInstruction = `Sei il Geometra Digitale di LI-COSTRUZIONI SRL (Terracina). 
+    const systemInstruction = `Sei il Geometra Digitale di L.I-Costruzioni SRL (Terracina). 
     Rispondi in modo professionale ma CONCISO. 
     Usa elenchi puntati brevi. 
     NON superare le 200 parole per risposta. 

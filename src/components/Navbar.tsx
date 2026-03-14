@@ -67,7 +67,7 @@ export function Navbar() {
               {logo && (
                 <Image
                   src={logo.imageUrl}
-                  alt="LI-COSTRUZIONI - Ristrutturazioni Terracina"
+                  alt="L.I-Costruzioni - Ristrutturazioni Terracina"
                   fill
                   className="object-contain p-2"
                   priority
@@ -83,7 +83,7 @@ export function Navbar() {
                     : "text-lg md:text-xl text-slate-900",
                 )}
               >
-                LI-COSTRUZIONI <span className="text-amber-500">SRL</span>
+                L.I-Costruzioni <span className="text-amber-500">SRL</span>
               </span>
               <span
                 className={cn(
@@ -201,7 +201,7 @@ export function Navbar() {
             >
               T. 324 864 3886
             </a>
-            <p className="text-slate-500">info@li-costruzionisrl.it</p>
+            <p className="text-slate-500">info@L.I-Costruzionisrl.it</p>
           </div>
           <Button
             className="w-full bg-amber-500 text-slate-900 font-black py-8 rounded-2xl text-lg shadow-lg shadow-amber-200"

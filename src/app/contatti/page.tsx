@@ -76,7 +76,7 @@ export default function ContactsPage() {
                 {[
                   { icon: MapPin, label: "Dove Siamo", value: "Via Appia Antica 22, Terracina (LT)" },
                   { icon: Phone, label: "Pronto Intervento", value: "+39 324 864 3886" },
-                  { icon: Mail, label: "Scrivici", value: "info@li-costruzionisrl.it" },
+                  { icon: Mail, label: "Scrivici", value: "info@L.I-Costruzionisrl.it" },
                   { icon: Clock, label: "Orario Uffici", value: "Lun-Ven: 08:30 - 18:30" },
                 ].map((item, idx) => (
                   <Card key={idx} className="bg-white border border-slate-100 shadow-sm hover:shadow-md transition-shadow">
@@ -97,7 +97,7 @@ export default function ContactsPage() {
             {/* MAPPA EMBED - Cruciale per Local SEO */}
             <div className="h-[350px] rounded-[2.5rem] overflow-hidden shadow-2xl border-8 border-white group">
               <iframe
-                title="Sede LI-COSTRUZIONI Terracina"
+                title="Sede L.I-Costruzioni Terracina"
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2994.4!2d13.2!3d41.2!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDHCsDAwJzAwLjAiTiAxM8KwMDAnMDAuMCJF!5e0!3m2!1sit!2sit!4v1620000000000!5m2!1sit!2sit"
                 width="100%"
                 height="100%"

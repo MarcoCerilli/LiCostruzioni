@@ -89,7 +89,7 @@ export default function ProjectsPage() {
                   {img && (
                     <Image
                       src={img.imageUrl}
-                      alt={`${project.type} LI-COSTRUZIONI a ${project.city}`}
+                      alt={`${project.type} L.I-Costruzioni a ${project.city}`}
                       fill
                       className="object-cover transition-transform duration-700 group-hover:scale-110 group-hover:rotate-1"
                     />

@@ -85,7 +85,7 @@ export default function ServicesPage() {
 
               <div className="lg:col-span-5 relative">
                 <div className="relative aspect-square rounded-[2rem] overflow-hidden border-8 border-slate-800 shadow-2xl">
-                   {serviceImg && <Image src={serviceImg.imageUrl} alt="Cantiere LI-COSTRUZIONI" fill className="object-cover" />}
+                   {serviceImg && <Image src={serviceImg.imageUrl} alt="Cantiere L.I-Costruzioni" fill className="object-cover" />}
                 </div>
                 <div className="absolute -bottom-6 -left-6 bg-amber-500 p-6 rounded-2xl hidden md:block">
                    <p className="text-slate-900 font-black text-3xl tracking-tighter">30y</p>

@@ -16,7 +16,7 @@ function PartnerLogo({ partner }: { partner: { name: string; src: string } }) {
       {!hasError ? (
         <Image
           src={partner.src}
-          alt={`Partner Tecnico LI-COSTRUZIONI: ${partner.name}`}
+          alt={`Partner Tecnico L.I-Costruzioni: ${partner.name}`}
           fill
           sizes="(max-width: 768px) 50vw, 15vw"
           className="object-contain p-6 grayscale hover:grayscale-0 transition-all opacity-60 group-hover:opacity-100"
@@ -59,7 +59,7 @@ export default function AboutPage() {
               <span className="text-amber-500">Cantiere Perfetto.</span>
             </h1>
             <blockquote className="text-xl text-slate-600 mb-8 leading-relaxed italic border-l-4 border-amber-500 pl-8 py-2">
-              &quot;LI-COSTRUZIONI nasce dall&apos;ambizione di Alfredo Iaboni:
+              &quot;L.I-Costruzioni nasce dall&apos;ambizione di Alfredo Iaboni:
               trasformare la dedizione per il fare bene in una solida realtà
               imprenditoriale nel Lazio.&quot;
             </blockquote>
@@ -95,7 +95,7 @@ export default function AboutPage() {
             {teamImg && (
               <Image
                 src={teamImg.imageUrl}
-                alt="Maestria artigianale LI-COSTRUZIONI - Dettaglio cantiere"
+                alt="Maestria artigianale L.I-Costruzioni - Dettaglio cantiere"
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-cover"
@@ -166,7 +166,7 @@ export default function AboutPage() {
                 <div className="relative w-48 h-48 rounded-full overflow-hidden mb-8 border-4 border-white shadow-xl group-hover:border-amber-500 transition-all duration-500">
                   <Image
                     src={member.src}
-                    alt={`${member.name} - ${member.role} LI-COSTRUZIONI`}
+                    alt={`${member.name} - ${member.role} L.I-Costruzioni`}
                     fill
                     className="object-cover transition-transform duration-500 group-hover:scale-110"
                   />

@@ -8,14 +8,14 @@ export async function POST(req: Request) {
     const { nome, email, telefono, intervento, messaggio } = await req.json();
 
     const { data, error } = await resend.emails.send({
-      from: "Sito Li-Costruzioni Srl <onboarding@resend.dev>", // Poi lo cambierai col tuo dominio
+      from: "Sito L.I-Costruzioni Srl <onboarding@resend.dev>", // Poi lo cambierai col tuo dominio
       to: ["cerillimarco15@gmail.com"], // Tua email o del team
       // ... dentro resend.emails.send({
       subject: `🛠️ ${intervento} - ${nome}`,
       html: `
   <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; border: 1px solid #e2e8f0; border-radius: 12px; overflow: hidden;">
     <div style="background-color: #0f172a; padding: 24px; text-align: center;">
-      <h1 style="color: #f59e0b; margin: 0; font-size: 20px; text-transform: uppercase; letter-spacing: 2px;">Li-Costruzioni</h1>
+      <h1 style="color: #f59e0b; margin: 0; font-size: 20px; text-transform: uppercase; letter-spacing: 2px;">L.I-Costruzioni</h1>
       <p style="color: #cbd5e1; margin: 8px 0 0 0; font-size: 14px;">Nuova richiesta dal sito web</p>
     </div>
     
@@ -49,7 +49,7 @@ export async function POST(req: Request) {
     </div>
 
     <div style="background-color: #f1f5f9; padding: 16px; text-align: center; font-size: 12px; color: #94a3b8;">
-      Email generata automaticamente dal modulo contatti di li-costruzionisrl.it
+      Email generata automaticamente dal modulo contatti di L.I-Costruzionisrl.it
     </div>
   </div>
 `,

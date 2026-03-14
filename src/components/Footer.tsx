@@ -26,14 +26,14 @@ export function Footer() {
               {logo && (
                 <Image 
                   src={logo.imageUrl} 
-                  alt="LI-COSTRUZIONI SRL - Edilizia di eccellenza" 
+                  alt="L.I-Costruzioni SRL - Edilizia di eccellenza" 
                   fill 
                   className="object-contain p-2"
                 />
               )}
             </div>
             <div className="flex flex-col">
-              <span className="font-headline font-black text-xl tracking-tighter text-white">LI-COSTRUZIONI</span>
+              <span className="font-headline font-black text-xl tracking-tighter text-white">L.I-Costruzioni</span>
               <span className="text-[10px] text-accent font-bold tracking-widest uppercase">S.R.L.</span>
             </div>
           </Link>
@@ -65,8 +65,8 @@ export function Footer() {
             </li>
             <li className="flex items-center gap-3">
               <Mail className="h-5 w-5 text-accent shrink-0" />
-              <a href="mailto:info@li-costruzionisrl.it" className="hover:text-accent transition-colors">
-                info@li-costruzionisrl.it
+              <a href="mailto:info@L.I-Costruzionisrl.it" className="hover:text-accent transition-colors">
+                info@L.I-Costruzionisrl.it
               </a>
             </li>
           </ul>
@@ -103,7 +103,7 @@ export function Footer() {
       {/* BOTTOM STRIP */}
       <div className="max-w-7xl mx-auto px-6 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6 text-[10px] font-medium text-primary-foreground/40 uppercase tracking-widest">
         <div className="text-center md:text-left">
-          © {new Date().getFullYear()} LI-COSTRUZIONI SRL • P.IVA 01234567890 • Capitale Sociale i.v. €10.000
+          © {new Date().getFullYear()} L.I-Costruzioni SRL • P.IVA 01234567890 • Capitale Sociale i.v. €10.000
         </div>
         <div className="flex gap-8">
           <Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>

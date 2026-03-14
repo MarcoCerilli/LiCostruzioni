@@ -1,4 +1,4 @@
-# **App Name**: LI-Costruzioni
+# **App Name**: L.I-Costruzioni
 
 ## Core Features:
 
