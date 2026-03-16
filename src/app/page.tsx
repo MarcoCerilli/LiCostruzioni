@@ -4,7 +4,13 @@ import { Hero } from "@/components/Hero";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
-import { Building2, Home, Paintbrush, HardHat, CheckCircle2 } from "lucide-react";
+import {
+  Building2,
+  Home,
+  Paintbrush,
+  HardHat,
+  CheckCircle2,
+} from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import ComingSoon from "./coming-soon";
@@ -14,36 +20,38 @@ const features = [
     title: "Ristrutturazioni Chiavi in Mano", // Titolo più specifico
     desc: "Trasformiamo appartamenti e ville con materiali di pregio e gestione totale del cantiere.",
     icon: Paintbrush,
-    href: "/servizi/ristrutturazioni"
+    href: "/servizi/ristrutturazioni",
   },
   {
     title: "Nuove Costruzioni",
     desc: "Realizzazione di edifici residenziali moderni in classe A+, sicuri ed ecosostenibili.",
     icon: Building2,
-    href: "/servizi/nuove-costruzioni"
+    href: "/servizi/nuove-costruzioni",
   },
   {
     title: "Manutenzione Edile",
     desc: "Interventi strutturali e manutenzioni ordinarie per condomini e privati.",
     icon: HardHat,
-    href: "/servizi/manutenzione"
+    href: "/servizi/manutenzione",
   },
   {
     title: "Design & Progettazione",
     desc: "Supporto tecnico e architettonico per coniugare estetica e funzionalità abitativa.",
     icon: Home,
-    href: "/servizi/progettazione"
+    href: "/servizi/progettazione",
   },
 ];
 
 export default function HomePage() {
-  const serviceImg = PlaceHolderImages.find(
-    (img) => img.id === "service-renovation",
-  );
-
+  // 1. Controllo immediato: se siamo in manutenzione, esci subito
   if (process.env.NEXT_PUBLIC_COMING_SOON === "true") {
     return <ComingSoon />;
   }
+
+  // 2. Logica del sito reale (eseguita solo se NON siamo in Coming Soon)
+  const serviceImg = PlaceHolderImages.find(
+    (img) => img.id === "service-renovation",
+  );
 
   return (
     <>
@@ -57,8 +65,9 @@ export default function HomePage() {
               Servizi Edili d'Eccellenza a Terracina e Provincia
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
-              Dalla ristrutturazione del casale a Sabaudia alla nuova costruzione a Roma, 
-              portiamo la nostra esperienza decennale in ogni cantiere.
+              Dalla ristrutturazione del casale a Sabaudia alla nuova
+              costruzione a Roma, portiamo la nostra esperienza decennale in
+              ogni cantiere.
             </p>
           </div>
 
@@ -101,7 +110,9 @@ export default function HomePage() {
                 />
               )}
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-8">
-                <p className="text-white font-bold italic text-lg">"Costruiamo il futuro su basi solide."</p>
+                <p className="text-white font-bold italic text-lg">
+                  "Costruiamo il futuro su basi solide."
+                </p>
               </div>
             </div>
           </div>
@@ -111,11 +122,12 @@ export default function HomePage() {
               Oltre 15 anni di esperienza nell'edilizia laziale
             </h2>
             <p className="text-muted-foreground mb-8 text-lg leading-relaxed">
-              **L.I-Costruzioni SRL** non è solo un'impresa edile, ma un partner di fiducia. 
-              Fondata da **Simonelli Massimo**, l'azienda si distingue per la capacità di 
-              gestire progetti complessi garantendo tempi certi e costi trasparenti.
+              **L.I-Costruzioni SRL** non è solo un'impresa edile, ma un partner
+              di fiducia. Fondata da **Simonelli Massimo**, l'azienda si
+              distingue per la capacità di gestire progetti complessi garantendo
+              tempi certi e costi trasparenti.
             </p>
-            
+
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
               {[
                 "Sopralluoghi Gratuiti",
@@ -124,13 +136,19 @@ export default function HomePage() {
               ].map((item, i) => (
                 <div key={i} className="flex items-center gap-3 group">
                   <CheckCircle2 className="h-5 w-5 text-accent shrink-0" />
-                  <span className="font-bold text-sm text-primary/80 group-hover:text-primary transition-colors">{item}</span>
+                  <span className="font-bold text-sm text-primary/80 group-hover:text-primary transition-colors">
+                    {item}
+                  </span>
                 </div>
               ))}
             </div>
 
-            <Button size="lg" className="rounded-full px-8 font-black uppercase tracking-widest bg-primary hover:bg-accent hover:text-primary transition-all" asChild>
-                <Link href="/chi-siamo">Scopri la nostra storia</Link>
+            <Button
+              size="lg"
+              className="rounded-full px-8 font-black uppercase tracking-widest bg-primary hover:bg-accent hover:text-primary transition-all"
+              asChild
+            >
+              <Link href="/chi-siamo">Scopri la nostra storia</Link>
             </Button>
           </div>
         </div>
