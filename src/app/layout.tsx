@@ -57,6 +57,8 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const isManteinance = process.env.NEXT_PUBLIC_MAINTENANCE === "true";
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "ConstructionBusiness",
@@ -105,11 +107,19 @@ export default function RootLayout({
         />
       </head>
       <body className="font-body antialiased flex flex-col min-h-screen">
-        <Navbar />
-        <main className="flex-grow">{children}</main>
-        <Footer />
-        <Chatbot />
-        <Toaster />
+{!isManteinance && <Navbar />}
+        
+        <main className="flex-grow">
+          {children}
+        </main>
+
+        {!isManteinance && (
+          <>
+            <Footer />
+            <Chatbot />
+            <Toaster />
+          </>
+        )}
       </body>
     </html>
   );
