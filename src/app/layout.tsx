@@ -87,11 +87,11 @@ export default function RootLayout({
         />
       </head>
       <body className="font-body antialiased flex flex-col min-h-screen">
-        <Navbar />
+{/*         <Navbar /> */}
         <main className="flex-grow">{children}</main>
-        <Footer />
+     {/*    <Footer /> *}/
         <Chatbot />
-        <Toaster />
+        <Toaster /> */}
       </body>
     </html>
   );
