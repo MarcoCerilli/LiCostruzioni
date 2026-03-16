@@ -6,31 +6,49 @@ import { Footer } from "@/components/Footer";
 import { Chatbot } from "@/components/Chatbot";
 import { Toaster } from "@/components/ui/toaster";
 
+// Configurazione base per risolvere gli URL relativi (toglie l'errore http://localhost:9002 nei log)
 export const metadata: Metadata = {
-  title: "Costruzioni e Ristrutturazioni Terracina, Roma e Latina | L.I-Costruzioni",
+  metadataBase: new URL('https://li-costruzionisrl.it'),
+  title: {
+    default: "Costruzioni e Ristrutturazioni Terracina, Roma e Latina | L.I-Costruzioni",
+    template: "%s | L.I-Costruzioni" // Permette alle sottopagine di aggiungere il loro titolo
+  },
   description:
     "L.I-Costruzioni: impresa edile specializzata in ristrutturazioni d'eccellenza e nuove costruzioni a Terracina, Roma e Latina. Qualità artigianale e preventivi gratuiti.",
   keywords: ["impresa edile Terracina", "ristrutturazioni Roma", "costruzioni Latina", "edilizia d'eccellenza", "ristrutturare casa Latina"],
   authors: [{ name: "L.I-Costruzioni SRL" }],
+  
+  // --- OPEN GRAPH (Facebook, WhatsApp, LinkedIn) ---
   openGraph: {
     title: "L.I-Costruzioni | Eccellenza nell'Edilizia",
-    description: "Operativi a Terracina, Roma e Latina con progetti edili di alto livello.",
-    url: "https://L.I-Costruzionisrl.it",
+    description: "Operativi a Terracina, Roma e Latina con progetti edili di alto livello. Trasformiamo le tue idee in realtà.",
+    url: "https://li-costruzionisrl.it",
     siteName: "L.I-Costruzioni",
     images: [
       {
-        url: "/og-image.jpg", // Crea un'immagine 1200x630 con il logo e un cantiere bello
+        url: "/og-image.jpg", // Assicurati di mettere questa immagine in /public
         width: 1200,
         height: 630,
+        alt: "L.I-Costruzioni - Ristrutturazioni d'Eccellenza",
       },
     ],
     locale: "it_IT",
     type: "website",
   },
+
+  // --- TWITTER CARD ---
+  twitter: {
+    card: "summary_large_image",
+    title: "L.I-Costruzioni | Eccellenza nell'Edilizia",
+    description: "Ristrutturazioni e costruzioni a Terracina, Roma e Latina.",
+    images: ["/og-image.jpg"],
+  },
+
+  // --- ICONS ---
   icons: {
     icon: "/icon.png",
     shortcut: "/icon.png",
-    apple: "/icon.png",
+    apple: "/apple-touch-icon.png", // Nome standard per dispositivi Apple
   },
 };
 
@@ -43,7 +61,7 @@ export default function RootLayout({
     "@context": "https://schema.org",
     "@type": "ConstructionBusiness",
     "name": "L.I-Costruzioni SRL",
-    "image": "https://L.I-Costruzionisrl.it/logo-seo.jpg", // Molto importante per Google Maps/Search
+    "image": "https://li-costruzionisrl.it/og-image.jpg", 
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "Via Appia Antica 22",
@@ -57,8 +75,8 @@ export default function RootLayout({
       "latitude": "41.2858",
       "longitude": "13.2486",
     },
-    "url": "https://L.I-Costruzionisrl.it",
-    "telephone": "+390773000000",
+    "url": "https://li-costruzionisrl.it",
+    "telephone": "+393393274092", // Ho messo il cell di Alfredo, più realistico per un contatto diretto
     "openingHours": "Mo-Fr 08:00-18:00",
     "areaServed": [
       { "@type": "City", "name": "Terracina" },
@@ -87,11 +105,11 @@ export default function RootLayout({
         />
       </head>
       <body className="font-body antialiased flex flex-col min-h-screen">
-{/*         <Navbar /> */}
+        <Navbar />
         <main className="flex-grow">{children}</main>
-     {/*    <Footer /> *}/
+        <Footer />
         <Chatbot />
-        <Toaster /> */}
+        <Toaster />
       </body>
     </html>
   );
