@@ -11,7 +11,7 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import ComingSoon from "./coming-soon-page";
+import ComingSoon from "./coming-soon";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
