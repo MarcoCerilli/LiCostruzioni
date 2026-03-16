@@ -1,4 +1,3 @@
-"use client";
 
 import { Hero } from "@/components/Hero";
 import { Button } from "@/components/ui/button";
@@ -13,7 +12,8 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import ComingSoon from "./coming-soon";
+import ComingSoon from "./coming-soon-page";
+import { Metadata } from "next";
 
 const features = [
   {
@@ -41,6 +41,14 @@ const features = [
     href: "/servizi/progettazione",
   },
 ];
+
+export const metadata: Metadata = {
+  robots: {
+    index: process.env.NEXT_PUBLIC_COMING_SOON !== "true", // Se è "true", index è false
+    follow: process.env.NEXT_PUBLIC_COMING_SOON !== "true",
+  },
+};
+
 
 export default function HomePage() {
   // 1. Controllo immediato: se siamo in manutenzione, esci subito
