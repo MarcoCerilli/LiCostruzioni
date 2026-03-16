@@ -83,7 +83,7 @@ export function Navbar() {
                     : "text-lg md:text-xl text-slate-900",
                 )}
               >
-                L.I-Costruzioni <span className="text-amber-500">SRL</span>
+                L.I - Costruzioni <span className="text-amber-500">SRL</span>
               </span>
               <span
                 className={cn(
@@ -140,7 +140,7 @@ export function Navbar() {
                   : "bg-slate-900 text-white hover:bg-amber-600 hover:text-white shadow-slate-200", // Aggiunto hover esplicito
               )}
             >
-              <Link href="/contatti">Preventivo Libero</Link>
+              <Link href="/contatti">Richiedi un preventivo</Link>
             </Button>
 
             {/* BOTTONE HAMBURGER */}

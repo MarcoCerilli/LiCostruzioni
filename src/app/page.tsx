@@ -113,7 +113,6 @@ export default function HomePage() {
             
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
               {[
-                "Certificazione SOA",
                 "Sopralluoghi Gratuiti",
                 "Gestione Pratiche Sisma Bonus",
                 "Team Interno Specializzato",

@@ -45,6 +45,27 @@ export default function AboutPage() {
     { name: "Project for Building", src: "/logos/logo-Project.png" },
   ];
 
+  const team = [
+    {
+      name: "Alfredo Iaboni",
+      phone: "339 3274092",
+      // Uomo adulto, professionale
+      src: "https://api.dicebear.com/7.x/notionists/svg?seed=Felix&backgroundColor=ffdfbf",
+    },
+    {
+      name: "Luca Iaboni",
+      phone: "324 8643886",
+      // Uomo giovane, professionale
+      src: "https://api.dicebear.com/7.x/notionists/svg?seed=Oliver&backgroundColor=d1d4f9",
+    },
+    {
+      name: "Jessica Iaboni",
+      phone: "389 5996660",
+      // Donna, professionale
+      src: "https://api.dicebear.com/7.x/notionists/svg?seed=Sara&backgroundColor=ffd5dc",
+    },
+  ];
+
   return (
     <div className="pt-32 pb-24 px-6 min-h-screen bg-slate-50/50">
       <div className="max-w-7xl mx-auto">
@@ -95,7 +116,7 @@ export default function AboutPage() {
             {teamImg && (
               <Image
                 src={teamImg.imageUrl}
-                alt="Maestria artigianale L.I-Costruzioni - Dettaglio cantiere"
+                alt="Maestria artigianale L.I-Costruzioni"
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-cover"
@@ -117,15 +138,15 @@ export default function AboutPage() {
                 </span>
               </h2>
               <p className="text-lg text-slate-400 mb-10 leading-relaxed max-w-2xl">
-                Il nostro metodo si basa sulla trasparenza totale. Non
-                costruiamo solo pareti, ma creiamo ambienti dove ogni giuntura,
-                ogni materiale e ogni finitura parla di eccellenza.
+                Il nostro metodo si basa sulla trasparenza totale. Creiamo
+                ambienti dove ogni giuntura, materiale e finitura parla di
+                eccellenza artigianale.
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-4 gap-x-8">
                 {[
                   "Coinvolgimento diretto proprietari",
                   "Selezione certificata materiali",
-                  "Maestria tecnica certificata",
+                  "Maestria tecnica consolidata",
                   "Assistenza post-consegna",
                 ].map((item, i) => (
                   <div key={i} className="flex items-center gap-3">
@@ -137,42 +158,36 @@ export default function AboutPage() {
                 ))}
               </div>
             </div>
-            <div className="lg:col-span-2 flex justify-center">
-              <div className="w-full h-[1px] lg:h-40 lg:w-[1px] bg-slate-800" />
-              <div className="px-10 text-center">
-                <p className="text-amber-500 font-black text-6xl mb-2">SOA</p>
-                <p className="text-[10px] font-bold uppercase tracking-[0.4em] text-slate-500">
-                  Certificazione Lavori Pubblici
-                </p>
-              </div>
-            </div>
           </div>
         </section>
 
-        {/* SEZIONE TEAM: I VOLTI */}
-        {/*   <section className="mb-40">
+        {/* SEZIONE TEAM: I VOLTI (SENZA RUOLI) */}
+        <section className="mb-40">
           <div className="text-center mb-20">
-            <span className="text-amber-600 font-black uppercase tracking-[0.3em] text-[10px] mb-4 block">Il Cuore dell&apos;Azienda</span>
-            <h2 className="text-4xl md:text-5xl font-black text-slate-900 tracking-tighter">La Direzione Tecnica</h2>
+            <span className="text-amber-600 font-black uppercase tracking-[0.3em] text-[10px] mb-4 block">
+              Il Cuore dell&apos;Azienda
+            </span>
+            <h2 className="text-4xl md:text-5xl font-black text-slate-900 tracking-tighter">
+              La Direzione Tecnica
+            </h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-16">
-            {[
-              { name: "Alfredo Iaboni", role: "Fondatore & Vision", phone: "339 3274092", src: "/team/alfredo.jpg" },
-              { name: "Luca Iaboni", role: "Project Manager", phone: "324 8643886", src: "/team/luca.jpg" },
-              { name: "Jessica Iaboni", role: "Responsabile Uff. Tecnico", phone: "389 5996660", src: "/team/jessica.jpg" },
-            ].map((member, i) => (
-              <div key={i} className="flex flex-col items-center group text-center">
-                <div className="relative w-48 h-48 rounded-full overflow-hidden mb-8 border-4 border-white shadow-xl group-hover:border-amber-500 transition-all duration-500">
-                  <Image
+            {team.map((member, i) => (
+              <div
+                key={i}
+                className="flex flex-col items-center group text-center"
+              >
+                <div className="relative w-48 h-48 rounded-full overflow-hidden mb-8 border-4 border-white shadow-xl group-hover:border-amber-500 transition-all duration-500 bg-slate-100">
+                  <img
                     src={member.src}
-                    alt={`${member.name} - ${member.role} L.I-Costruzioni`}
-                    fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-110"
+                    alt={`${member.name} - L.I-Costruzioni`}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   />
                 </div>
-                <h3 className="text-2xl font-black text-slate-900 tracking-tight">{member.name}</h3>
-                <p className="text-amber-600 font-black text-[10px] uppercase tracking-widest mt-1 mb-4">{member.role}</p>
+                <h3 className="text-2xl font-black text-slate-900 tracking-tight mb-4">
+                  {member.name}
+                </h3>
                 <a
                   href={`tel:${member.phone.replace(/\s+/g, "")}`}
                   className="inline-flex items-center gap-2 text-slate-500 font-bold hover:text-slate-900 transition-colors py-2 px-4 rounded-full bg-slate-100 group-hover:bg-amber-100"
@@ -184,7 +199,7 @@ export default function AboutPage() {
               </div>
             ))}
           </div>
-        </section> */}
+        </section>
 
         {/* SEZIONE PARTNER */}
         <section className="mb-40">
@@ -203,24 +218,19 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* CTA FINALE - Compact & Balanced */}
+        {/* CTA FINALE */}
         <section className="relative max-w-4xl mx-auto mt-20 mb-16 px-4">
           <div className="bg-white border border-slate-100 rounded-[3rem] p-10 md:p-14 text-center shadow-sm relative overflow-hidden">
-            {/* Soft Glow Ambientale */}
-            <div className="absolute -top-24 -right-24 w-64 h-64 bg-amber-500/5 rounded-full blur-[80px] pointer-events-none" />
-            <div className="absolute -bottom-24 -left-24 w-64 h-64 bg-slate-900/5 rounded-full blur-[80px] pointer-events-none" />
-
             <div className="relative z-10">
-              <h2 className="text-3xl md:text-5xl font-black text-slate-900 tracking-tighter uppercase leading-[0.9] mb-10">
+              <h2 className="text-3xl md:text-5xl font-black text-slate-900 tracking-tighter uppercase mb-10">
                 Pronto a costruire il <br />
                 <span className="text-amber-500 italic">tuo futuro?</span>
               </h2>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-10">
-                {/* PRIMARIO: Nero -> Giallo in Hover */}
                 <Button
                   size="lg"
-                  className="bg-slate-900 text-white hover:bg-amber-500 hover:text-slate-900 font-black px-10 h-16 rounded-2xl shadow-xl transition-all duration-300 text-lg group w-full sm:w-auto uppercase tracking-tighter"
+                  className="bg-slate-900 text-white hover:bg-amber-500 hover:text-slate-900 font-black px-10 h-16 rounded-2xl shadow-xl transition-all duration-300 text-lg group w-full sm:w-auto uppercase"
                   asChild
                 >
                   <Link href="/contatti" className="flex items-center gap-3">
@@ -228,27 +238,14 @@ export default function AboutPage() {
                     <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
                   </Link>
                 </Button>
-
-                {/* SECONDARIO: Bianco/Trasparente -> Solo il bordo e il testo cambiano (Niente fondo scuro) */}
                 <Button
                   variant="outline"
                   size="lg"
-                  className="border-2 border-slate-200 bg-transparent text-slate-500 hover:border-amber-500 hover:text-amber-600 hover:bg-transparent font-black h-16 px-10 rounded-2xl text-lg transition-all duration-300 w-full sm:w-auto uppercase tracking-tighter shadow-none"
+                  className="border-2 border-slate-200 text-slate-500 hover:border-amber-500 hover:text-amber-600 font-black h-16 px-10 rounded-2xl text-lg w-full sm:w-auto uppercase"
                   asChild
                 >
                   <Link href="/progetti">Vedi Lavori</Link>
                 </Button>
-              </div>
-
-              <div className="flex flex-wrap justify-center items-center gap-x-6 gap-y-2 text-slate-400 font-bold text-[10px] uppercase tracking-[0.2em]">
-                <span className="flex items-center gap-2">
-                  <CheckCircle2 className="h-3 w-3 text-amber-500" />
-                </span>
-                <span className="hidden sm:block text-slate-200">|</span>
-                <span className="flex items-center gap-2">
-                  <CheckCircle2 className="h-3 w-3 text-amber-500" />
-                  Risposta in 24h
-                </span>
               </div>
             </div>
           </div>

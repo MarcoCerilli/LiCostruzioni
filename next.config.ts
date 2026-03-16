@@ -26,6 +26,11 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: 'https',
+        hostname: 'api.dicebear.com',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
         hostname: '*.googleusercontent.com', // Supporta tutti i sottodomini Google
         pathname: '/**',
       },
