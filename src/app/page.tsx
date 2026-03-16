@@ -7,6 +7,7 @@ import { PlaceHolderImages } from "@/lib/placeholder-images";
 import { Building2, Home, Paintbrush, HardHat, CheckCircle2 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import ComingSoon from "./coming-soon";
 
 const features = [
   {
@@ -39,6 +40,10 @@ export default function HomePage() {
   const serviceImg = PlaceHolderImages.find(
     (img) => img.id === "service-renovation",
   );
+
+  if (process.env.NEXT_PUBLIC_COMING_SOON === "true") {
+    return <ComingSoon />;
+  }
 
   return (
     <>
