@@ -26,101 +26,120 @@ export default function ServicesPage() {
     <div className="pt-32 pb-24 px-6 min-h-screen bg-slate-50/50">
       <div className="max-w-7xl mx-auto">
         
-        {/* Intestazione */}
-        <div className="text-center mb-24">
-          <span className="text-amber-600 font-black uppercase tracking-[0.3em] text-[10px] mb-4 block">Competenza Tecnica</span>
-          <h1 className="text-4xl md:text-6xl font-black mb-6 text-slate-900 tracking-tighter">
+        {/* Intestazione - Ridimensionata */}
+        <div className="text-center mb-16 md:mb-20">
+          <span className="text-amber-600 font-bold uppercase tracking-[0.3em] text-[10px] mb-4 block">Competenza Tecnica</span>
+          <h1 className="text-4xl md:text-6xl font-black mb-6 text-slate-900 tracking-tighter leading-tight uppercase">
             Soluzioni Edili ad <br />
-            <span className="text-amber-500 italic">Alta Definizione</span>
+            <span className="text-amber-500">Alta Definizione</span>
           </h1>
         </div>
 
-        {/* Grid Servizi (Grandi e Originali) */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-32">
+        {/* Grid Servizi - Più sobria */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-24">
           {allServices.map((s, i) => (
-            <Card key={i} className="relative bg-white hover:shadow-2xl transition-all duration-500 border-none group rounded-[2.5rem] overflow-hidden p-4">
-              <CardHeader className="relative z-10">
-                <div className="h-16 w-16 rounded-2xl bg-slate-900 flex items-center justify-center mb-6 group-hover:bg-amber-500 group-hover:rotate-6 transition-all duration-300">
-                  <s.icon className="h-8 w-8 text-amber-500 group-hover:text-slate-900 transition-colors" />
+            <Card key={i} className="bg-white border border-slate-100 shadow-sm hover:shadow-md transition-all duration-300 group rounded-3xl overflow-hidden p-2">
+              <CardHeader>
+                <div className="h-12 w-12 rounded-xl bg-slate-900 flex items-center justify-center mb-4 group-hover:bg-amber-500 transition-colors duration-300">
+                  <s.icon className="h-6 w-6 text-amber-500 group-hover:text-slate-900" />
                 </div>
-                <CardTitle className="text-2xl font-black text-slate-900 mb-2 leading-tight">{s.title}</CardTitle>
+                <CardTitle className="text-xl font-black text-slate-900 tracking-tight uppercase">{s.title}</CardTitle>
               </CardHeader>
-              <CardContent className="relative z-10 text-slate-500 text-sm leading-relaxed mb-6">{s.desc}</CardContent>
-              <div className="absolute top-0 right-0 p-8 opacity-[0.03] group-hover:opacity-[0.08] transition-opacity">
-                <s.icon size={120} />
-              </div>
+              <CardContent className="text-slate-500 text-sm leading-relaxed">{s.desc}</CardContent>
             </Card>
           ))}
         </div>
 
-        {/* Sezione: Il Nostro Metodo (Layout Timeline Nuovo) */}
-        <div className="mb-32">
-          <div className="bg-slate-900 rounded-[2.5rem] p-10 md:p-16 text-white relative overflow-hidden">
-            <div className="relative z-10 grid lg:grid-cols-12 gap-12 items-center">
-              <div className="lg:col-span-7">
-                <div className="mb-10">
-                  <p className="text-amber-500 font-bold uppercase tracking-widest text-xs mb-2">Standard d&apos;eccellenza</p>
-                  <h2 className="text-3xl md:text-4xl font-black uppercase tracking-tighter">
-                    Il Nostro <span className="text-amber-500">Protocollo</span> Operativo
-                  </h2>
-                </div>
-                
-                <div className="space-y-8">
-                  {[
-                    { n: "01", t: "Analisi & Sopralluogo", d: "Valutazione tecnica immediata per costi certi." },
-                    { n: "02", t: "Pianificazione", d: "Cronoprogramma dettagliato e rispetto dei tempi." },
-                    { n: "03", t: "Cantiere & Qualità", d: "Utilizzo esclusivo di materiali top di gamma." },
-                    { n: "04", t: "Certificazione", d: "Garanzia post-lavori e assistenza continua." }
-                  ].map((step, idx) => (
-                    <div key={idx} className="flex gap-6 items-start group">
-                      <span className="text-2xl font-black text-slate-700 group-hover:text-amber-500 transition-colors">{step.n}</span>
-                      <div className="pt-1">
-                        <h4 className="font-bold text-white uppercase text-sm tracking-widest mb-1">{step.t}</h4>
-                        <p className="text-slate-400 text-xs md:text-sm">{step.d}</p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
+       {/* Sezione: Il Nostro Metodo - Compatta e Ordinata */}
+      <div className="mb-24 px-4 md:px-0">
+        <div className="max-w-6xl mx-auto bg-slate-950 rounded-[2rem] overflow-hidden shadow-2xl border border-white/5">
+          <div className="grid lg:grid-cols-2">
+            
+            {/* Sinistra: Testo e Step */}
+            <div className="p-8 md:p-14 lg:p-16 flex flex-col justify-center">
+              <div className="mb-10">
+                <span className="text-amber-500 font-bold uppercase tracking-[0.2em] text-[10px] mb-3 block">
+                  Metodologia
+                </span>
+                <h2 className="text-3xl md:text-4xl font-black text-white uppercase tracking-tighter leading-none">
+                  Il Nostro <span className="text-amber-500 italic">Protocollo</span>
+                </h2>
               </div>
 
-              <div className="lg:col-span-5 relative">
-                <div className="relative aspect-square rounded-[2rem] overflow-hidden border-8 border-slate-800 shadow-2xl">
-                   {serviceImg && <Image src={serviceImg.imageUrl} alt="Cantiere L.I-Costruzioni" fill className="object-cover" />}
-                </div>
-                <div className="absolute -bottom-6 -left-6 bg-amber-500 p-6 rounded-2xl hidden md:block">
-                   <p className="text-slate-900 font-black text-3xl tracking-tighter">30y</p>
-                   <p className="text-[10px] text-slate-900 font-bold uppercase tracking-widest">Experience</p>
-                </div>
+              <div className="space-y-8">
+                {[
+                  { n: "01", t: "Sopralluogo", d: "Analisi tecnica dello stato dei luoghi." },
+                  { n: "02", t: "Pianificazione", d: "Cronoprogramma e gestione forniture." },
+                  { n: "03", t: "Esecuzione", d: "Cantiere gestito da maestranze interne." },
+                  { n: "04", t: "Consegna", d: "Certificazioni e collaudo finale." }
+                ].map((step, idx) => (
+                  <div key={idx} className="flex gap-6 group">
+                    <span className="text-sm font-black text-slate-700 group-hover:text-amber-500 transition-colors pt-1">
+                      {step.n}
+                    </span>
+                    <div className="space-y-1">
+                      <h4 className="font-bold text-white uppercase text-[11px] tracking-widest">
+                        {step.t}
+                      </h4>
+                      <p className="text-slate-400 text-sm leading-relaxed max-w-sm">
+                        {step.d}
+                      </p>
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
+
+            {/* Destra: Foto a filo */}
+            <div className="relative min-h-[300px] lg:min-h-full bg-slate-800">
+              {serviceImg?.imageUrl && (
+                <Image 
+                  src={serviceImg.imageUrl} 
+                  alt="Protocollo L.I-Costruzioni" 
+                  fill 
+                  className="object-cover grayscale hover:grayscale-0 transition-all duration-700 opacity-60 group-hover:opacity-100" 
+                />
+              )}
+              {/* Overlay decorativo per ammorbidire l'immagine */}
+              <div className="absolute inset-0 bg-gradient-to-t lg:bg-gradient-to-l from-slate-950/80 via-transparent to-transparent" />
+            </div>
+
           </div>
         </div>
+      </div>
 
-        {/* Banner Finale CTA (Pulito, Senza Giallo, Bottoni Grandi) */}
-        <div className="text-center space-y-12">
-          <div className="space-y-4">
-            <h3 className="text-4xl md:text-6xl font-black text-slate-900 tracking-tighter uppercase leading-none">
-              Pronto a dare vita <br /> al tuo <span className="text-amber-500">Progetto?</span>
+        {/* Banner Finale CTA - Sobrio h-14 */}
+        <div className="text-center space-y-8 py-12 border-t border-slate-100">
+          <div className="space-y-3 px-4">
+            <h3 className="text-3xl md:text-5xl font-black text-slate-900 tracking-tighter uppercase">
+              Hai un <span className="text-amber-500">Progetto</span> in mente?
             </h3>
-            <p className="text-slate-500 text-lg md:text-xl font-medium max-w-2xl mx-auto">
-              Contattaci oggi per un sopralluogo tecnico e un preventivo dettagliato.
+            <p className="text-slate-500 text-base md:text-lg font-medium max-w-xl mx-auto">
+              Contattaci per una consulenza tecnica e trasforma le tue idee in realtà.
             </p>
           </div>
           
-          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-            <Button size="lg" className="bg-slate-900 text-white hover:bg-amber-500 hover:text-slate-900 font-black px-12 h-20 rounded-2xl shadow-xl transition-all duration-300 text-xl group w-full sm:w-auto uppercase" asChild>
-              <Link href="/contatti" className="flex items-center gap-3">
-                Inizia ora
-                <ArrowRight className="h-6 w-6 group-hover:translate-x-2 transition-transform" />
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <Button size="lg" className="bg-slate-900 text-white hover:bg-amber-500 hover:text-slate-900 font-bold h-14 px-10 rounded-xl transition-all uppercase text-sm border-none" asChild>
+              <Link href="/contatti" className="flex items-center gap-2">
+                Parla con noi <ArrowRight className="h-4 w-4" />
               </Link>
             </Button>
-            <Button variant="outline" size="lg" className="border-2 border-slate-200 text-slate-900 hover:bg-slate-50 font-bold h-20 px-12 rounded-2xl transition-all duration-300 text-xl w-full sm:w-auto uppercase" asChild>
-              <Link href="/progetti">Vedi Lavori</Link>
+
+            <Button variant="outline" size="lg" className="border-2 border-slate-200 text-slate-600 hover:border-slate-900 hover:text-slate-900 font-bold h-14 px-10 rounded-xl transition-all uppercase text-sm bg-white" asChild>
+              <Link href="/progetti">Vedi i lavori</Link>
             </Button>
           </div>
           
-          <div className="flex justify-center items-center gap-2 text-amber-600 font-bold uppercase text-xs tracking-widest">
-            <CheckCircle2 className="h-4 w-4" />
+          <div className="flex justify-center items-center gap-6 pt-4">
+            <div className="flex items-center gap-2 text-slate-400 font-bold uppercase text-[9px] tracking-widest">
+              <CheckCircle2 className="h-3.5 w-3.5 text-amber-500" />
+              Consulenza Tecnica
+            </div>
+            <div className="flex items-center gap-2 text-slate-400 font-bold uppercase text-[9px] tracking-widest">
+              <CheckCircle2 className="h-3.5 w-3.5 text-amber-500" />
+              Sopralluoghi Professionali
+            </div>
           </div>
         </div>
 

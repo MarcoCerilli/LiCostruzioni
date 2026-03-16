@@ -199,12 +199,12 @@ export function Navbar() {
               href="tel:+393248643886"
               className="text-xl font-bold text-slate-900"
             >
-              T. 324 864 3886
+              Cell: 324.8643886 Luca
             </a>
-            <p className="text-slate-500">info@L.I-Costruzionisrl.it</p>
+            <p className="text-slate-500">info@licostruzionisrl.it</p>
           </div>
           <Button
-            className="w-full bg-amber-500 text-slate-900 font-black py-8 rounded-2xl text-lg shadow-lg shadow-amber-200"
+            className="w-full bg-amber-500 text-slate-900 font-black py-8 rounded-2xl text-lg shadow-lg shadow-amber-200/50 hover:bg-slate-900 hover:text-amber-500 active:scale-95 transition-all duration-300 border-none"
             asChild
           >
             <Link href="/contatti">Richiedi Sopralluogo</Link>

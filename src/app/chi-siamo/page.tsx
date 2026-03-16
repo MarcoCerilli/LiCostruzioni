@@ -115,7 +115,7 @@ export default function AboutPage() {
           <div className="relative aspect-square lg:aspect-[4/5] rounded-[2rem] overflow-hidden shadow-3xl order-1 lg:order-2 border-[12px] border-white">
             {teamImg && (
               <Image
-                src={teamImg.imageUrl}
+                src={teamImg?.imageUrl || "/images/placeholder-cantiere.jpg"}
                 alt="Maestria artigianale L.I-Costruzioni"
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"
@@ -230,21 +230,31 @@ export default function AboutPage() {
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-10">
                 <Button
                   size="lg"
-                  className="bg-slate-900 text-white hover:bg-amber-500 hover:text-slate-900 font-black px-10 h-16 rounded-2xl shadow-xl transition-all duration-300 text-lg group w-full sm:w-auto uppercase"
+                  className="bg-slate-900 text-white hover:bg-amber-500 hover:text-slate-900 active:scale-95 font-black px-10 h-16 rounded-2xl shadow-xl transition-all duration-300 text-lg group w-full sm:w-auto uppercase border-none"
                   asChild
                 >
-                  <Link href="/contatti" className="flex items-center gap-3">
+                  <Link
+                    href="/contatti"
+                    className="flex items-center justify-center gap-3"
+                  >
                     Prenota Sopralluogo
                     <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
                   </Link>
                 </Button>
+
+                {/* SECONDARIO: Outline neutro -> Dark Hover (Evita l'effetto ambra su ambra) */}
                 <Button
                   variant="outline"
                   size="lg"
-                  className="border-2 border-slate-200 text-slate-500 hover:border-amber-500 hover:text-amber-600 font-black h-16 px-10 rounded-2xl text-lg w-full sm:w-auto uppercase"
+                  className="border-2 border-slate-200 text-slate-600  hover:text-white hover:border-slate-900 active:scale-95 font-black h-16 px-10 rounded-2xl text-lg w-full sm:w-auto uppercase transition-all duration-300 bg-transparent"
                   asChild
                 >
-                  <Link href="/progetti">Vedi Lavori</Link>
+                  <Link
+                    href="/progetti"
+                    className="flex items-center justify-center"
+                  >
+                    Vedi Lavori
+                  </Link>
                 </Button>
               </div>
             </div>
