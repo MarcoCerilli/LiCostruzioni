@@ -33,7 +33,7 @@
     {
       "id": "service-renovation",
       "description": "Servizi di ristrutturazione generale",
-      "imageUrl": "",
+      "imageUrl": "/images/home-placeholder.png",
       "imageHint": "renovation tools"
     }
   ]
