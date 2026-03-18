@@ -68,8 +68,8 @@ const projects = [
 ];
 
 export default function ProjectsPage() {
-  const [activeCity, setActiveCity] = useState("all");
-  const [activeType, setActiveType] = useState("all");
+  const [activeCity] = useState("all");
+  const [activeType] = useState("all");
 
   // Stati per la Lightbox
   const [open, setOpen] = useState(false);

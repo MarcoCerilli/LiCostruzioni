@@ -33,5 +33,5 @@ export const PlaceHolderImages: ImagePlaceholder[] = [
   { id: "project-sanfelice-2", description: "San Felice - Vista 2", imageUrl: "/progetti/rustico-2.webp", imageHint: "rustic garden" },
   { id: "project-sanfelice-3", description: "San Felice - Vista 3", imageUrl: "/progetti/rustico-3.webp", imageHint: "rustic pool" },
   
-  { id: "service-renovation", description: "Servizi", imageUrl: "/progetti/terracina.webp", imageHint: "tools" },
+  { id: "service-renovation", description: "Servizi", imageUrl: "/progetti/costruzione.webp", imageHint: "tools" },
 ];
