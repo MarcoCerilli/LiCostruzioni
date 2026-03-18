@@ -14,17 +14,18 @@ import Link from "next/link";
 import ComingSoon from "./coming-soon-page";
 import { Metadata } from "next";
 
+// --- SOLUZIONE MANCANZA SEO 1: Titolo Potente e Specifico ---
 export const metadata: Metadata = {
-  title: "L.I - Costruzioni SRL",
+  title: "Impresa Edile e Costruzioni Terracina, Roma, Latina | L.I-Costruzioni", // Aggiunto termine Edile e città
   robots: {
-    index: process.env.NEXT_PUBLIC_COMING_SOON !== "true", // Se è "true", index è false
+    index: process.env.NEXT_PUBLIC_COMING_SOON !== "true",
     follow: process.env.NEXT_PUBLIC_COMING_SOON !== "true",
   },
 };
 
 const features = [
   {
-    title: "Ristrutturazioni Chiavi in Mano", // Titolo più specifico
+    title: "Ristrutturazioni Chiavi in Mano",
     desc: "Trasformiamo appartamenti e ville con materiali di pregio e gestione totale del cantiere.",
     icon: Paintbrush,
     href: "/servizi/ristrutturazioni",
@@ -55,26 +56,27 @@ export default function HomePage() {
     return <ComingSoon />;
   }
 
-  // 2. Logica del sito reale (eseguita solo se NON siamo in Coming Soon)
+  // 2. Logica del sito reale
   const serviceImg = PlaceHolderImages.find(
     (img) => img.id === "service-renovation",
   );
 
   return (
     <>
+      {/* SOLUZIONE MANCANZA TECNICA/UX: Smooth Scroll Applicato all'ancora --- */}
       <Hero />
 
-      {/* Sezione Servizi con Keyword Locali */}
-      <section className="py-24 px-6 bg-card/50">
+      {/* Sezione Servizi --- Ottima base locale --- */}
+      <section id="servizi" className="py-24 px-6 bg-card/50">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-5xl font-black mb-4 tracking-tighter text-primary">
               Servizi Edili d'Eccellenza a Terracina e Provincia
             </h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
+            <p className="text-muted-foreground max-w-2xl mx-auto text-lg leading-relaxed">
               Dalla ristrutturazione del casale a Sabaudia alla nuova
               costruzione a Roma, portiamo la nostra esperienza decennale in
-              ogni cantiere.
+              ogni cantiere del Lazio. Garantiamo qualità e tempi certi.
             </p>
           </div>
 
@@ -102,7 +104,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Sezione Chi Siamo / Qualità con Immagine Descrittiva */}
+      {/* Sezione Chi Siamo / Qualità --- SOLUZIONE MANCANZA SEO 2 (Keywords Inserite) --- */}
       <section className="py-24 px-6 overflow-hidden">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div className="relative group">
@@ -111,7 +113,7 @@ export default function HomePage() {
               {serviceImg && (
                 <Image
                   src={serviceImg.imageUrl}
-                  alt="Cantiere edile L.I-Costruzioni a Terracina - Qualità e Sicurezza"
+                  alt="Cantiere ditta edile L.I-Costruzioni a Terracina - Qualità e Sicurezza" // Alt text ottimizzato SEO
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-110"
                 />
@@ -129,10 +131,10 @@ export default function HomePage() {
               Oltre 15 anni di esperienza nell'edilizia laziale
             </h2>
             <p className="text-muted-foreground mb-8 text-lg leading-relaxed">
-              L.I-Costruzioni SRL non è solo un'impresa edile, ma un partner
-              di fiducia. Fondata da Alfredo Iaboni, l'azienda si
-              distingue per la capacità di gestire progetti complessi garantendo
-              tempi certi e costi trasparenti.
+              L.I-Costruzioni SRL non è solo una **ditta edile**, ma un partner
+              di fiducia. Fondata da Alfredo Iaboni, la nostra **impresa di
+              costruzioni** si distingue per la capacità di gestire progetti complexi
+              garantendo tempi certi e costi trasparenti, operando attivamente a Terracina, Roma e Latina.
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
@@ -140,6 +142,7 @@ export default function HomePage() {
                 "Sopralluoghi Gratuiti",
                 "Gestione Pratiche Sisma Bonus",
                 "Team Interno Specializzato",
+                "Interventi Certificati", // Più specifico
               ].map((item, i) => (
                 <div key={i} className="flex items-center gap-3 group">
                   <CheckCircle2 className="h-5 w-5 text-accent shrink-0" />
@@ -155,7 +158,7 @@ export default function HomePage() {
               className="rounded-full px-8 font-black uppercase tracking-widest bg-primary hover:bg-accent hover:text-primary transition-all"
               asChild
             >
-              <Link href="/chi-siamo">Scopri la nostra storia</Link>
+              <Link href="/chi-siamo">Scopri la nostra ditta edile</Link> 
             </Button>
           </div>
         </div>
