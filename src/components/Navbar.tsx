@@ -201,7 +201,7 @@ export function Navbar() {
             >
               Cell: 324.8643886 Luca
             </a>
-            <p className="text-slate-500">info@licostruzionisrl.it</p>
+            <p className="text-slate-500">licostruzioni.luca@gmail.com</p>
           </div>
           <Button
             className="w-full bg-amber-500 text-slate-900 font-black py-8 rounded-2xl text-lg shadow-lg shadow-amber-200/50 hover:bg-slate-900 hover:text-amber-500 active:scale-95 transition-all duration-300 border-none"

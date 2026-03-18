@@ -8,9 +8,8 @@ export async function POST(req: Request) {
     const { nome, email, telefono, intervento, messaggio } = await req.json();
 
     const { data, error } = await resend.emails.send({
-      from: "Sito L.I-Costruzioni Srl <info@li-costruzionisrl.it>", // Poi lo cambierai col tuo dominio
-      to: ["cerillimarco15@gmail.com"], // Tua email o del team
-      // ... dentro resend.emails.send({
+      from: "Sito L.I-Costruzioni Srl <luca@li-costruzionisrl.it>", // Poi lo cambierai col tuo dominio
+      to: ["licostruzioni.luca@gmail.com"], // Tua email o del team
       subject: `🛠️ ${intervento} - ${nome}`,
       html: `
   <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; border: 1px solid #e2e8f0; border-radius: 12px; overflow: hidden;">

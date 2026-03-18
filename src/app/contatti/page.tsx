@@ -98,7 +98,7 @@ export default function ContactsPage() {
                   {
                     icon: Mail,
                     label: "Scrivici",
-                    value: "info@licostruzionisrl.it",
+                    value: "licostruzioni.luca@gmail.com",
                   },
                   {
                     icon: Clock,
