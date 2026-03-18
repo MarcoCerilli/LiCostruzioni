@@ -6,30 +6,41 @@ import { Footer } from "@/components/Footer";
 import { Chatbot } from "@/components/Chatbot";
 import { Toaster } from "@/components/ui/toaster";
 
-// Configurazione base per risolvere gli URL relativi (toglie l'errore http://localhost:9002 nei log)
+// SEO IMPECCABILE: Tutte le keyword strategiche inserite correttamente
 export const metadata: Metadata = {
-  metadataBase: new URL('https://li-costruzionisrl.it'),
+  metadataBase: new URL("https://www.li-costruzionisrl.it"),
   title: {
-    default: "Costruzioni e Ristrutturazioni Terracina, Roma e Latina | L.I-Costruzioni",
-    template: "%s | L.I-Costruzioni" // Permette alle sottopagine di aggiungere il loro titolo
+    default: "Impresa Edile e Costruzioni Terracina, Roma, Latina | L.I-Costruzioni",
+    template: "%s | L.I-Costruzioni",
   },
   description:
-    "L.I-Costruzioni: impresa edile specializzata in ristrutturazioni d'eccellenza e nuove costruzioni a Terracina, Roma e Latina. Qualità artigianale e preventivi gratuiti.",
-  keywords: ["impresa edile Terracina", "ristrutturazioni Roma", "costruzioni Latina", "edilizia d'eccellenza", "ristrutturare casa Latina"],
+    "L.I-Costruzioni è l'impresa di costruzioni leader a Terracina, Roma e Latina. Specializzati come ditta edile in ristrutturazioni d'eccellenza, nuove costruzioni e restauro conservativo. Qualità certificata.",
+  keywords: [
+    "impresa edile Terracina",
+    "ditta edile Roma",
+    "impresa di costruzioni Latina",
+    "ditta di costruzioni Sabaudia",
+    "ristrutturazioni San Felice Circeo",
+    "ristrutturare casa Lazio",
+    "costruzioni civili e industriali",
+    "rifacimento facciate Roma",
+    "edilizia d'eccellenza",
+    "ristrutturazioni chiavi in mano",
+  ],
   authors: [{ name: "L.I-Costruzioni SRL" }],
-  
+
   // --- OPEN GRAPH (Facebook, WhatsApp, LinkedIn) ---
   openGraph: {
-    title: "L.I-Costruzioni | Eccellenza nell'Edilizia",
+    title: "L.I-Costruzioni | Eccellenza nell'Edilizia e Ristrutturazioni",
     description: "Operativi a Terracina, Roma e Latina con progetti edili di alto livello. Trasformiamo le tue idee in realtà.",
-    url: "https://li-costruzionisrl.it",
+    url: "https://www.li-costruzionisrl.it",
     siteName: "L.I-Costruzioni",
     images: [
       {
-        url: "/og-image.jpg", // Assicurati di mettere questa immagine in /public
+        url: "/impresa-edile-costruzioni-lazio.jpg", // Nome file ottimizzato SEO
         width: 1200,
         height: 630,
-        alt: "L.I-Costruzioni - Ristrutturazioni d'Eccellenza",
+        alt: "L.I-Costruzioni - Impresa Edile e Ditta di Costruzioni nel Lazio",
       },
     ],
     locale: "it_IT",
@@ -41,14 +52,14 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "L.I-Costruzioni | Eccellenza nell'Edilizia",
     description: "Ristrutturazioni e costruzioni a Terracina, Roma e Latina.",
-    images: ["/og-image.jpg"],
+    images: ["/impresa-edile-costruzioni-lazio.jpg"],
   },
 
   // --- ICONS ---
   icons: {
     icon: "/icon.png",
     shortcut: "/icon.png",
-    apple: "/apple-touch-icon.png", // Nome standard per dispositivi Apple
+    apple: "/apple-touch-icon.png",
   },
 };
 
@@ -59,43 +70,62 @@ export default function RootLayout({
 }>) {
   const isManteinance = process.env.NEXT_PUBLIC_COMING_SOON === "true";
 
+  // SCHEMA.ORG: Dati strutturati per Google Business
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "ConstructionBusiness",
-    "name": "L.I-Costruzioni SRL",
-    "image": "https://li-costruzionisrl.it/og-image.jpg", 
-    "address": {
+    name: "L.I-Costruzioni SRL",
+    image: "https://www.li-costruzionisrl.it/impresa-edile-costruzioni-lazio.jpg",
+    address: {
       "@type": "PostalAddress",
-      "streetAddress": "Via Appia Antica 22",
-      "addressLocality": "Terracina",
-      "addressRegion": "LT",
-      "postalCode": "04019",
-      "addressCountry": "IT",
+      streetAddress: "Via Appia Antica 22",
+      addressLocality: "Terracina",
+      addressRegion: "LT",
+      postalCode: "04019",
+      addressCountry: "IT",
     },
-    "geo": {
+    geo: {
       "@type": "GeoCoordinates",
-      "latitude": "41.2858",
-      "longitude": "13.2486",
+      latitude: "41.2858",
+      longitude: "13.2486",
     },
-    "url": "https://li-costruzionisrl.it",
-    "telephone": "+393393274092", // Ho messo il cell di Alfredo, più realistico per un contatto diretto
-    "openingHours": "Mo-Fr 08:00-18:00",
-    "areaServed": [
-      { "@type": "City", "name": "Terracina" },
-      { "@type": "City", "name": "Roma" },
-      { "@type": "City", "name": "Latina" },
-      { "@type": "City", "name": "Sabaudia" },
-      { "@type": "City", "name": "San Felice Circeo" }
+    url: "https://www.li-costruzionisrl.it",
+    telephone: "+393393274092",
+    openingHours: "Mo-Fr 08:00-18:00",
+    areaServed: [
+      { "@type": "City", name: "Terracina" },
+      { "@type": "City", name: "Roma" },
+      { "@type": "City", name: "Latina" },
+      { "@type": "City", name: "Sabaudia" },
+      { "@type": "City", name: "San Felice Circeo" },
     ],
-    "hasOfferCatalog": {
+    hasOfferCatalog: {
       "@type": "OfferCatalog",
-      "name": "Servizi Edili",
-      "itemListElement": [
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Ristrutturazioni d'interni" } },
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Nuove Costruzioni" } },
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Consulenza Tecnica" } }
-      ]
-    }
+      name: "Servizi Edili",
+      itemListElement: [
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "Impresa edile per ristrutturazioni d'interni",
+          },
+        },
+        {
+          "@type": "Offer",
+          itemOffered: { 
+            "@type": "Service", 
+            name: "Ditta di costruzioni per nuove abitazioni" 
+          },
+        },
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "Ristrutturazioni chiavi in mano Roma e Latina",
+          },
+        },
+      ],
+    },
   };
 
   return (
@@ -107,11 +137,9 @@ export default function RootLayout({
         />
       </head>
       <body className="font-body antialiased flex flex-col min-h-screen">
-{!isManteinance && <Navbar />}
-        
-        <main className="flex-grow">
-          {children}
-        </main>
+        {!isManteinance && <Navbar />}
+
+        <main className="flex-grow">{children}</main>
 
         {!isManteinance && (
           <>
