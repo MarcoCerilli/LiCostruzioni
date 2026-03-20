@@ -58,7 +58,7 @@ export async function POST(req: Request) {
             </p>
             <div style="margin-top: 40px; padding-top: 24px; border-top: 1px solid #f1f5f9;">
                <p style="color: #94a3b8; font-size: 14px; margin-bottom: 8px;">Nel frattempo, visita il nostro sito:</p>
-               <a href="https://www.marcoderilli.it" style="display: inline-block; padding: 12px 24px; background-color: #f59e0b; color: #0f172a; text-decoration: none; font-weight: bold; border-radius: 6px; text-transform: uppercase; font-size: 13px;">Vai al Portfolio</a>
+               <a href="https://www.li-costruzionisrl.it" style="display: inline-block; padding: 12px 24px; background-color: #f59e0b; color: #0f172a; text-decoration: none; font-weight: bold; border-radius: 6px; text-transform: uppercase; font-size: 13px;">Vai al Portfolio</a>
             </div>
           </div>
           <div style="background-color: #0f172a; padding: 20px; text-align: center; color: #f59e0b; font-size: 12px;">
