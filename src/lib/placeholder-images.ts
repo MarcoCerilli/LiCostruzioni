@@ -119,6 +119,39 @@ export const PlaceHolderImages: ImagePlaceholder[] = [
     imageUrl: "/progetti/costruzione.webp",
     imageHint: "tools",
   },
+  // FROSINONE - Ristrutturazione Locale Commerciale
+  {
+    id: "project-frosinone-1",
+    description: "Frosinone - Cantiere Locale Commerciale",
+    imageUrl: "/progetti/frosinone-ristorante.webp",
+    imageHint: "site construction",
+  },
+  {
+    id: "project-frosinone-2",
+    description: "Frosinone - Interni Ristorante Design",
+    imageUrl: "/progetti/frosinone-dettaglio.webp",
+    imageHint: "restaurant interior",
+  },
+  {
+    id: "project-frosinone-3",
+    description: "Frosinone - Dettaglio Illuminazione e Finiture",
+    imageUrl: "/progetti/frosinone-cantiere.webp",
+    imageHint: "interior detail",
+  },
+  // ITRI - Ristrutturazione Soluzione Indipendente
+  {
+    id: "project-itri-1",
+    description: "Itri - Stato originale e cantiere esterno",
+    imageUrl: "/progetti/itri-dopo-1.webp",
+    imageHint: "original exterior",
+  },
+  {
+    id: "project-itri-2",
+    description: "Itri - Restyling facciate e nuovo porticato",
+    imageUrl: "/progetti/itri-prima.webp",
+    imageHint: "modern facade",
+  },
+
   // NUOVI PROGETTI TERRACINA (Rifacimento Tetto)
   {
     id: "terracina-1",
