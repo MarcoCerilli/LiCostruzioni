@@ -10,7 +10,8 @@ import { Toaster } from "@/components/ui/toaster";
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.li-costruzionisrl.it"),
   title: {
-    default: "Impresa Edile e Costruzioni Terracina, Roma, Latina | L.I-Costruzioni",
+    default:
+      "Impresa Edile e Costruzioni Terracina, Roma, Latina | L.I-Costruzioni",
     template: "%s | L.I-Costruzioni",
   },
   description:
@@ -32,7 +33,8 @@ export const metadata: Metadata = {
   // --- OPEN GRAPH (Facebook, WhatsApp, LinkedIn) ---
   openGraph: {
     title: "L.I-Costruzioni | Eccellenza nell'Edilizia e Ristrutturazioni",
-    description: "Operativi a Terracina, Roma e Latina con progetti edili di alto livello. Trasformiamo le tue idee in realtà.",
+    description:
+      "Operativi a Terracina, Roma e Latina con progetti edili di alto livello. Trasformiamo le tue idee in realtà.",
     url: "https://www.li-costruzionisrl.it",
     siteName: "L.I-Costruzioni",
     images: [
@@ -54,13 +56,6 @@ export const metadata: Metadata = {
     description: "Ristrutturazioni e costruzioni a Terracina, Roma e Latina.",
     images: ["/impresa-edile-costruzioni-lazio.jpg"],
   },
-
-  // --- ICONS ---
-  icons: {
-    icon: "/favicon.ico",
-    shortcut: "/favicon.ico",
-    apple: "/apple-icon.png",
-  },
 };
 
 export default function RootLayout({
@@ -75,7 +70,8 @@ export default function RootLayout({
     "@context": "https://schema.org",
     "@type": "ConstructionBusiness",
     name: "L.I-Costruzioni SRL",
-    image: "https://www.li-costruzionisrl.it/impresa-edile-costruzioni-lazio.jpg",
+    image:
+      "https://www.li-costruzionisrl.it/impresa-edile-costruzioni-lazio.jpg",
     address: {
       "@type": "PostalAddress",
       streetAddress: "Via Appia Antica 22",
@@ -112,9 +108,9 @@ export default function RootLayout({
         },
         {
           "@type": "Offer",
-          itemOffered: { 
-            "@type": "Service", 
-            name: "Ditta di costruzioni per nuove abitazioni" 
+          itemOffered: {
+            "@type": "Service",
+            name: "Ditta di costruzioni per nuove abitazioni",
           },
         },
         {
