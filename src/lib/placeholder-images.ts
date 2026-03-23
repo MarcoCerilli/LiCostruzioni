@@ -7,6 +7,18 @@ export type ImagePlaceholder = {
 
 export const PlaceHolderImages: ImagePlaceholder[] = [
   {
+  id: "service-renovation",
+  description: "Restyling d'eccellenza - L.I-Costruzioni",
+  imageUrl: "/images/home-placeholder.webp", 
+  imageHint: "luxury renovation detail",
+},
+{
+  id: "foto-protocollo-tecnica",
+  description: "Dettaglio tecnico Protocollo L.I-Costruzioni",
+  imageUrl: "/images/protocollo.webp", // O quella degli impianti/cantiere
+  imageHint: "technical construction detail",
+},
+  {
     id: "logo-aziendale",
     description: "Logo L.I-Costruzioni",
     imageUrl: "/logo.png",

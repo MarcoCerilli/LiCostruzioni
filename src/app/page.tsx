@@ -53,7 +53,7 @@ const features = [
 
 export default function HomePage() {
   // 1. Controllo immediato: se siamo in manutenzione, esci subito
- /*  if (process.env.NEXT_PUBLIC_COMING_SOON === "true") {
+  /*  if (process.env.NEXT_PUBLIC_COMING_SOON === "true") {
     return <ComingSoon />;
   } */
 
@@ -61,6 +61,7 @@ export default function HomePage() {
   const serviceImg = PlaceHolderImages.find(
     (img) => img.id === "service-renovation",
   );
+ 
 
   return (
     <>
