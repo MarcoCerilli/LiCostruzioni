@@ -133,17 +133,13 @@ export default function RootLayout({
         />
       </head>
       <body className="font-body antialiased flex flex-col min-h-screen">
-        {!isManteinance && <Navbar />}
+        <Navbar />
 
         <main className="flex-grow">{children}</main>
 
-        {!isManteinance && (
-          <>
-            <Footer />
-            <Chatbot />
-            <Toaster />
-          </>
-        )}
+        <Footer />
+        <Chatbot />
+        <Toaster />
       </body>
     </html>
   );
