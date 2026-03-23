@@ -16,7 +16,8 @@ import { Metadata } from "next";
 
 // --- SOLUZIONE MANCANZA SEO 1: Titolo Potente e Specifico ---
 export const metadata: Metadata = {
-  title: "Impresa Edile e Costruzioni Terracina, Roma, Latina | L.I-Costruzioni", // Aggiunto termine Edile e città
+  title:
+    "Impresa Edile e Costruzioni Terracina, Roma, Latina | L.I-Costruzioni", // Aggiunto termine Edile e città
   robots: {
     index: process.env.NEXT_PUBLIC_COMING_SOON !== "true",
     follow: process.env.NEXT_PUBLIC_COMING_SOON !== "true",
@@ -52,9 +53,9 @@ const features = [
 
 export default function HomePage() {
   // 1. Controllo immediato: se siamo in manutenzione, esci subito
-  if (process.env.NEXT_PUBLIC_COMING_SOON === "true") {
+ /*  if (process.env.NEXT_PUBLIC_COMING_SOON === "true") {
     return <ComingSoon />;
-  }
+  } */
 
   // 2. Logica del sito reale
   const serviceImg = PlaceHolderImages.find(
@@ -133,8 +134,9 @@ export default function HomePage() {
             <p className="text-muted-foreground mb-8 text-lg leading-relaxed">
               L.I-Costruzioni SRL non è solo una **ditta edile**, ma un partner
               di fiducia. Fondata da Alfredo Iaboni, la nostra **impresa di
-              costruzioni** si distingue per la capacità di gestire progetti complexi
-              garantendo tempi certi e costi trasparenti, operando attivamente a Terracina, Roma e Latina.
+              costruzioni** si distingue per la capacità di gestire progetti
+              complexi garantendo tempi certi e costi trasparenti, operando
+              attivamente a Terracina, Roma e Latina.
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
@@ -158,7 +160,7 @@ export default function HomePage() {
               className="rounded-full px-8 font-black uppercase tracking-widest bg-primary hover:bg-accent hover:text-primary transition-all"
               asChild
             >
-              <Link href="/chi-siamo">Scopri la nostra ditta edile</Link> 
+              <Link href="/chi-siamo">Scopri la nostra ditta edile</Link>
             </Button>
           </div>
         </div>
