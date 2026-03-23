@@ -32,8 +32,8 @@ function PartnerLogo({ partner }: { partner: { name: string; src: string } }) {
 }
 
 export default function AboutPage() {
-  const teamImg = PlaceHolderImages.find(
-    (img) => img.id === "project-terracina-1",
+  const storiaImg = PlaceHolderImages.find(
+    (img) => img.id === "storia-azienda",
   );
   const serviceImg = PlaceHolderImages.find(
     (img) => img.id === "service-dettaglio",
@@ -116,9 +116,9 @@ export default function AboutPage() {
           </div>
 
           <div className="relative aspect-square lg:aspect-[4/5] rounded-[2rem] overflow-hidden shadow-3xl order-1 lg:order-2 border-[12px] border-white">
-            {teamImg && (
+            {storiaImg && (
               <Image
-                src={teamImg?.imageUrl || "/images/placeholder-cantiere.jpg"}
+                src={storiaImg.imageUrl}
                 alt="Maestria artigianale L.I-Costruzioni"
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"

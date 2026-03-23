@@ -7,17 +7,29 @@ export type ImagePlaceholder = {
 
 export const PlaceHolderImages: ImagePlaceholder[] = [
   {
-  id: "service-renovation",
-  description: "Restyling d'eccellenza - L.I-Costruzioni",
-  imageUrl: "/images/home-placeholder.webp", 
-  imageHint: "luxury renovation detail",
-},
-{
-  id: "foto-protocollo-tecnica",
-  description: "Dettaglio tecnico Protocollo L.I-Costruzioni",
-  imageUrl: "/images/protocollo.webp", // O quella degli impianti/cantiere
-  imageHint: "technical construction detail",
-},
+    id: "service-renovation",
+    description: "Restyling d'eccellenza - L.I-Costruzioni",
+    imageUrl: "/images/home-placeholder.webp",
+    imageHint: "luxury renovation detail",
+  },
+  {
+    id: "foto-protocollo-tecnica",
+    description: "Dettaglio tecnico Protocollo L.I-Costruzioni",
+    imageUrl: "/images/protocollo.webp", // O quella degli impianti/cantiere
+    imageHint: "technical construction detail",
+  },
+  {
+    id: "service-dettaglio",
+    description: "Finiture di pregio L.I-Costruzioni",
+    imageUrl: "/images/bagno.webp", // O la foto che preferisci per l'Alta Definizione
+    imageHint: "luxury detail",
+  },
+  {
+    id: "storia-azienda",
+    description: "Alfredo Iaboni nel 1994 - Le radici di L.I-Costruzioni",
+    imageUrl: "/images/storia.webp", // Carica qui una foto storica o significativa
+    imageHint: "heritage construction site",
+  },
   {
     id: "logo-aziendale",
     description: "Logo L.I-Costruzioni",
@@ -269,17 +281,19 @@ export const PlaceHolderImages: ImagePlaceholder[] = [
     imageHint: "bathroom construction site",
   },
   // LATINA - Restyling Viale
-{
-  id: "viale-latina-1",
-  description: "Latina - Trasformazione viale d'ingresso: sostituzione pavimentazione e restyling architettonico",
-  imageUrl: "/progetti/viale-latina-1.webp", 
-  imageHint: "before and after outdoor renovation",
-},
+  {
+    id: "viale-latina-1",
+    description:
+      "Latina - Trasformazione viale d'ingresso: sostituzione pavimentazione e restyling architettonico",
+    imageUrl: "/progetti/viale-latina-1.webp",
+    imageHint: "before and after outdoor renovation",
+  },
 
-{
-  id: "viale-latina-2",
-  description: "Latina - Trasformazione viale d'ingresso: sostituzione pavimentazione e restyling architettonico",
-  imageUrl: "/progetti/viale-latina-2.webp", 
-  imageHint: "before and after outdoor renovation",
-},
+  {
+    id: "viale-latina-2",
+    description:
+      "Latina - Trasformazione viale d'ingresso: sostituzione pavimentazione e restyling architettonico",
+    imageUrl: "/progetti/viale-latina-2.webp",
+    imageHint: "before and after outdoor renovation",
+  },
 ];
