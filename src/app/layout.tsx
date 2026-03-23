@@ -63,7 +63,6 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const isManteinance = process.env.NEXT_PUBLIC_COMING_SOON === "true";
 
   // SCHEMA.ORG: Dati strutturati per Google Business
   const jsonLd = {
