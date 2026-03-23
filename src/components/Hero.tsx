@@ -33,7 +33,7 @@ export function Hero({ city }: HeroProps) {
             src={heroImage.imageUrl}
             alt={`Lavori di edilizia e ristrutturazioni L.I-Costruzioni ${city ? `a ${city}` : ''}`}
             fill
-            className="object-cover opacity-60" // Ridotto l'uso di filtri CSS pesanti
+            className="object-cover opacity-85" // Ridotto l'uso di filtri CSS pesanti
             priority
             fetchPriority="high" // Dice al browser di scaricare questa immagine per prima
           />

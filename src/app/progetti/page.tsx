@@ -15,12 +15,16 @@ import "yet-another-react-lightbox/styles.css";
 
 const projects = [
   {
-    id: 1,
-    title: "Ristrutturazione Appartamento Storico",
-    city: "Roma",
-    type: "Ristrutturazione",
-    images: ["project-roma-1", "project-roma-2", "project-roma-3"],
-  },
+  id: 1,
+  title: "Sistemi Radianti & Nuove Costruzioni", 
+  city: "Roma",
+  type: "Innovazione Energetica", 
+  images: [
+    "radiante-roma-3", 
+    "radiante-roma-2",
+    "radiante-roma-1",
+  ],
+},
   {
     id: 2,
     title: "Struttura Ricettiva Fronte Mare",
@@ -32,13 +36,13 @@ const projects = [
       "project-terracina-3",
     ],
   },
-  {
-    id: 3,
-    title: "Complesso Uffici High-Tech",
-    city: "Latina",
-    type: "Edilizia Commerciale",
-    images: ["project-latina-1", "project-latina-2"],
-  },
+{
+  id: 3,
+  title: "Efficientamento Energetico & Cappotto Termico", 
+  city: "Latina",
+  type: "Sostenibilità / Commerciale", 
+  images: ["project-latina-1", "project-latina-2"],
+},
   {
     id: 4,
     title: "Rifacimento Tetto",
@@ -82,12 +86,56 @@ const projects = [
     ],
   },
   {
-    id: 9, // Assicurati che l'ID sia progressivo
-    title: "Restyling Moderno Villa Unifamiliare",
+    id: 8,
+    title: "Restyling Moderno Villa",
     city: "Itri",
     type: "Ristrutturazione",
     images: ["project-itri-1", "project-itri-2"],
   },
+  {
+    id: 9,
+    title: "Rifacimento Terrazzo Privato",
+    city: "Terracina",
+    type: "Ristrutturazione Esterna",
+    images: [
+      "terrazzo-terracina-1",
+      "terrazzo-terracina-2",
+      "terrazzo-terracina-3",
+    ],
+  },
+
+  {
+    id: 10,
+    title: "Interior Design & Panoramic Penthouse",
+    city: "Itri",
+    type: "Ristrutturazione Totale",
+    images: [
+      "appartamento-itri-1",
+      "appartamento-itri-2",
+      "appartamento-itri-3",
+    ],
+  },
+  {
+  id: 11,
+  title: "Work in Progress: Restyling Totale", 
+  city: "Roma",
+  type: "Cantiere / Interni", 
+  images: [
+    "cantiere-roma-1", // Foto con l'arco e l'operatore
+    "cantiere-roma-2", // Foto degli impianti e tracce a muro
+    "cantiere-roma-3", // Foto della vasca in fase di muratura
+  ],
+},
+{
+  id: 12,
+  title: "Restyling Viale d'Ingresso & Outdoor", 
+  city: "Latina",
+  type: "Ristrutturazione Esterna", 
+  images: [
+    "viale-latina-1",
+    "viale-latina-2", // Foto del "Prima e Dopo"
+  ],
+},
 ];
 
 export default function ProjectsPage() {
