@@ -29,7 +29,11 @@ export const metadata: Metadata = {
     "ristrutturazioni chiavi in mano",
   ],
   authors: [{ name: "L.I-Costruzioni SRL" }],
-
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+    apple: "/favicon.ico", // In mancanza di un'icona specifica, usiamo questa
+  },
   // --- OPEN GRAPH (Facebook, WhatsApp, LinkedIn) ---
   openGraph: {
     title: "L.I-Costruzioni | Eccellenza nell'Edilizia e Ristrutturazioni",
@@ -63,7 +67,6 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-
   // SCHEMA.ORG: Dati strutturati per Google Business
   const jsonLd = {
     "@context": "https://schema.org",
@@ -85,7 +88,7 @@ export default function RootLayout({
       longitude: "13.2486",
     },
     url: "https://www.li-costruzionisrl.it",
-    telephone: "+393393274092",
+    telephone: "+39 324 864 3886",
     openingHours: "Mo-Fr 08:00-18:00",
     areaServed: [
       { "@type": "City", name: "Terracina" },
