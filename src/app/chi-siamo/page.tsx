@@ -35,6 +35,9 @@ export default function AboutPage() {
   const teamImg = PlaceHolderImages.find(
     (img) => img.id === "project-terracina-1",
   );
+  const serviceImg = PlaceHolderImages.find(
+    (img) => img.id === "service-dettaglio",
+  )
 
   const partners = [
     { name: "Mapei", src: "/logos/mapei.png" },
@@ -50,19 +53,19 @@ export default function AboutPage() {
       name: "Alfredo Iaboni",
       phone: "339 3274092",
       // Uomo adulto, professionale
-      src: "https://api.dicebear.com/7.x/notionists/svg?seed=Felix&backgroundColor=ffdfbf",
+      src: "/team/alfredo.jpg",
     },
     {
       name: "Luca Iaboni",
       phone: "324 8643886",
       // Uomo giovane, professionale
-      src: "https://api.dicebear.com/7.x/notionists/svg?seed=Oliver&backgroundColor=d1d4f9",
+      src: "/team/luca.jpg",
     },
     {
       name: "Jessica Iaboni",
       phone: "389 5996660",
       // Donna, professionale
-      src: "https://api.dicebear.com/7.x/notionists/svg?seed=Sara&backgroundColor=ffd5dc",
+      src: "/team/jessica.jpg",
     },
   ];
 
@@ -127,39 +130,59 @@ export default function AboutPage() {
         </section>
 
         {/* SEZIONE 2: ALTA DEFINIZIONE EDILIZIA */}
-        <section className="bg-slate-900 text-white rounded-[3rem] p-10 md:p-20 mb-40 relative overflow-hidden shadow-2xl">
-          <div className="absolute -right-20 -top-20 w-96 h-96 bg-amber-500/10 rounded-full blur-[100px]" />
-          <div className="relative z-10 grid lg:grid-cols-5 gap-12 items-center">
-            <div className="lg:col-span-3">
-              <h2 className="text-3xl md:text-5xl font-black mb-6 tracking-tight text-white">
-                Edilizia in{" "}
-                <span className="text-amber-500 uppercase">
-                  Alta Definizione
-                </span>
-              </h2>
-              <p className="text-lg text-slate-400 mb-10 leading-relaxed max-w-2xl">
-                Il nostro metodo si basa sulla trasparenza totale. Creiamo
-                ambienti dove ogni giuntura, materiale e finitura parla di
-                eccellenza artigianale.
-              </p>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-4 gap-x-8">
-                {[
-                  "Coinvolgimento diretto proprietari",
-                  "Selezione certificata materiali",
-                  "Maestria tecnica consolidata",
-                  "Assistenza post-consegna",
-                ].map((item, i) => (
-                  <div key={i} className="flex items-center gap-3">
-                    <CheckCircle2 className="text-amber-500 h-5 w-5 shrink-0" />
-                    <span className="text-slate-200 font-bold text-sm uppercase tracking-wide">
-                      {item}
-                    </span>
-                  </div>
-                ))}
-              </div>
-            </div>
+<section className="bg-slate-900 text-white rounded-[3rem] p-10 md:p-20 mb-40 relative overflow-hidden shadow-2xl">
+  <div className="absolute -right-20 -top-20 w-96 h-96 bg-amber-500/10 rounded-full blur-[100px]" />
+  
+  <div className="relative z-10 grid lg:grid-cols-5 gap-12 items-center">
+    {/* Parte Sinistra: Testo (3 colonne) */}
+    <div className="lg:col-span-3">
+      <h2 className="text-3xl md:text-5xl font-black mb-6 tracking-tight text-white">
+        Edilizia in{" "}
+        <span className="text-amber-500 uppercase">
+          Alta Definizione
+        </span>
+      </h2>
+      <p className="text-lg text-slate-400 mb-10 leading-relaxed max-w-2xl">
+        Il nostro metodo si basa sulla trasparenza totale. Creiamo
+        ambienti dove ogni giuntura, materiale e finitura parla di
+        eccellenza artigianale.
+      </p>
+      
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-4 gap-x-8">
+        {[
+          "Coinvolgimento diretto proprietari",
+          "Selezione certificata materiali",
+          "Maestria tecnica consolidata",
+          "Assistenza post-consegna",
+        ].map((item, i) => (
+          <div key={i} className="flex items-center gap-3">
+            <CheckCircle2 className="text-amber-500 h-5 w-5 shrink-0" />
+            <span className="text-slate-200 font-bold text-sm uppercase tracking-wide">
+              {item}
+            </span>
           </div>
-        </section>
+        ))}
+      </div>
+    </div>
+
+    {/* Parte Destra: Foto (2 colonne) */}
+    <div className="lg:col-span-2 relative group">
+      <div className="relative aspect-[4/5] rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
+        {/* Sostituisci "id-foto-dettaglio" con un ID reale del tuo file placeholder */}
+        {serviceImg?.imageUrl && (
+          <Image
+            src={serviceImg.imageUrl}
+            alt="Dettaglio finiture L.I-Costruzioni"
+            fill
+            className="object-cover transition-transform duration-700 group-hover:scale-110"
+          />
+        )}
+        {/* Un leggero gradiente per farla integrare con lo sfondo scuro */}
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 to-transparent" />
+      </div>
+    </div>
+  </div>
+</section>
 
         {/* SEZIONE TEAM: I VOLTI (SENZA RUOLI) */}
         <section className="mb-40">
@@ -178,23 +201,42 @@ export default function AboutPage() {
                 key={i}
                 className="flex flex-col items-center group text-center"
               >
-                <div className="relative w-48 h-48 rounded-full overflow-hidden mb-8 border-4 border-white shadow-xl group-hover:border-amber-500 transition-all duration-500 bg-slate-100">
+                {/* Contenitore Immagine con Effetto Specchio/Sfumato */}
+                <div className="relative w-56 h-64 rounded-2xl overflow-hidden mb-8 border border-white/20 shadow-2xl transition-all duration-500 group-hover:border-amber-500/50 bg-slate-800">
+                  {/* 1. Sfondo dinamico: prende i colori della pietra e li spalma su tutto il box */}
                   <img
                     src={member.src}
-                    alt={`${member.name} - L.I-Costruzioni`}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    alt=""
+                    className="absolute inset-0 w-full h-full object-cover scale-150 blur-2xl opacity-30"
+                    aria-hidden="true"
                   />
+
+                  {/* 2. L'immagine reale: manteniamo le proporzioni verticali originali */}
+                  {/* AGGIUNTO p-4 per dare un po' di respiro tra la foto e il bordo della cornice */}
+                  <div className="relative z-10 w-full h-full p-4 flex items-center justify-center">
+                    <img
+                      src={member.src}
+                      alt={`${member.name} - L.I-Costruzioni`}
+                      className="max-w-full max-h-full object-contain rounded-xl shadow-inner transition-transform duration-700 group-hover:scale-105"
+                    />
+                  </div>
+
+                  {/* 3. Riflesso "Vetro" superiore */}
+                  <div className="absolute inset-0 z-20 bg-gradient-to-br from-white/10 via-transparent to-transparent pointer-events-none" />
                 </div>
-                <h3 className="text-2xl font-black text-slate-900 tracking-tight mb-4">
+
+                {/* Info Testuali */}
+                <h3 className="text-2xl font-black text-slate-900 tracking-tight mb-2">
                   {member.name}
                 </h3>
+
                 <a
                   href={`tel:${member.phone.replace(/\s+/g, "")}`}
-                  className="inline-flex items-center gap-2 text-slate-500 font-bold hover:text-slate-900 transition-colors py-2 px-4 rounded-full bg-slate-100 group-hover:bg-amber-100"
+                  className="inline-flex items-center gap-2 text-slate-600 font-bold hover:text-white transition-all py-2.5 px-6 rounded-full bg-slate-100 hover:bg-amber-500 shadow-sm"
                   title={`Chiama ${member.name}`}
                 >
-                  <Phone className="h-3 w-3" />
-                  {member.phone}
+                  <Phone className="h-4 w-4" />
+                  <span className="text-sm">{member.phone}</span>
                 </a>
               </div>
             ))}
