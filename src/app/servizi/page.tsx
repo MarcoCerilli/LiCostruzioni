@@ -94,10 +94,15 @@ export default function ServicesPage() {
           ))}
         </div>
 
-        {/* Sezione: Il Nostro Metodo - Compatta e Ordinata */}
-        <div className="mb-24 px-4 md:px-0">
-          <div className="max-w-6xl mx-auto bg-slate-900 rounded-[2rem] overflow-hidden shadow-2xl border border-white/5">
-            <div className="grid lg:grid-cols-2">
+        {/* Sezione: Il Nostro Metodo - Allargata e Ottimizzata */}
+        <div className="mb-24 px-4 md:px-6">
+          {" "}
+          {/* Leggero aumento del padding laterale su mobile */}
+          {/* 1. Cambiato max-w-6xl in max-w-7xl per allargare tutto il blocco */}
+          <div className="max-w-7xl mx-auto bg-slate-900 rounded-[2rem] overflow-hidden shadow-2xl border border-white/5">
+            {/* 2. Cambiato lg:grid-cols-2 in una griglia personalizzata 12 colonne */}
+            {/* lg:grid-cols-[1fr_1.2fr] dà il 20% di spazio in più alla foto rispetto al testo */}
+            <div className="grid lg:grid-cols-[45%_55%] items-stretch">
               {/* Sinistra: Testo e Step */}
               <div className="p-8 md:p-14 lg:p-16 flex flex-col justify-center">
                 <div className="mb-10">
@@ -141,7 +146,9 @@ export default function ServicesPage() {
                         <h4 className="font-bold text-white uppercase text-[11px] tracking-widest">
                           {step.t}
                         </h4>
-                        <p className="text-slate-400 text-sm leading-relaxed max-w-sm">
+                        <p className="text-slate-400 text-sm leading-relaxed max-w-xs">
+                          {" "}
+                          {/* Ridotto max-w per evitare testi troppo lunghi ora che c'è meno spazio a sinistra */}
                           {step.d}
                         </p>
                       </div>
@@ -150,18 +157,18 @@ export default function ServicesPage() {
                 </div>
               </div>
 
-              {/* Destra: Foto a filo */}
-              <div className="relative min-h-[300px] lg:min-h-full bg-slate-800">
+              {/* Destra: Foto a filo (Ora più grande) */}
+              <div className="relative min-h-[400px] lg:min-h-full bg-slate-800 overflow-hidden">
                 {protocolloImg?.imageUrl && (
                   <Image
                     src={protocolloImg.imageUrl}
                     alt="Protocollo L.I-Costruzioni"
                     fill
-                    className="object-cover transition-transform duration-700 hover:scale-110"
+                    className="object-cover transition-transform duration-700 hover:scale-105"
                   />
                 )}
-                {/* Overlay decorativo - Mantenuto per leggibilità testo */}
-                <div className="absolute inset-0 bg-gradient-to-t lg:bg-gradient-to-l from-slate-950/80 via-transparent to-transparent" />
+                {/* Overlay decorativo */}
+                <div className="absolute inset-0 bg-gradient-to-t lg:bg-gradient-to-l from-slate-950/70 via-transparent to-transparent" />
               </div>
             </div>
           </div>
