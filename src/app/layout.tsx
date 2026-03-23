@@ -30,10 +30,15 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "L.I-Costruzioni SRL" }],
   icons: {
-    icon: "/favicon.ico",
-    shortcut: "/favicon.ico",
-    apple: "/favicon.ico", // In mancanza di un'icona specifica, usiamo questa
-  },
+  icon: [
+    { url: "/favicon.ico" }, // Per i browser classici
+    { url: "/icon.png", type: "image/png", sizes: "32x32" },
+  ],
+  shortcut: "/favicon.ico",
+  apple: [
+    { url: "/icon.png", sizes: "180x180", type: "image/png" }, // Fondamentale per Google e iPhone
+  ],
+},
   // --- OPEN GRAPH (Facebook, WhatsApp, LinkedIn) ---
   openGraph: {
     title: "L.I-Costruzioni | Eccellenza nell'Edilizia e Ristrutturazioni",
