@@ -13,6 +13,45 @@ import { Badge } from "@/components/ui/badge";
 import Link from "next/link";
 import React from "react";
 
+// Aggiungi questo export in alto nel file dopo gli import
+export async function generateMetadata(props: {
+  params: Promise<{ city: string }>;
+}) {
+  const params = await props.params;
+  const citySlug = params.city.toLowerCase();
+  const city = citySlug
+    .split("-")
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(" ");
+
+  return {
+    title: `Impresa Edile a ${city} | Ristrutturazioni L.I-Costruzioni`,
+    description: `Cerchi una ditta edile a ${city}? L.I-Costruzioni è specializzata in ristrutturazioni d'eccellenza e nuove costruzioni a ${city} e provincia. Qualità garantita.`,
+    alternates: {
+      canonical: `https://www.li-costruzionisrl.it/servizi/${citySlug}`,
+    },
+    robots: {
+      index: true,
+      follow: true,
+    }
+  };
+}
+
+
+// Aggiungi anche questo sotto generateMetadata
+export async function generateStaticParams() {
+  return [
+    { city: "terracina" },
+    { city: "latina" },
+    { city: "roma" },
+    { city: "sabaudia" },
+    { city: "san-felice-circeo" },
+  ];
+}
+
+
+
+
 const validCities = [
   "terracina",
   "latina",
