@@ -4,54 +4,107 @@
 
 @layer base {
   :root {
-    --background: 210 40% 98%; /* Slate 50 */
-    --foreground: 222 47% 11%; /* Slate 900 */
+    /* Background & Foreground - Slate 50 / Slate 950 */
+    --background: 210 40% 98%; 
+    --foreground: 222 47% 11%;
+    
     --card: 0 0% 100%;
     --card-foreground: 222 47% 11%;
+    
     --popover: 0 0% 100%;
     --popover-foreground: 222 47% 11%;
     
-    /* PRIMARY: Lo manteniamo Slate 900 per i testi, ma... */
+    /* PRIMARY: Slate 900 (Eleganza e Solidità) */
     --primary: 222 47% 11%; 
     --primary-foreground: 210 40% 98%;
     
-    --secondary: 214 32% 91%; /* Slate 200 */
-    --secondary-foreground: 222 47% 11%;
-    --muted: 214 32% 91%;
-    --muted-foreground: 215 16% 47%;
+    /* SECONDARY: Slate 100/200 */
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222 47.4% 11.2%;
     
-    /* ACCENT: Questo è il tuo AMBRA. Usalo per i bottoni che devono risaltare! */
-    --accent: 38 92% 50%; /* #F59E0B */
-    --accent-foreground: 222 47% 11%; /* Testo scuro per leggibilità */
+    /* ACCENT: AMBRA VIBRANTE (#F59E0B) */
+    --accent: 38 92% 50%;
+    --accent-foreground: 222 47% 11%;
+    
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
     
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
-    --border: 214 32% 91%;
-    --input: 214 32% 91%;
-    --ring: 38 92% 50%;
-    --radius: 0.75rem;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 38 92% 50%; /* Il ring segue l'ambra */
+    
+    --radius: 1rem; /* Arrotondamento moderno per un look edilizio/design */
   }
 
   .dark {
-    --background: 222 47% 11%;
+    /* Background più profondo ma non nero (Slate 950) */
+    --background: 222 47% 6%;
     --foreground: 210 40% 98%;
-    --card: 222 47% 11%;
+    
+    --card: 222 47% 8%;
     --card-foreground: 210 40% 98%;
+    
+    --popover: 222 47% 6%;
+    --popover-foreground: 210 40% 98%;
+    
+    /* In Dark Mode, il Primary diventa quasi bianco per leggibilità */
     --primary: 210 40% 98%;
     --primary-foreground: 222 47% 11%;
+    
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    
     --accent: 38 92% 50%;
     --accent-foreground: 222 47% 11%;
+    
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    
     --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
     --ring: 38 92% 50%;
   }
 }
 
 @layer base {
-  * { @apply border-border; }
-  body { @apply bg-background text-foreground antialiased; }
+  * { 
+    @apply border-border; 
+  }
   
-  /* Correzione Titoli: NON usare primary se primary è Slate 900 e sei su sfondo scuro */
+  body { 
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  /* Focus rings personalizzati */
+  :focus-visible {
+    @apply outline-none ring-2 ring-ring ring-offset-2 ring-offset-background;
+  }
+
+  /* Personalizzazione selezione testo */
+  ::selection {
+    @apply bg-amber-500/30 text-amber-900;
+  }
+
+  /* Gestione Titoli */
   h1, h2, h3, h4, h5, h6 {
-    @apply font-bold tracking-tight text-foreground;
+    @apply font-black tracking-tighter text-foreground uppercase;
+  }
+}
+
+/* Utility per sottolineature ambra */
+.underline-amber {
+  @apply decoration-accent decoration-2 underline-offset-4 underline;
+}
+
+@layer utilities {
+  .shadow-soft {
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.1);
+  }
+  .text-balance {
+    text-wrap: balance;
   }
 }
