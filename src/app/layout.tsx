@@ -45,10 +45,10 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: "/favicon.ico" },
-      { url: "/icon.png", type: "image/png", sizes: "32x32" },
+      { url: "/favicon.ico?v=2" },
+      { url: "/icon.png?v=2", type: "image/png", sizes: "32x32" },
     ],
-    apple: [{ url: "/icon.png", sizes: "180x180" }],
+    apple: [{ url: "/apple-icon.png?v=2", sizes: "180x180" }],
   },
   openGraph: {
     title: "L.I-Costruzioni | Leader in Ristrutturazioni e Costruzioni nel Lazio",
