@@ -7,9 +7,8 @@ import { Chatbot } from "@/components/Chatbot";
 import { Toaster } from "@/components/ui/toaster";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
-// Nuova gestione Viewport per Next.js moderno
 export const viewport: Viewport = {
-  themeColor: "#0f172a", // Colore slate-900 per la barra browser su mobile
+  themeColor: "#0f172a",
   width: "device-width",
   initialScale: 1,
 };
@@ -17,20 +16,33 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.li-costruzionisrl.it"),
   title: {
-    default: "Impresa Edile e Costruzioni Terracina, Roma, Latina | L.I-Costruzioni",
-    template: "%s | L.I-Costruzioni",
+    default: "Impresa Edile Terracina, Roma, Latina | L.I-Costruzioni SRL",
+    template: "%s | L.I-Costruzioni - Edilizia d'Eccellenza",
   },
   description:
-    "L.I-Costruzioni è l'impresa di costruzioni leader a Terracina, Roma e Latina. Specializzati in ristrutturazioni d'eccellenza, nuove costruzioni e restauro conservativo.",
+    "L.I-Costruzioni SRL: Impresa edile leader a Terracina, Roma e Latina. Esperti in ristrutturazioni chiavi in mano, nuove costruzioni civili, rifacimento tetti e facciate. Qualità garantita e preventivi gratuiti.",
   keywords: [
-    "impresa edile Terracina",
-    "ditta edile Roma",
-    "impresa di costruzioni Latina",
-    "ristrutturazioni San Felice Circeo",
-    "ristrutturazioni chiavi in mano",
-    "edilizia d'eccellenza",
+    // Keywords Geografiche
+    "impresa edile Terracina", "ditta edile Roma", "costruzioni Latina", 
+    "ristrutturazioni San Felice Circeo", "edilizia Sabaudia", "cantieri Fondi",
+    "general contractor Lazio", "ristrutturare casa Roma centro",
+    
+    // Keywords di Servizio
+    "ristrutturazioni chiavi in mano", "nuove costruzioni residenziali", 
+    "rifacimento facciate", "impermeabilizzazione tetti", "opere murarie",
+    "consolidamento strutturale", "isolamento termico cappotto", 
+    "posa pavimenti e rivestimenti", "impiantistica certificata",
+    
+    // Keywords Business/Specialistiche
+    "ditta edile affidabile", "restauro conservativo", "edilizia ecosostenibile",
+    "bioedilizia Lazio", "manutenzione condomini Latina", "smaltimento macerie",
+    "scavi e demolizioni", "progettazione architettonica"
   ],
   authors: [{ name: "L.I-Costruzioni SRL" }],
+  category: "Construction and Renovation",
+  alternates: {
+    canonical: "/",
+  },
   icons: {
     icon: [
       { url: "/favicon.ico" },
@@ -39,16 +51,16 @@ export const metadata: Metadata = {
     apple: [{ url: "/icon.png", sizes: "180x180" }],
   },
   openGraph: {
-    title: "L.I-Costruzioni | Eccellenza nell'Edilizia e Ristrutturazioni",
-    description: "Operativi nel Lazio con progetti edili di alto livello. Trasformiamo le tue idee in realtà.",
+    title: "L.I-Costruzioni | Leader in Ristrutturazioni e Costruzioni nel Lazio",
+    description: "Dal progetto alla consegna: ristrutturiamo la tua casa a Terracina, Roma e Latina con standard d'eccellenza.",
     url: "https://www.li-costruzionisrl.it",
-    siteName: "L.I-Costruzioni",
+    siteName: "L.I-Costruzioni SRL",
     images: [
       {
         url: "/impresa-edile-costruzioni-lazio.jpg",
         width: 1200,
         height: 630,
-        alt: "L.I-Costruzioni - Impresa Edile e Ditta di Costruzioni nel Lazio",
+        alt: "L.I-Costruzioni - Impresa Edile e Ditta di Costruzioni Terracina Roma Latina",
       },
     ],
     locale: "it_IT",
@@ -56,8 +68,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "L.I-Costruzioni | Eccellenza nell'Edilizia",
-    description: "Ristrutturazioni e costruzioni a Terracina, Roma e Latina.",
+    title: "L.I-Costruzioni | Edilizia e Ristrutturazioni Lazio",
+    description: "L'impresa edile di riferimento per ristrutturazioni e nuove costruzioni a Terracina e provincia.",
     images: ["/impresa-edile-costruzioni-lazio.jpg"],
   },
 };
@@ -70,53 +82,72 @@ export default function RootLayout({
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "ConstructionBusiness",
-    name: "L.I-Costruzioni SRL",
-    image: "https://www.li-costruzionisrl.it/impresa-edile-costruzioni-lazio.jpg",
-    logo: "https://www.li-costruzionisrl.it/logo.png", // Assicurati di avere il logo in public
-    address: {
+    "name": "L.I-Costruzioni SRL",
+    "image": "https://www.li-costruzionisrl.it/impresa-edile-costruzioni-lazio.jpg",
+    "logo": "https://www.li-costruzionisrl.it/logo.png",
+    "description": "Impresa edile specializzata in ristrutturazioni, costruzioni civili e industriali operante a Terracina, Latina e Roma.",
+    "url": "https://www.li-costruzionisrl.it",
+    "telephone": "+39 324 864 3886",
+    "priceRange": "€€-€€€",
+    "address": {
       "@type": "PostalAddress",
-      streetAddress: "Via Appia Antica 22",
-      addressLocality: "Terracina",
-      addressRegion: "LT",
-      postalCode: "04019",
-      addressCountry: "IT",
+      "streetAddress": "Via Appia Antica 22",
+      "addressLocality": "Terracina",
+      "addressRegion": "LT",
+      "postalCode": "04019",
+      "addressCountry": "IT",
     },
-    geo: {
+    "geo": {
       "@type": "GeoCoordinates",
-      latitude: "41.2858",
-      longitude: "13.2486",
+      "latitude": "41.2858",
+      "longitude": "13.2486",
     },
-    url: "https://www.li-costruzionisrl.it",
-    telephone: "+39 324 864 3886",
-    priceRange: "€€€", // Importante per la validazione Schema
-    openingHours: "Mo-Fr 08:00-18:00",
-    areaServed: [
-      { "@type": "City", name: "Terracina" },
-      { "@type": "City", name: "Roma" },
-      { "@type": "City", name: "Latina" },
-      { "@type": "City", name: "Sabaudia" },
-      { "@type": "City", name: "San Felice Circeo" },
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      "opens": "08:00",
+      "closes": "18:00"
+    },
+    "areaServed": [
+      { "@type": "City", "name": "Terracina" },
+      { "@type": "City", "name": "Roma" },
+      { "@type": "City", "name": "Latina" },
+      { "@type": "City", "name": "Sabaudia" },
+      { "@type": "City", "name": "San Felice Circeo" },
+      { "@type": "City", "name": "Fondi" },
+      { "@type": "City", "name": "Aprilia" },
+      { "@type": "City", "name": "Priverno" }
     ],
-    hasOfferCatalog: {
+    "hasOfferCatalog": {
       "@type": "OfferCatalog",
-      name: "Servizi Edili",
-      itemListElement: [
+      "name": "Servizi di Edilizia",
+      "itemListElement": [
         {
           "@type": "Offer",
-          itemOffered: {
+          "itemOffered": {
             "@type": "Service",
-            name: "Ristrutturazioni d'interni d'eccellenza",
-          },
+            "name": "Ristrutturazione Appartamenti Chiavi in Mano",
+            "description": "Gestione completa del cantiere, dalle demolizioni alle finiture di pregio."
+          }
         },
         {
           "@type": "Offer",
-          itemOffered: {
+          "itemOffered": {
             "@type": "Service",
-            name: "Costruzioni di nuove ville e complessi residenziali",
-          },
+            "name": "Costruzione Case e Ville Unifamiliari",
+            "description": "Edifici moderni ad alta efficienza energetica in classe A+."
+          }
         },
-      ],
-    },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Rifacimento Tetti e Facciate",
+            "description": "Interventi di manutenzione straordinaria e miglioramento termico."
+          }
+        }
+      ]
+    }
   };
 
   return (
