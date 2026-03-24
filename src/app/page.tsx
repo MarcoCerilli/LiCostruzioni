@@ -11,7 +11,6 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import ComingSoon from "./coming-soon-page";
 import { Metadata } from "next";
 
 // --- SOLUZIONE MANCANZA SEO 1: Titolo Potente e Specifico ---
