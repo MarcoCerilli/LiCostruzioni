@@ -35,7 +35,8 @@ export function Hero({ city }: HeroProps) {
             fill
             className="object-cover opacity-85" // Ridotto l'uso di filtri CSS pesanti
             priority
-            fetchPriority="high" // Dice al browser di scaricare questa immagine per prima
+            fetchPriority="high"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />
         )}
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-[#1a1f1a]/40 to-[#1a1f1a]" />
