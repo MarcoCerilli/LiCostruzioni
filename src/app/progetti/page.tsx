@@ -16,18 +16,121 @@ import "yet-another-react-lightbox/styles.css";
 const projects = [
   {
     id: 1,
-    title: "Sistemi Radianti & Nuove Costruzioni", 
+    title: "Sistemi Radianti & Nuove Costruzioni",
     city: "Roma",
-    type: "Innovazione Energetica", 
+    type: "Innovazione Energetica",
     images: ["radiante-roma-3", "radiante-roma-2", "radiante-roma-1"],
   },
-  // ... gli altri tuoi progetti
+  {
+    id: 2,
+    title: "Struttura Ricettiva Fronte Mare",
+    city: "Terracina",
+    type: "Nuova Costruzione",
+    images: [
+      "project-terracina-1",
+      "project-terracina-2",
+      "project-terracina-3",
+    ],
+  },
+  {
+    id: 3,
+    title: "Efficientamento Energetico & Cappotto Termico",
+    city: "Latina",
+    type: "Sostenibilità / Commerciale",
+    images: ["project-latina-1", "project-latina-2"],
+  },
+  {
+    id: 4,
+    title: "Rifacimento Tetto",
+    city: "Terracina",
+    type: "Ristrutturazione",
+    images: [
+      "terracina-1",
+      "terracina-2",
+      "terracina-3",
+      "terracina-4",
+      "terracina-5",
+    ],
+  },
+  {
+    id: 5,
+    title: "Villa Unifamiliare",
+    city: "Sabaudia",
+    type: "Nuova Costruzione",
+    images: ["project-sabaudia-1", "project-sabaudia-2", "project-sabaudia-3"],
+  },
+  {
+    id: 6,
+    title: "Recupero Rustico",
+    city: "San Felice Circeo",
+    type: "Ristrutturazione",
+    images: [
+      "project-sanfelice-1",
+      "project-sanfelice-2",
+      "project-sanfelice-3",
+    ],
+  },
+  {
+    id: 7,
+    title: "Ristrutturazione Design Restaurant & Lounge",
+    city: "Frosinone", // O la città corretta
+    type: "Edilizia Commerciale",
+    images: [
+      "project-frosinone-1",
+      "project-frosinone-2",
+      "project-frosinone-3",
+    ],
+  },
+  {
+    id: 8,
+    title: "Restyling Moderno Villa",
+    city: "Itri",
+    type: "Ristrutturazione",
+    images: ["project-itri-1", "project-itri-2"],
+  },
+  {
+    id: 9,
+    title: "Rifacimento Terrazzo Privato",
+    city: "Terracina",
+    type: "Ristrutturazione Esterna",
+    images: [
+      "terrazzo-terracina-1",
+      "terrazzo-terracina-2",
+      "terrazzo-terracina-3",
+    ],
+  },
+
+  {
+    id: 10,
+    title: "Interior Design & Panoramic Penthouse",
+    city: "Itri",
+    type: "Ristrutturazione Totale",
+    images: [
+      "appartamento-itri-1",
+      "appartamento-itri-2",
+      "appartamento-itri-3",
+    ],
+  },
+  {
+    id: 11,
+    title: "Work in Progress: Restyling Totale",
+    city: "Roma",
+    type: "Cantiere / Interni",
+    images: [
+      "cantiere-roma-1", // Foto con l'arco e l'operatore
+      "cantiere-roma-2", // Foto degli impianti e tracce a muro
+      "cantiere-roma-3", // Foto della vasca in fase di muratura
+    ],
+  },
   {
     id: 12,
-    title: "Restyling Viale d'Ingresso & Outdoor", 
+    title: "Restyling Viale d'Ingresso & Outdoor",
     city: "Latina",
-    type: "Ristrutturazione Esterna", 
-    images: ["viale-latina-1", "viale-latina-2"],
+    type: "Ristrutturazione Esterna",
+    images: [
+      "viale-latina-1",
+      "viale-latina-2", // Foto del "Prima e Dopo"
+    ],
   },
 ];
 
@@ -54,7 +157,10 @@ export default function ProjectsPage() {
           </h1>
 
           {/* Filtri Dinamici */}
-          <nav className="flex flex-wrap justify-center gap-2 mt-8" aria-label="Filtra progetti per città">
+          <nav
+            className="flex flex-wrap justify-center gap-2 mt-8"
+            aria-label="Filtra progetti per città"
+          >
             {cities.map((city) => (
               <button
                 key={city}
@@ -85,7 +191,9 @@ export default function ProjectsPage() {
                 key={project.id}
                 className="group overflow-hidden bg-white border-none shadow-md hover:shadow-2xl transition-all duration-500 rounded-[2rem] cursor-pointer"
                 onClick={() => {
-                  setSlides(projectImages.map((img) => ({ src: img.imageUrl })));
+                  setSlides(
+                    projectImages.map((img) => ({ src: img.imageUrl })),
+                  );
                   setOpen(true);
                 }}
               >
