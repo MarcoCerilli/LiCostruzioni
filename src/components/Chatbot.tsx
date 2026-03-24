@@ -71,7 +71,7 @@ export function Chatbot() {
       
       {/* BOTTONE WHATSAPP */}
       <a 
-        href="https://wa.me/393248643886" 
+        href="https://wa.me/393248643886?text=Buongiorno,%20vi%20contatto%20dal%20sito%20per%20un%20preventivo." 
         target="_blank" 
         rel="noopener noreferrer"
         className="flex items-center justify-center rounded-full h-14 w-14 bg-[#25D366] shadow-lg hover:scale-110 transition-all duration-300"
