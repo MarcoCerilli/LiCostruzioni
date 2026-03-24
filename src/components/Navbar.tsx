@@ -40,12 +40,13 @@ export function Navbar() {
 
   return (
     <>
+      {/* NAVBAR */}
       <nav
         aria-label="Navigazione Principale"
         className={cn(
           "fixed top-0 left-0 right-0 z-[100] transition-all duration-500 px-6",
           isTransparent
-            ? "bg-transparent py-7"
+            ? "bg-gradient-to-b from-black/40 to-transparent py-7" // Aggiunto gradiente per leggibilità
             : "bg-white/90 backdrop-blur-xl border-b border-slate-200/50 shadow-md py-4",
         )}
       >
@@ -159,7 +160,6 @@ export function Navbar() {
           </div>
         </div>
       </nav>
-
       {/* MENU MOBILE OVERLAY */}
       <div
         className={cn(
