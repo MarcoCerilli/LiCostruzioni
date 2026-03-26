@@ -1,12 +1,11 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { Mail, Phone, MapPin, ExternalLink } from 'lucide-react';
+import { Mail, Phone, MapPin } from 'lucide-react';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 export function Footer() {
   const logo = PlaceHolderImages.find(img => img.id === 'logo-aziendale');
   
-  // SEO: Testi dei link ottimizzati con keyword + città
   const areas = [
     { name: 'Impresa Edile Terracina', slug: 'terracina' },
     { name: 'Ristrutturazioni Latina', slug: 'latina' },
@@ -16,7 +15,8 @@ export function Footer() {
   ];
 
   return (
-    <footer className="bg-[#1a1f1a] text-primary-foreground pt-16 pb-8 border-t border-white/5">
+    // CAMBIO: Background ora è Slate 950 (il blu scurissimo del sito) invece del verde
+    <footer className="bg-slate-950 text-slate-200 pt-16 pb-8 border-t border-white/5">
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
         
         {/* BRAND & MISSION */}
@@ -34,38 +34,39 @@ export function Footer() {
             </div>
             <div className="flex flex-col">
               <span className="font-headline font-black text-xl tracking-tighter text-white">L.I-Costruzioni</span>
-              <span className="text-[10px] text-accent font-bold tracking-widest uppercase">S.R.L.</span>
+              {/* CAMBIO: Colore ambra esplicito */}
+              <span className="text-[10px] text-amber-500 font-bold tracking-widest uppercase">S.R.L.</span>
             </div>
           </Link>
-          <p className="text-primary-foreground/60 text-sm leading-relaxed">
+          <p className="text-slate-400 text-sm leading-relaxed">
             Specialisti in ristrutturazioni residenziali e commerciali. Portiamo la qualità dell'artigianato italiano in ogni cantiere tra Terracina e Roma.
           </p>
         </div>
 
-        {/* CONTATTI - Con link cliccabili per SEO/UX */}
+        {/* CONTATTI */}
         <div>
           <h4 className="font-bold mb-6 text-white text-sm uppercase tracking-widest">Contatti</h4>
-          <ul className="space-y-4 text-sm text-primary-foreground/80">
+          <ul className="space-y-4 text-sm text-slate-300">
             <li className="flex items-start gap-3">
-              <MapPin className="h-5 w-5 text-accent shrink-0" />
+              <MapPin className="h-5 w-5 text-amber-500 shrink-0" />
               <a 
-                href="https://goo.gl/maps/xxxx" // Inserisci link Google Maps reale
+                href="https://goo.gl/maps/xxxx" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="hover:text-accent transition-colors"
+                className="hover:text-amber-500 transition-colors"
               >
                 Via Appia Antica 22,<br />04019 Terracina (LT)
               </a>
             </li>
             <li className="flex items-center gap-3">
-              <Phone className="h-5 w-5 text-accent shrink-0" />
-              <a href="tel:+393248643886" className="hover:text-accent transition-colors font-mono tracking-tight">
+              <Phone className="h-5 w-5 text-amber-500 shrink-0" />
+              <a href="tel:+393248643886" className="hover:text-amber-500 transition-colors font-mono tracking-tight">
                +39 324.8643886
               </a>
             </li>
             <li className="flex items-center gap-3">
-              <Mail className="h-5 w-5 text-accent shrink-0" />
-              <a href="mailto:licostruzioni.luca@gmail.com" className="hover:text-accent transition-colors">
+              <Mail className="h-5 w-5 text-amber-500 shrink-0" />
+              <a href="mailto:licostruzioni.luca@gmail.com" className="hover:text-amber-500 transition-colors">
                 licostruzioni.luca@gmail.com
               </a>
             </li>
@@ -75,15 +76,15 @@ export function Footer() {
         {/* LINK RAPIDI */}
         <div>
           <h4 className="font-bold mb-6 text-white text-sm uppercase tracking-widest">Azienda</h4>
-          <ul className="space-y-3 text-sm text-primary-foreground/70">
-            <li><Link href="/servizi" className="hover:text-accent flex items-center gap-2">I Nostri Servizi</Link></li>
-            <li><Link href="/progetti" className="hover:text-accent flex items-center gap-2">Progetti Realizzati</Link></li>
-            <li><Link href="/chi-siamo" className="hover:text-accent flex items-center gap-2">Certificazioni e Team</Link></li>
-            <li><Link href="/contatti" className="hover:text-accent flex items-center gap-2">Richiedi Sopralluogo</Link></li>
+          <ul className="space-y-3 text-sm text-slate-400">
+            <li><Link href="/servizi" className="hover:text-amber-500 flex items-center gap-2 transition-colors">I Nostri Servizi</Link></li>
+            <li><Link href="/progetti" className="hover:text-amber-500 flex items-center gap-2 transition-colors">Progetti Realizzati</Link></li>
+            <li><Link href="/chi-siamo" className="hover:text-amber-500 flex items-center gap-2 transition-colors">Certificazioni e Team</Link></li>
+            <li><Link href="/contatti" className="hover:text-amber-500 flex items-center gap-2 transition-colors">Richiedi Sopralluogo</Link></li>
           </ul>
         </div>
 
-        {/* AREE SEO - Tag Cloud */}
+        {/* AREE SEO */}
         <div>
           <h4 className="font-bold mb-6 text-white text-sm uppercase tracking-widest">Copertura Territoriale</h4>
           <div className="flex flex-wrap gap-2">
@@ -91,7 +92,7 @@ export function Footer() {
               <Link 
                 key={area.slug} 
                 href={`/servizi/${area.slug}`}
-                className="text-[10px] uppercase font-bold bg-white/5 px-3 py-2 rounded-lg border border-white/10 hover:border-accent/50 hover:bg-accent/10 hover:text-accent transition-all"
+                className="text-[10px] uppercase font-bold bg-white/5 px-3 py-2 rounded-lg border border-white/10 hover:border-amber-500/50 hover:bg-amber-500/10 hover:text-amber-500 transition-all text-slate-300"
               >
                 {area.name}
               </Link>
@@ -101,9 +102,9 @@ export function Footer() {
       </div>
 
       {/* BOTTOM STRIP */}
-      <div className="max-w-7xl mx-auto px-6 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6 text-[10px] font-medium text-primary-foreground/40 uppercase tracking-widest">
+      <div className="max-w-7xl mx-auto px-6 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6 text-[10px] font-medium text-slate-500 uppercase tracking-widest">
         <div className="text-center md:text-left">
-          © {new Date().getFullYear()} L.I-Costruzioni SRL • P.IVA 01234567890 • Capitale Sociale i.v. €10.000
+          © {new Date().getFullYear()} L.I-Costruzioni SRL • P.IVA 01234567890
         </div>
         <div className="flex gap-8">
           <Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
