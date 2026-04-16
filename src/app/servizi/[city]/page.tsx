@@ -41,7 +41,7 @@ const cityContent: Record<string, { desc: string; focus: string }> = {
   },
 };
 
-const formatCityName = (slug: string) =>
+const formatCityName = (slug: string): string =>
   slug
     .split("-")
     .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
@@ -60,13 +60,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export async function generateStaticParams() {
-  return Object.keys(cityContent).map((city) => ({
+export async function generateStaticParams(): Promise<{ city: string }[]> {
+  return Object.keys(cityContent).map((city: string) => ({
     city: city,
   }));
 }
 
-export default async function LocalServicePage({ params }: Props) {
+export default async function LocalServicePage({ params }: Props): Promise<React.JSX.Element> {
   const { city: citySlug } = await params;
 
   const cityKey = cityContent[citySlug] ? citySlug : "terracina";
