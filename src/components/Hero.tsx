@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, ShieldCheck } from "lucide-react"; // ShieldCheck trasmette sicurezza
+import { ArrowRight, MapPin, ShieldCheck } from "lucide-react"; // ShieldCheck trasmette sicurezza
 
 interface HeroProps {
   city?: string;
@@ -40,10 +40,16 @@ export function Hero({ city }: HeroProps) {
       </div>
 
       <div className="relative z-10 max-w-6xl mx-auto px-6 text-center">
-        {/* Badge: Sostituito MapPin con ShieldCheck per la fiducia */}
-        <div className="inline-flex items-center gap-2 px-4 py-2 mb-8 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-500 text-[10px] md:text-xs font-black uppercase tracking-[0.3em] animate-in fade-in slide-in-from-top-4 duration-1000">
-          <ShieldCheck size={14} />
-          Sede Storica a Terracina • Dal 1990 al vostro servizio
+        {/* Badge Evoluto: Fiducia + Autorità SOA */}
+        <div className="inline-flex items-center gap-3 px-5 py-2.5 mb-8 rounded-full bg-slate-900/40 backdrop-blur-md border border-amber-500/30 text-amber-500 text-[9px] md:text-[11px] font-black uppercase tracking-[0.2em] animate-in fade-in slide-in-from-top-4 duration-1000 shadow-2xl shadow-amber-500/10">
+          <div className="flex items-center gap-1.5 border-r border-amber-500/30 pr-3">
+            <ShieldCheck size={15} className="text-amber-500" />
+            <span>Impresa Certificata SOA</span>
+          </div>
+          <div className="flex items-center gap-1.5 pl-1">
+            <MapPin size={14} className="opacity-70" />
+            <span className="text-white/90">Terracina • Dal 1990</span>
+          </div>
         </div>
 
         <h1 className="text-4xl md:text-7xl lg:text-8xl font-black font-headline tracking-tighter mb-8 text-white animate-in fade-in slide-in-from-bottom-8 duration-1000 leading-[0.95] drop-shadow-2xl">
