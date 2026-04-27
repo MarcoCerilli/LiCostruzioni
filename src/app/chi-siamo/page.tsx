@@ -34,8 +34,6 @@ function PartnerLogo({ partner }: { partner: { name: string; src: string } }) {
 export default function AboutPage() {
   const storiaImg = PlaceHolderImages.find((img) => img.id === "storia-azienda");
 
-  // Per i file in public, usa semplicemente il percorso che parte dalla slash /
-  // Next.js capisce automaticamente che deve cercarli in public/team/
   const team = [
     { 
       name: "Alfredo Iaboni", 
@@ -67,7 +65,8 @@ export default function AboutPage() {
   ];
 
   return (
-    <main className="pt-24 pb-16 px-6 min-h-screen bg-slate-50/50">
+    /* Aumentato il padding-top per staccarsi dall'header fixed */
+    <main className="pt-32 lg:pt-48 pb-16 px-6 min-h-screen bg-slate-50/50">
       <div className="max-w-6xl mx-auto">
 
         {/* SEZIONE 1: STORIA */}
@@ -107,21 +106,26 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
             {team.map((member, i) => (
               <div key={i} className="flex flex-col items-center group">
-                <div className="relative w-48 aspect-square rounded-full overflow-hidden mb-6 border-4 border-white shadow-xl transition-all group-hover:border-amber-500 bg-white">
-                  <Image
-                    src={member.src}
-                    alt={member.name}
-                    fill
-                    sizes="192px"
-                    className="object-cover transition-transform duration-500 group-hover:scale-110"
-                  />
-                  {/* Badge Ruolo */}
-                  <div className="absolute bottom-2 right-2 w-9 h-9 bg-[#1a1c25] text-amber-500 rounded-xl flex items-center justify-center shadow-lg border-2 border-white z-10">
-                    {member.role === 'technical' && <HardHat size={18} />}
-                    {member.role === 'design' && <Ruler size={18} />}
-                    {member.role === 'admin' && <Briefcase size={18} />}
+                {/* Contenitore Immagine con Badge Icona */}
+                <div className="relative w-48 aspect-square rounded-full mb-6 transition-all group-hover:scale-105">
+                  <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-white shadow-xl bg-white z-0 group-hover:border-amber-500 transition-colors">
+                    <Image
+                      src={member.src}
+                      alt={member.name}
+                      fill
+                      sizes="192px"
+                      className="object-cover transition-transform duration-500 group-hover:scale-110"
+                    />
+                  </div>
+                  
+                  {/* Badge Icona sovrapposto alla foto */}
+                  <div className="absolute bottom-2 right-2 w-10 h-10 bg-slate-900 text-amber-500 rounded-xl flex items-center justify-center shadow-lg border-2 border-white z-10 transition-transform group-hover:rotate-12">
+                    {member.role === 'technical' && <HardHat size={20} />}
+                    {member.role === 'design' && <Ruler size={20} />}
+                    {member.role === 'admin' && <Briefcase size={20} />}
                   </div>
                 </div>
+
                 <h3 className="text-lg font-black text-slate-900 mb-1 uppercase tracking-tight">{member.name}</h3>
                 <p className="text-amber-600 font-bold text-[10px] uppercase tracking-widest mb-3">
                     {member.role === 'technical' ? 'Responsabile Tecnico' : member.role === 'design' ? 'Interior Designer' : 'Amministrazione'}
@@ -144,12 +148,12 @@ export default function AboutPage() {
         </section>
 
         {/* CTA */}
-        <section className="max-w-4xl mx-auto">
-          <div className="bg-[#1a1c25] rounded-[2.5rem] p-10 text-center shadow-2xl relative overflow-hidden">
+        <section className="max-w-4xl mx-auto pb-12">
+          <div className="bg-slate-900 rounded-[2.5rem] p-10 text-center shadow-2xl relative overflow-hidden">
             <h2 className="text-3xl md:text-5xl font-black text-white tracking-tighter uppercase mb-8 relative z-10">
               Progetta il tuo spazio <br /> <span className="text-amber-500 italic">nel Lazio.</span>
             </h2>
-            <Button size="lg" className="bg-amber-500 text-[#1a1c25] hover:bg-white font-black rounded-xl uppercase tracking-widest text-sm relative z-10" asChild>
+            <Button size="lg" className="bg-amber-500 text-slate-900 hover:bg-white font-black rounded-xl uppercase tracking-widest text-sm relative z-10" asChild>
               <Link href="/contatti" className="flex items-center gap-2">
                 Richiedi Sopralluogo <ArrowRight size={18} />
               </Link>
