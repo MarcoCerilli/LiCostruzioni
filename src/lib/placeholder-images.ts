@@ -47,7 +47,7 @@ export const PlaceHolderImages: ImagePlaceholder[] = [
   {
     id: "radiante-roma-1",
     description: "Roma - Vista 1",
-    imageUrl: "/progetti/radiante-roma-1.webp",
+    imageUrl: "/progetti/radiante-roma-3.webp",
     imageHint: "interior",
   },
   {
@@ -59,7 +59,7 @@ export const PlaceHolderImages: ImagePlaceholder[] = [
   {
     id: "radiante-roma-3",
     description: "Roma - Vista 3",
-    imageUrl: "/progetti/radiante-roma-3.webp",
+    imageUrl: "/progetti/radiante-roma-1.webp",
     imageHint: "interior bath",
   },
 
@@ -67,7 +67,7 @@ export const PlaceHolderImages: ImagePlaceholder[] = [
   {
     id: "project-terracina-1",
     description: "Terracina - Vista 1",
-    imageUrl: "/progetti/terracina.webp",
+    imageUrl: "/progetti/terracina-1.webp",
     imageHint: "exterior",
   },
   {
@@ -81,6 +81,72 @@ export const PlaceHolderImages: ImagePlaceholder[] = [
     description: "Terracina - Vista 3",
     imageUrl: "/progetti/terracina-3.webp",
     imageHint: "pool area",
+  },
+  {
+    id: "project-terracina-4",
+    description: "Terracina - Vista 4",
+    imageUrl: "/progetti/terracina-4.webp",
+    imageHint: "exterior",
+  },
+  {
+    id: "project-terracina-5",
+    description: "Terracina - Vista 5",
+    imageUrl: "/progetti/terracina-5.webp",
+    imageHint: "exterior garden",
+  },
+  {
+    id: "project-terracina-6",
+    description: "Terracina - Vista 6",
+    imageUrl: "/progetti/terracina-6.webp",
+    imageHint: "pool area",
+  },
+  {
+    id: "project-terracina-7",
+    description: "Terracina - Vista 7",
+    imageUrl: "/progetti/terracina-7.webp",
+    imageHint: "exterior",
+  },
+  {
+    id: "project-terracina-8",
+    description: "Terracina - Vista 8",
+    imageUrl: "/progetti/terracina-8.webp",
+    imageHint: "detail",
+  },
+  {
+    id: "project-terracina-9",
+    description: "Terracina - Vista 9",
+    imageUrl: "/progetti/terracina-9.webp",
+    imageHint: "interior detail",
+  },
+  {
+    id: "project-terracina-10",
+    description: "Terracina - Vista 10",
+    imageUrl: "/progetti/terracina-10.webp",
+    imageHint: "architecture",
+  },
+  {
+    id: "project-terracina-11",
+    description: "Terracina - Vista 11",
+    imageUrl: "/progetti/terracina-11.webp",
+    imageHint: "exterior view",
+  },
+  {
+    id: "project-terracina-12",
+    description: "Terracina - Vista 12",
+    imageUrl: "/progetti/terracina-12.webp",
+    imageHint: "site progress",
+  },
+  {
+    id: "project-terracina-13",
+    description: "Terracina - Vista 13",
+    imageUrl: "/progetti/terracina-13.webp",
+    imageHint: "finishing",
+  },
+  {
+    id: "project-terracina-14",
+    description: "Terracina - Vista 14",
+    imageUrl: "/progetti/terracina-14.webp",
+    imageHint: "final result",
   },
 
   // LATINA

@@ -27,9 +27,20 @@ const projects = [
     city: "Terracina",
     type: "Nuova Costruzione",
     images: [
-      "project-terracina-1",
-      "project-terracina-2",
       "project-terracina-3",
+      "project-terracina-2",
+      "project-terracina-1",
+      "project-terracina-4",
+      "project-terracina-5",
+      "project-terracina-6",
+      "project-terracina-7",
+      "project-terracina-8",
+      "project-terracina-9",
+      "project-terracina-10",
+      "project-terracina-11",
+      "project-terracina-12",
+      "project-terracina-13",
+      "project-terracina-14",
     ],
   },
   {
@@ -165,11 +176,10 @@ export default function ProjectsPage() {
               <button
                 key={city}
                 onClick={() => setFilter(city)}
-                className={`px-6 py-2 rounded-full text-xs font-black uppercase tracking-widest transition-all duration-300 border-2 ${
-                  filter === city
+                className={`px-6 py-2 rounded-full text-xs font-black uppercase tracking-widest transition-all duration-300 border-2 ${filter === city
                     ? "bg-slate-900 border-slate-900 text-amber-500 shadow-lg scale-105"
                     : "bg-white border-slate-200 text-slate-500 hover:border-amber-500 hover:text-amber-600"
-                }`}
+                  }`}
               >
                 {city}
               </button>
