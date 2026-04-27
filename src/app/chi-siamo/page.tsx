@@ -7,6 +7,8 @@ import { ArrowRight, Phone, HardHat, Ruler, Briefcase, MapPin } from "lucide-rea
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
+// --- COMPONENTI INTERNI ---
+
 function PartnerLogo({ partner }: { partner: { name: string; src: string } }) {
   const [hasError, setHasError] = useState(false);
   return (
@@ -17,7 +19,6 @@ function PartnerLogo({ partner }: { partner: { name: string; src: string } }) {
           alt={partner.name}
           fill
           sizes="(max-width: 768px) 50vw, 20vw"
-          /* RIMOSSO grayscale e opacity-40 */
           className="object-contain p-4 transition-all"
           onError={() => setHasError(true)}
         />
@@ -28,13 +29,32 @@ function PartnerLogo({ partner }: { partner: { name: string; src: string } }) {
   );
 }
 
+// --- PAGINA PRINCIPALE ---
+
 export default function AboutPage() {
   const storiaImg = PlaceHolderImages.find((img) => img.id === "storia-azienda");
 
+  // Per i file in public, usa semplicemente il percorso che parte dalla slash /
+  // Next.js capisce automaticamente che deve cercarli in public/team/
   const team = [
-    { name: "Alfredo Iaboni", phone: "339 3274092", role: "technical", src: "/team/alfredo.png" },
-    { name: "Luca Iaboni", phone: "324 8643886", role: "design", src: "/team/luca.png" },
-    { name: "Jessica Iaboni", phone: "389 5996660", role: "admin", src: "/team/jessica.png" },
+    { 
+      name: "Alfredo Iaboni", 
+      phone: "339 3274092", 
+      role: "technical", 
+      src: "/team/alfredo.png" 
+    },
+    { 
+      name: "Luca Iaboni", 
+      phone: "324 8643886", 
+      role: "design", 
+      src: "/team/luca.png" 
+    },
+    { 
+      name: "Jessica Iaboni", 
+      phone: "389 5996660", 
+      role: "admin", 
+      src: "/team/jessica.png" 
+    },
   ];
 
   const partners = [
@@ -50,7 +70,7 @@ export default function AboutPage() {
     <main className="pt-24 pb-16 px-6 min-h-screen bg-slate-50/50">
       <div className="max-w-6xl mx-auto">
 
-        {/* SEZIONE 1: STORIA & SEO TERRITORIALE */}
+        {/* SEZIONE 1: STORIA */}
         <section className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-24">
           <div className="order-2 lg:order-1">
             <span className="text-amber-600 font-black uppercase tracking-widest text-[9px] mb-3 flex items-center gap-2">
@@ -60,7 +80,7 @@ export default function AboutPage() {
               Oltre trent&apos;anni di <br /> <span className="text-amber-500">Valore al Territorio.</span>
             </h1>
             <p className="text-base text-slate-600 mb-8 leading-relaxed max-w-lg">
-              L.I-Costruzioni rappresenta il punto di riferimento per le <strong>ristrutturazioni d&apos;élite nel Lazio</strong>. Portiamo l&apos;artigianato d&apos;avanguardia in tutta la <strong>provincia di Latina e Roma</strong>, garantendo standard qualitativi superiori.
+              L.I-Costruzioni rappresenta il punto di riferimento per le <strong>ristrutturazioni d&apos;élite nel Lazio</strong>. Portiamo l&apos;artigianato d&apos;avanguardia in tutta la <strong>provincia di Latina e Roma</strong>.
             </p>
             <div className="flex gap-8 py-6 border-t border-slate-200">
               <div>
@@ -78,32 +98,35 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* TEAM - Avatar Rimpiccioliti */}
+        {/* TEAM */}
         <section className="mb-24">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-black text-slate-900 tracking-tighter uppercase italic">La Direzione Tecnica</h2>
+            <div className="h-1 w-20 bg-amber-500 mx-auto mt-3"></div>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
             {team.map((member, i) => (
               <div key={i} className="flex flex-col items-center group">
-                {/* Contenitore Avatar più piccolo: w-48 invece di w-full */}
-                <div className="relative w-48 aspect-square rounded-full overflow-hidden mb-6 border-4 border-white shadow-lg transition-all group-hover:border-amber-500 bg-white flex items-center justify-center">
+                <div className="relative w-48 aspect-square rounded-full overflow-hidden mb-6 border-4 border-white shadow-xl transition-all group-hover:border-amber-500 bg-white">
                   <Image
                     src={member.src}
-                    alt={`${member.name} - Team L.I-Costruzioni`}
-                    width={140}
-                    height={140}
-                    className="object-contain transition-transform duration-500 group-hover:scale-110"
+                    alt={member.name}
+                    fill
+                    sizes="192px"
+                    className="object-cover transition-transform duration-500 group-hover:scale-110"
                   />
                   {/* Badge Ruolo */}
-                  <div className="absolute bottom-2 right-2 w-8 h-8 bg-[#1a1c25] text-amber-500 rounded-lg flex items-center justify-center shadow-md">
-                    {member.role === 'technical' && <HardHat size={16} />}
-                    {member.role === 'design' && <Ruler size={16} />}
-                    {member.role === 'admin' && <Briefcase size={16} />}
+                  <div className="absolute bottom-2 right-2 w-9 h-9 bg-[#1a1c25] text-amber-500 rounded-xl flex items-center justify-center shadow-lg border-2 border-white z-10">
+                    {member.role === 'technical' && <HardHat size={18} />}
+                    {member.role === 'design' && <Ruler size={18} />}
+                    {member.role === 'admin' && <Briefcase size={18} />}
                   </div>
                 </div>
-                <h3 className="text-lg font-black text-slate-900 mb-2 uppercase tracking-tight">{member.name}</h3>
-                <a href={`tel:${member.phone}`} className="text-slate-500 font-bold text-xs hover:text-amber-600 transition-colors flex items-center gap-2">
+                <h3 className="text-lg font-black text-slate-900 mb-1 uppercase tracking-tight">{member.name}</h3>
+                <p className="text-amber-600 font-bold text-[10px] uppercase tracking-widest mb-3">
+                    {member.role === 'technical' ? 'Responsabile Tecnico' : member.role === 'design' ? 'Interior Designer' : 'Amministrazione'}
+                </p>
+                <a href={`tel:${member.phone}`} className="inline-flex gap-2 items-center text-slate-500 font-bold text-xs hover:text-amber-600 transition-colors border border-slate-200 px-4 py-2 rounded-full bg-white">
                   <Phone size={12} className="text-amber-500" /> {member.phone}
                 </a>
               </div>
@@ -111,6 +134,7 @@ export default function AboutPage() {
           </div>
         </section>
 
+        {/* PARTNERS */}
         <section className="mb-24 px-4">
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
             {partners.map((p, i) => (
@@ -119,25 +143,19 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* CTA - Compatta */}
+        {/* CTA */}
         <section className="max-w-4xl mx-auto">
           <div className="bg-[#1a1c25] rounded-[2.5rem] p-10 text-center shadow-2xl relative overflow-hidden">
-            <div className="absolute inset-0 opacity-10 pointer-events-none">
-              <svg width="100%" height="100%"><pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M 20 0 L 0 0 0 20" fill="none" stroke="white" strokeWidth="0.5" /></pattern><rect width="100%" height="100%" fill="url(#grid)" /></svg>
-            </div>
-            <h2 className="text-3xl md:text-5xl font-black text-white tracking-tighter uppercase mb-8 leading-none relative z-10">
+            <h2 className="text-3xl md:text-5xl font-black text-white tracking-tighter uppercase mb-8 relative z-10">
               Progetta il tuo spazio <br /> <span className="text-amber-500 italic">nel Lazio.</span>
             </h2>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center relative z-10">
-              <Button size="lg" className="h-14 px-8 bg-amber-500 text-[#1a1c25] hover:bg-white hover:text-[#1a1c25] font-black rounded-xl shadow-lg transition-all group uppercase tracking-widest text-sm" asChild>
-                <Link href="/contatti" className="flex items-center gap-2">
-                  Richiedi Sopralluogo <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-                </Link>
-              </Button>
-            </div>
+            <Button size="lg" className="bg-amber-500 text-[#1a1c25] hover:bg-white font-black rounded-xl uppercase tracking-widest text-sm relative z-10" asChild>
+              <Link href="/contatti" className="flex items-center gap-2">
+                Richiedi Sopralluogo <ArrowRight size={18} />
+              </Link>
+            </Button>
           </div>
         </section>
-
       </div>
     </main>
   );
