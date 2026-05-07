@@ -1,17 +1,18 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { Mail, Phone, MapPin, ShieldCheck, Award } from 'lucide-react'; // Aggiunto ShieldCheck e Award
+import { Mail, Phone, MapPin, ShieldCheck, Award, Globe2 } from 'lucide-react'; 
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 export function Footer() {
   const logo = PlaceHolderImages.find(img => img.id === 'logo-aziendale');
   
+  // Rinominate per essere più autorevoli
   const areas = [
-    { name: 'Impresa Edile Terracina', slug: 'terracina' },
-    { name: 'Ristrutturazioni Latina', slug: 'latina' },
-    { name: 'Cantieri a Roma', slug: 'roma' },
-    { name: 'Edilizia Sabaudia', slug: 'sabaudia' },
-    { name: 'San Felice Circeo', slug: 'san-felice-circeo' }
+    'Roma',
+    'Latina',
+    'Terracina',
+    'Sabaudia',
+    'San Felice Circeo'
   ];
 
   return (
@@ -33,74 +34,112 @@ export function Footer() {
             </div>
             <div className="flex flex-col">
               <span className="font-headline font-black text-xl tracking-tighter text-white uppercase">L.I-Costruzioni</span>
-              <span className="text-[10px] text-amber-500 font-bold tracking-widest uppercase text-balance">Edilizia High-End</span>
+              <span className="text-[10px] text-amber-500 font-bold tracking-widest uppercase text-balance">General Contractor</span>
             </div>
           </Link>
-          <p className="text-slate-400 text-sm leading-relaxed mb-6">
-            Impresa leader nel Lazio per ristrutturazioni e grandi opere. Eccellenza tecnica e risanamento definitivo certificato.
+          <p className="text-slate-400 text-sm leading-relaxed mb-6 italic">
+            "L'eccellenza costruttiva al servizio delle grandi idee."
           </p>
           
-          {/* BADGE SOA OTTIMIZZATO */}
-          <div className="inline-flex items-center gap-3 bg-white/5 border border-white/10 p-3 rounded-2xl group hover:border-amber-500/50 transition-colors">
-            <div className="h-10 w-10 bg-amber-500/20 rounded-xl flex items-center justify-center">
-               <ShieldCheck className="text-amber-500 h-6 w-6" />
-            </div>
-            <div>
-              <p className="text-[10px] font-black uppercase text-white tracking-widest">Impresa Attestata</p>
-              <p className="text-[12px] font-bold text-amber-500 uppercase">Qualificazione SOA</p>
+          <div className="flex flex-col gap-3">
+            {/* BADGE SOA */}
+            <div className="inline-flex items-center gap-3 bg-white/5 border border-white/10 p-3 rounded-2xl">
+              <ShieldCheck className="text-amber-500 h-5 w-5" />
+              <div>
+                <p className="text-[9px] font-black uppercase text-white tracking-widest">Qualificazione</p>
+                <p className="text-[11px] font-bold text-amber-500 uppercase">Certificazione SOA</p>
+              </div>
             </div>
           </div>
         </div>
 
         {/* CONTATTI */}
         <div>
-          <h4 className="font-bold mb-6 text-white text-sm uppercase tracking-widest">Contatti Diretti</h4>
+          <h4 className="font-bold mb-6 text-white text-sm uppercase tracking-widest flex items-center gap-2">
+            <span className="h-px w-4 bg-amber-500"></span> Sede e Uffici
+          </h4>
           <ul className="space-y-4 text-sm text-slate-300">
-            <li className="flex items-start gap-3">
+            <li className="flex items-start gap-3 font-medium">
               <MapPin className="h-5 w-5 text-amber-500 shrink-0" />
-              <a href="https://goo.gl/maps/xxxx" target="_blank" rel="noopener noreferrer" className="hover:text-amber-500 transition-colors">
-                Via Appia Antica 22,<br />04019 Terracina (LT)
-              </a>
+              <span>Via Appia Antica 22,<br />04019 Terracina (LT)</span>
             </li>
             <li className="flex items-center gap-3">
               <Phone className="h-5 w-5 text-amber-500 shrink-0" />
-              <a href="tel:+393248643886" className="hover:text-amber-500 transition-colors font-mono tracking-tight font-bold text-lg text-white">
+              <a href="tel:+393248643886" className="hover:text-amber-500 transition-colors font-mono font-bold text-lg text-white">
                 +39 324.8643886
               </a>
             </li>
             <li className="flex items-center gap-3">
               <Mail className="h-5 w-5 text-amber-500 shrink-0" />
-              <a href="mailto:licostruzioni.luca@gmail.com" className="hover:text-amber-500 transition-colors">
+              <a href="mailto:licostruzioni.luca@gmail.com" className="hover:text-amber-500 transition-colors text-xs">
                 licostruzioni.luca@gmail.com
               </a>
             </li>
           </ul>
         </div>
 
-        {/* AZIENDA & SPECIALIZZAZIONI */}
+       {/* SERVIZI - VERSIONE EVOLUTA */}
         <div>
-          <h4 className="font-bold mb-6 text-white text-sm uppercase tracking-widest">Servizi e Garanzie</h4>
-          <ul className="space-y-3 text-sm text-slate-400 font-bold uppercase text-[11px] tracking-wider">
-            <li><Link href="/servizi/umidita-risalita" className="hover:text-amber-500 flex items-center gap-2 transition-colors">Risanamento Umidità</Link></li>
-            <li><Link href="/servizi/ristrutturazioni" className="hover:text-amber-500 flex items-center gap-2 transition-colors">Ristrutturazioni SOA</Link></li>
-            <li><Link href="/progetti" className="hover:text-amber-500 flex items-center gap-2 transition-colors">Opere Realizzate</Link></li>
-            <li><Link href="/contatti" className="hover:text-amber-500 flex items-center gap-2 transition-colors underline-amber">Richiedi Sopralluogo</Link></li>
+          <h4 className="font-bold mb-6 text-white text-sm uppercase tracking-widest flex items-center gap-2">
+            <span className="h-px w-4 bg-amber-500"></span> Corporate
+          </h4>
+          <ul className="space-y-3 text-[11px] text-slate-400 font-bold uppercase tracking-wider">
+            {/* Sostituiamo il classico link 'ristrutturazioni' con qualcosa di più imprenditoriale */}
+            <li>
+              <Link href="/progetti" className="hover:text-white transition-colors flex items-center gap-2">
+                <span className="w-1 h-1 bg-amber-500 rounded-full"></span>
+                Sviluppo & Valorizzazione Asset
+              </Link>
+            </li>
+            <li>
+              <Link href="/servizi#risanamento" className="hover:text-white transition-colors flex items-center gap-2">
+                <span className="w-1 h-1 bg-amber-500 rounded-full"></span>
+                Ingegneria del Risanamento
+              </Link>
+            </li>
+            <li>
+              <Link href="/progetti" className="hover:text-white transition-colors flex items-center gap-2">
+                <span className="w-1 h-1 bg-amber-500 rounded-full"></span>
+                Portfolio Architettonico
+              </Link>
+            </li>
+            <li className="pt-4">
+              <Link 
+                href="/contatti" 
+                className="group inline-flex items-center gap-2 text-white bg-white/5 border border-white/10 px-4 py-2 rounded-lg hover:bg-amber-500 hover:text-slate-950 transition-all duration-300"
+              >
+                Consulenza Tecnica
+                <Award className="h-3 w-3 text-amber-500 group-hover:text-slate-950" />
+              </Link>
+            </li>
           </ul>
         </div>
 
-        {/* AREE SEO */}
+        {/* OPERATIVITÀ (NON CLICCABILE PER LOOK INTERNAZIONALE) */}
         <div>
-          <h4 className="font-bold mb-6 text-white text-sm uppercase tracking-widest">Operatività Lazio</h4>
-          <div className="flex flex-wrap gap-2">
-            {areas.map((area) => (
-              <Link 
-                key={area.slug} 
-                href={`/servizi/${area.slug}`}
-                className="text-[9px] uppercase font-black bg-white/5 px-3 py-2 rounded-lg border border-white/10 hover:border-amber-500 hover:text-amber-500 transition-all text-slate-400"
-              >
-                {area.name}
-              </Link>
-            ))}
+          <h4 className="font-bold mb-6 text-white text-sm uppercase tracking-widest flex items-center gap-2">
+            <span className="h-px w-4 bg-amber-500"></span> Presidio Territoriale
+          </h4>
+          <div className="flex flex-col gap-2">
+            <p className="text-[10px] text-slate-500 mb-2 leading-tight uppercase font-medium">
+                Coordiniamo cantieri su tutto il territorio regionale:
+            </p>
+            <div className="flex flex-wrap gap-x-4 gap-y-2">
+              {areas.map((area) => (
+                <span 
+                  key={area} 
+                  className="text-[10px] uppercase font-black text-slate-300 flex items-center gap-1.5"
+                >
+                  <Globe2 className="h-3 w-3 text-amber-500/50" />
+                  {area}
+                </span>
+              ))}
+            </div>
+            <div className="mt-4 p-3 bg-white/5 rounded-xl border border-white/5">
+                <p className="text-[9px] text-slate-300 leading-relaxed italic">
+                    Logistica integrata e personale diretto garantiscono operatività immediata in tutto il Lazio.
+                </p>
+            </div>
           </div>
         </div>
       </div>
@@ -108,11 +147,11 @@ export function Footer() {
       {/* BOTTOM STRIP */}
       <div className="max-w-7xl mx-auto px-6 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6 text-[9px] font-bold text-slate-600 uppercase tracking-[0.2em]">
         <div className="text-center md:text-left">
-          © {new Date().getFullYear()} L.I-Costruzioni SRL • P.IVA 01234567890 • Impresa SOA Certificata
+          © {new Date().getFullYear()} L.I-Costruzioni SRL • P.IVA 01234567890 • International Standard Quality
         </div>
         <div className="flex gap-8">
-          <Link href="/privacy" className="hover:text-amber-500 transition-colors">Privacy</Link>
-          <Link href="/cookies" className="hover:text-white transition-colors">Cookies</Link>
+          <Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
+          <Link href="/cookies" className="hover:text-white transition-colors">Cookie Policy</Link>
         </div>
       </div>
     </footer>

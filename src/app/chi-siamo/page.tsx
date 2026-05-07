@@ -127,9 +127,9 @@ export default function AboutPage() {
                 </div>
 
                 <h3 className="text-lg font-black text-slate-900 mb-1 uppercase tracking-tight">{member.name}</h3>
-                <p className="text-amber-600 font-bold text-[10px] uppercase tracking-widest mb-3">
+               {/*  <p className="text-amber-600 font-bold text-[10px] uppercase tracking-widest mb-3">
                     {member.role === 'technical' ? 'Responsabile Tecnico' : member.role === 'design' ? 'Interior Designer' : 'Amministrazione'}
-                </p>
+                </p> */}
                 <a href={`tel:${member.phone}`} className="inline-flex gap-2 items-center text-slate-500 font-bold text-xs hover:text-amber-600 transition-colors border border-slate-200 px-4 py-2 rounded-full bg-white">
                   <Phone size={12} className="text-amber-500" /> {member.phone}
                 </a>

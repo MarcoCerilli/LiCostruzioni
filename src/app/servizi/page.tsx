@@ -98,62 +98,62 @@ export default function ServicesPage() {
           ))}
         </div>
 
-       {/* FOCUS TECNICO: Umidità di Risalita (FAQ) */}
-<div className="mb-24 grid lg:grid-cols-2 gap-16 items-center bg-white p-8 md:p-16 rounded-[2.5rem] border border-slate-100 shadow-soft">
-  <div>
-    {/* Badge coerente con lo stile "Competenza Tecnica" */}
-    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 text-amber-600 text-[10px] font-black uppercase tracking-wider mb-6">
-      <Droplets size={12} className="text-amber-500" /> Specializzazione Tecnica
-    </div>
-    
-    <h2 className="text-3xl md:text-4xl font-black text-slate-900 uppercase tracking-tighter mb-6">
-      Problemi di <span className="text-amber-500">Umidità?</span>
-    </h2>
-    
-    <p className="text-slate-600 mb-8 leading-relaxed text-lg">
-      L'umidità capillare non è solo un problema estetico, ma strutturale e di salute. Utilizziamo protocolli scientifici per risanare i tuoi ambienti in modo definitivo.
-    </p>
-    
-    <Accordion type="single" collapsible className="w-full">
-      <AccordionItem value="item-1" className="border-slate-100">
-        <AccordionTrigger className="font-bold uppercase text-xs tracking-widest text-slate-700 hover:text-amber-500 transition-colors py-4">
-          Cos'è l'umidità di risalita?
-        </AccordionTrigger>
-        <AccordionContent className="text-slate-500 leading-relaxed pb-4">
-          È un fenomeno fisico (capillarità) dove l'acqua del terreno risale attraverso i pori dei materiali da costruzione non isolati, trasportando sali che degradano intonaci e finiture.
-        </AccordionContent>
-      </AccordionItem>
-      
-      <AccordionItem value="item-2" className="border-slate-100">
-        <AccordionTrigger className="font-bold uppercase text-xs tracking-widest text-slate-700 hover:text-amber-500 transition-colors py-4">
-          Qual è la soluzione definitiva?
-        </AccordionTrigger>
-        <AccordionContent className="text-slate-500 leading-relaxed pb-4">
-          Interveniamo creando una <strong>barriera chimica idrofobizzante</strong> alla base del muro o utilizzando intonaci deumidificanti macroporosi che permettono alla parete di respirare, espellendo l'umidità accumulata.
-        </AccordionContent>
-      </AccordionItem>
-    </Accordion>
-    
-    {/* CTA Interna opzionale */}
-    <div className="mt-8">
-        <Link href="/contatti" className="text-amber-600 font-black uppercase text-[10px] tracking-widest flex items-center gap-2 hover:gap-3 transition-all">
-            Richiedi Analisi Igrometrica <ArrowRight size={14} />
-        </Link>
-    </div>
-  </div>
+        {/* FOCUS TECNICO: Umidità di Risalita (FAQ) */}
+        <div id="risanamento" className="mb-24 grid lg:grid-cols-2 gap-16 items-center bg-white p-8 md:p-16 rounded-[2.5rem] border border-slate-100 shadow-soft">
+          <div>
+            {/* Badge coerente con lo stile "Competenza Tecnica" */}
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 text-amber-600 text-[10px] font-black uppercase tracking-wider mb-6">
+              <Droplets size={12} className="text-amber-500" /> Specializzazione Tecnica
+            </div>
 
-  {/* Immagine con Border Radius coerente (radius: 1rem in CSS, qui arrotondato a 2rem per design) */}
-  <div className="relative aspect-square rounded-[2rem] overflow-hidden shadow-2xl border-4 border-slate-50">
-     <Image 
-        src="/progetti/cantiere-roma-2.webp" // Suggerisco una foto tecnica (es. impianti o muratura)
-        alt="Diagnostica umidità di risalita L.I-Costruzioni" 
-        fill 
-        className="object-cover transition-transform duration-700 hover:scale-105"
-     />
-     {/* Overlay per profondità */}
-     <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 via-transparent to-transparent" />
-  </div>
-</div>
+            <h2 className="text-3xl md:text-4xl font-black text-slate-900 uppercase tracking-tighter mb-6">
+              Problemi di <span className="text-amber-500">Umidità?</span>
+            </h2>
+
+            <p className="text-slate-600 mb-8 leading-relaxed text-lg">
+              L'umidità capillare non è solo un problema estetico, ma strutturale e di salute. Utilizziamo protocolli scientifici per risanare i tuoi ambienti in modo definitivo.
+            </p>
+
+            <Accordion type="single" collapsible className="w-full">
+              <AccordionItem value="item-1" className="border-slate-100">
+                <AccordionTrigger className="font-bold uppercase text-xs tracking-widest text-slate-700 hover:text-amber-500 transition-colors py-4">
+                  Cos'è l'umidità di risalita?
+                </AccordionTrigger>
+                <AccordionContent className="text-slate-500 leading-relaxed pb-4">
+                  È un fenomeno fisico (capillarità) dove l'acqua del terreno risale attraverso i pori dei materiali da costruzione non isolati, trasportando sali che degradano intonaci e finiture.
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem value="item-2" className="border-slate-100">
+                <AccordionTrigger className="font-bold uppercase text-xs tracking-widest text-slate-700 hover:text-amber-500 transition-colors py-4">
+                  Qual è la soluzione definitiva?
+                </AccordionTrigger>
+                <AccordionContent className="text-slate-500 leading-relaxed pb-4">
+                  Interveniamo creando una <strong>barriera chimica idrofobizzante</strong> alla base del muro o utilizzando intonaci deumidificanti macroporosi che permettono alla parete di respirare, espellendo l'umidità accumulata.
+                </AccordionContent>
+              </AccordionItem>
+            </Accordion>
+
+            {/* CTA Interna opzionale */}
+            <div className="mt-8">
+              <Link href="/contatti" className="text-amber-600 font-black uppercase text-[10px] tracking-widest flex items-center gap-2 hover:gap-3 transition-all">
+                Richiedi Analisi Igrometrica <ArrowRight size={14} />
+              </Link>
+            </div>
+          </div>
+
+          {/* Immagine con Border Radius coerente (radius: 1rem in CSS, qui arrotondato a 2rem per design) */}
+          <div className="relative aspect-square rounded-[2rem] overflow-hidden shadow-2xl border-4 border-slate-50">
+            <Image
+              src="/progetti/cantiere-roma-2.webp" // Suggerisco una foto tecnica (es. impianti o muratura)
+              alt="Diagnostica umidità di risalita L.I-Costruzioni"
+              fill
+              className="object-cover transition-transform duration-700 hover:scale-105"
+            />
+            {/* Overlay per profondità */}
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 via-transparent to-transparent" />
+          </div>
+        </div>
 
         {/* Metodo & SOA */}
         <div className="mb-24">
@@ -169,11 +169,11 @@ export default function ServicesPage() {
                   </h2>
                   <div className="flex items-center gap-4 p-4 rounded-2xl bg-white/5 border border-white/10 mb-10">
                     <div className="h-12 w-12 rounded-xl bg-amber-500 flex items-center justify-center shrink-0">
-                        <Award className="text-slate-900 h-6 w-6" />
+                      <Award className="text-slate-900 h-6 w-6" />
                     </div>
                     <div>
-                        <h4 className="text-white font-black text-sm uppercase">Attestazione SOA</h4>
-                        <p className="text-slate-400 text-xs">Abilitati all'esecuzione di lavori pubblici e grandi commesse residenziali.</p>
+                      <h4 className="text-white font-black text-sm uppercase">Attestazione SOA</h4>
+                      <p className="text-slate-400 text-xs">Abilitati all'esecuzione di lavori pubblici e grandi commesse residenziali.</p>
                     </div>
                   </div>
                 </div>

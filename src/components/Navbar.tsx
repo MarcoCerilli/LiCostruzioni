@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { useState, useEffect } from "react";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
-import { Menu, X, ChevronRight } from "lucide-react"; // Importati per il toggle
+import { Menu, X, ChevronRight, Globe2, MapPin, Globe } from "lucide-react"; // Importati per il toggle
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -86,15 +86,27 @@ export function Navbar() {
               >
                 L.I - Costruzioni <span className="text-amber-500">SRL</span>
               </span>
-              <span
+
+              <div
                 className={cn(
-                  "text-[10px] font-bold uppercase tracking-[0.35em] transition-all duration-500",
+                  "flex items-center gap-2 transition-all duration-500",
                   isTransparent ? "text-slate-200 mt-2" : "text-slate-500 mt-1",
                   isScrolled && "opacity-0 h-0 invisible",
                 )}
               >
-                Terracina · Roma · Latina
-              </span>
+                {/* Elemento Visivo: Una linea dorata e il nuovo claim */}
+                <span className="h-[1px] w-4 bg-amber-500/50" />
+
+                <span className="text-[9px] font-black uppercase tracking-[0.2em] flex items-center gap-1.5">
+                  <Globe size={10} className="text-amber-500" />
+                  Cantieri e Sviluppo · Area Lazio
+                </span>
+
+                {/* SEO SAFE-GUARD: Google legge questo, l'utente vede il brand sopra */}
+                <span className="sr-only">
+                  Impresa edile specializzata a Terracina, Roma, Latina, Sabaudia e San Felice Circeo.
+                </span>
+              </div>
             </div>
           </Link>
 
@@ -114,7 +126,7 @@ export function Navbar() {
                     className={cn(
                       "text-sm uppercase tracking-wide relative py-1 transition-colors hover:text-amber-500 group/link",
                       isActive &&
-                        (isTransparent ? "text-amber-400" : "text-amber-600"),
+                      (isTransparent ? "text-amber-400" : "text-amber-600"),
                     )}
                   >
                     {link.name}

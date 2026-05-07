@@ -1,5 +1,4 @@
-"use client";
-
+import { Metadata } from "next";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
   CheckCircle2,
@@ -49,8 +48,30 @@ const formatCityName = (slug: string): string =>
     .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
     .join(" ");
 
-export default function LocalServicePage({ params }: { params: { city: string } }) {
-  const citySlug = params.city;
+// --- 1. METADATI DINAMICI (LATO SERVER) ---
+export async function generateMetadata({ params }: { params: Promise<{ city: string }> }): Promise<Metadata> {
+  const { city: citySlug } = await params;
+  const city = formatCityName(citySlug || "terracina");
+  const content = cityContent[citySlug] || cityContent["terracina"];
+
+  return {
+    title: `${content.name} | Li Costruzioni`,
+    description: content.desc,
+    alternates: {
+      canonical: `https://www.li-costruzionisrl.it/servizi/${citySlug}`,
+    },
+  };
+}
+
+// --- 2. GENERAZIONE STATICA DEI PERCORSI (OTTIMO PER SEO) ---
+export async function generateStaticParams() {
+  return Object.keys(cityContent).map((city) => ({
+    city: city,
+  }));
+}
+
+export default async function  LocalServicePage({ params }: { params: Promise<{ city: string }> }) {
+  const {city: citySlug} = await params;
   const cityKey = cityContent[citySlug] ? citySlug : "terracina";
   const city = formatCityName(cityKey);
   const specificContent = cityContent[cityKey];
