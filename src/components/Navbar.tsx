@@ -44,25 +44,25 @@ export function Navbar() {
       <nav
         aria-label="Navigazione Principale"
         className={cn(
-          "fixed top-0 left-0 right-0 z-[100] transition-all duration-500 px-6",
+          "fixed top-0 left-0 right-0 z-[100] transition-all duration-500 px-4 sm:px-6 w-full max-w-[100vw]",
           isTransparent
             ? "bg-gradient-to-b from-black/40 to-transparent py-7" // Aggiunto gradiente per leggibilità
             : "bg-white/90 backdrop-blur-xl border-b border-slate-200/50 shadow-md py-4",
         )}
       >
-        <div className="max-w-7xl mx-auto flex items-center justify-between">
+        <div className="max-w-7xl mx-auto flex items-center justify-between w-full">
           {/* LOGO */}
           <Link
             href="/"
-            className="flex items-center gap-4 group shrink-0"
+            className="flex items-center gap-3 sm:gap-4 group shrink min-w-0 pr-4"
             aria-label="Torna alla Home"
           >
             <div
               className={cn(
-                "relative rounded-xl overflow-hidden shadow-2xl ring-1 ring-slate-200/50 group-hover:rotate-3 transition-all duration-500 bg-white",
+                "relative rounded-xl overflow-hidden shadow-2xl ring-1 ring-slate-200/50 group-hover:rotate-3 transition-all duration-500 bg-white shrink-0",
                 isTransparent
-                  ? "h-14 w-14 md:h-16 md:w-16"
-                  : "h-12 w-12 md:h-14 md:w-14",
+                  ? "h-16 w-16 md:h-24 md:w-24" // Ingrandito
+                  : "h-14 w-14 md:h-20 md:w-20", // Ingrandito
               )}
             >
               {logo && (
@@ -75,10 +75,10 @@ export function Navbar() {
                 />
               )}
             </div>
-            <div className="flex flex-col">
+            <div className="flex flex-col min-w-0">
               <span
                 className={cn(
-                  "font-black tracking-tighter transition-all leading-none",
+                  "font-black tracking-tighter transition-all leading-none truncate",
                   isTransparent
                     ? "text-xl md:text-2xl text-white"
                     : "text-lg md:text-xl text-slate-900",
@@ -95,11 +95,11 @@ export function Navbar() {
                 )}
               >
                 {/* Elemento Visivo: Una linea dorata e il nuovo claim */}
-                <span className="h-[1px] w-4 bg-amber-500/50" />
+                <span className="hidden sm:block h-[1px] w-4 bg-amber-500/50 shrink-0" />
 
-                <span className="text-[9px] font-black uppercase tracking-[0.2em] flex items-center gap-1.5">
-                  <Globe size={10} className="text-amber-500" />
-                  Cantieri e Sviluppo · Area Lazio
+                <span className="text-[8px] sm:text-[9px] font-black uppercase tracking-[0.1em] sm:tracking-[0.2em] flex items-center gap-1.5 truncate">
+                  <Globe size={10} className="text-amber-500 shrink-0" />
+                  <span className="truncate">Cantieri e Sviluppo · Area Lazio</span>
                 </span>
 
                 {/* SEO SAFE-GUARD: Google legge questo, l'utente vede il brand sopra */}
@@ -143,7 +143,7 @@ export function Navbar() {
           </ul>
 
           {/* CTA & TOGGLE MOBILE */}
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-4 shrink-0">
             <Button
               asChild
               className={cn(
@@ -160,7 +160,7 @@ export function Navbar() {
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className={cn(
-                "p-2 rounded-lg md:hidden transition-colors",
+                "p-2 rounded-lg md:hidden transition-colors shrink-0",
                 isTransparent
                   ? "text-white hover:bg-white/10"
                   : "text-slate-900 hover:bg-slate-100",
@@ -175,7 +175,7 @@ export function Navbar() {
       {/* MENU MOBILE OVERLAY */}
       <div
         className={cn(
-          "fixed inset-0 z-[90] bg-white transition-all duration-500 ease-in-out md:hidden flex flex-col pt-32 px-8",
+          "fixed inset-0 z-[90] bg-white transition-all duration-500 ease-in-out md:hidden flex flex-col pt-32 px-6 sm:px-8 overflow-y-auto overflow-x-hidden w-full max-w-[100vw]",
           isMobileMenuOpen ? "translate-x-0" : "translate-x-full",
         )}
       >
