@@ -40,6 +40,11 @@ const cityContent: Record<string, { desc: string; focus: string; name: string }>
     desc: "Eccellenza nella posa di materiali naturali e residenze estive di alto profilo.",
     focus: "Posa Materiali Pregiati & Design Estivo",
   },
+  fondi: {
+    name: "Impresa Edile Fondi",
+    desc: "Costruzioni e ristrutturazioni residenziali e commerciali nell'area di Fondi e dintorni.",
+    focus: "Ristrutturazioni & Nuove Strutture",
+  },
 };
 
 const formatCityName = (slug: string): string =>

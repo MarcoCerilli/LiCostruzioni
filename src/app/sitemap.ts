@@ -3,48 +3,26 @@ import { MetadataRoute } from 'next'
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://www.li-costruzionisrl.it'
   
-  // Array delle città target
+  // Località coperte con pagina dedicata
   const cities = ['terracina', 'latina', 'roma', 'sabaudia', 'san-felice-circeo', 'fondi']
-  
-  // Array dei servizi principali (slug)
-  const services = ['ristrutturazioni', 'nuove-costruzioni', 'manutenzione', 'progettazione']
 
-  // 1. Pagine Istituzionali (Priorità Massima)
+  // 1. Pagine Istituzionali
   const staticRoutes = ['', '/servizi', '/progetti', '/contatti', '/chi-siamo'].map(
     (route) => ({
       url: `${baseUrl}${route}`,
       lastModified: new Date(),
       changeFrequency: 'monthly' as const,
-      priority: 1.0,
+      priority: route === '' ? 1.0 : 0.9,
     })
   )
 
-  // 2. Pagine dei Servizi Specifici (Priorità Alta)
-  const serviceRoutes = services.map((service) => ({
-    url: `${baseUrl}/servizi/${service}`,
-    lastModified: new Date(),
-    changeFrequency: 'weekly' as const,
-    priority: 0.9,
-  }))
-
-  // 3. Pagine SEO Locali (Città)
+  // 2. Pagine SEO Locali (/servizi/[city])
   const cityRoutes = cities.map((city) => ({
-    url: `${baseUrl}/servizi-edili-${city}`,
+    url: `${baseUrl}/servizi/${city}`,
     lastModified: new Date(),
     changeFrequency: 'weekly' as const,
     priority: 0.8,
   }))
 
-  // 4. Combinazioni Servizio + Città (Long-tail Keywords)
-  // Questo genera URL tipo /servizi/ristrutturazioni-roma
-  const deepSeoRoutes = services.flatMap((service) => 
-    cities.map((city) => ({
-      url: `${baseUrl}/servizi/${service}-${city}`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly' as const,
-      priority: 0.7,
-    }))
-  )
-
-  return [...staticRoutes, ...serviceRoutes, ...cityRoutes, ...deepSeoRoutes]
+  return [...staticRoutes, ...cityRoutes]
 }
