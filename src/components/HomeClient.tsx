@@ -275,6 +275,7 @@ export default function HomeClient() {
                   src={featuredProjects[0].image}
                   alt=""
                   fill
+                  sizes="(max-width: 768px) 100vw, 66vw"
                   className="object-cover object-center"
                 />
               </div>
@@ -320,6 +321,7 @@ export default function HomeClient() {
                   src={featuredProjects[1].image}
                   alt=""
                   fill
+                  sizes="(max-width: 768px) 100vw, 33vw"
                   className="object-cover object-center"
                 />
               </div>
@@ -365,6 +367,7 @@ export default function HomeClient() {
                   src={featuredProjects[2].image}
                   alt=""
                   fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
                   className="object-cover object-center"
                 />
               </div>
@@ -403,6 +406,7 @@ export default function HomeClient() {
                   src={featuredProjects[3].image}
                   alt=""
                   fill
+                  sizes="(max-width: 768px) 100vw, 66vw"
                   className="object-cover object-center"
                 />
               </div>
