@@ -46,21 +46,21 @@ export const PlaceHolderImages: ImagePlaceholder[] = [
   // ROMA
   {
     id: "radiante-roma-1",
-    description: "Roma - Vista 1",
-    imageUrl: "/progetti/radiante-roma-3.webp",
-    imageHint: "interior",
+    description: "Impiantistica Radiante a Pavimento & Isolamento Termico",
+    imageUrl: "/progetti/radiante-roma-hd.jpg",
+    imageHint: "radiant floor coils",
   },
   {
     id: "radiante-roma-2",
-    description: "Roma - Vista 2",
-    imageUrl: "/progetti/radiante-roma-2.webp",
-    imageHint: "interior detail",
+    description: "Massetto Autolivellante Termico Certificato",
+    imageUrl: "/progetti/radiante-roma-2-hd.jpg",
+    imageHint: "thermal screed",
   },
   {
     id: "radiante-roma-3",
-    description: "Roma - Vista 3",
-    imageUrl: "/progetti/radiante-roma-1.webp",
-    imageHint: "interior bath",
+    description: "Massetto Alleggerito & Predisposizione Impianti",
+    imageUrl: "/progetti/radiante-roma-1-hd.jpg",
+    imageHint: "leveling screed",
   },
 
   // TERRACINA
