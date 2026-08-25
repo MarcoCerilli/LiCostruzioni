@@ -145,9 +145,10 @@ export default function ServicesPage() {
           {/* Immagine con Border Radius coerente (radius: 1rem in CSS, qui arrotondato a 2rem per design) */}
           <div className="relative aspect-square rounded-[2rem] overflow-hidden shadow-2xl border-4 border-slate-50">
             <Image
-              src="/progetti/cantiere-roma-2.webp" // Suggerisco una foto tecnica (es. impianti o muratura)
+              src="/progetti/cantiere-roma-2.webp"
               alt="Diagnostica umidità di risalita L.I-Costruzioni"
               fill
+              sizes="(max-width: 1024px) 100vw, 50vw"
               className="object-cover transition-transform duration-700 hover:scale-105"
             />
             {/* Overlay per profondità */}
@@ -167,13 +168,14 @@ export default function ServicesPage() {
                   <h2 className="text-3xl md:text-4xl font-black text-white uppercase tracking-tighter leading-none mb-6">
                     Solidi per <br /> <span className="text-amber-500">Grandi Opere</span>
                   </h2>
-                  <div className="flex items-center gap-4 p-4 rounded-2xl bg-white/5 border border-white/10 mb-10">
+                  <div className="flex items-start gap-4 p-4 rounded-2xl bg-white/5 border border-white/10 mb-10">
                     <div className="h-12 w-12 rounded-xl bg-amber-500 flex items-center justify-center shrink-0">
                       <Award className="text-slate-900 h-6 w-6" />
                     </div>
                     <div>
                       <h4 className="text-white font-black text-sm uppercase">Attestazione SOA</h4>
-                      <p className="text-slate-400 text-xs">Abilitati all'esecuzione di lavori pubblici e grandi commesse residenziali.</p>
+                      <p className="text-amber-400 text-xs font-mono font-bold mt-0.5">N. 8148/69/07 del 20/07/2026</p>
+                      <p className="text-slate-400 text-xs mt-1">Abilitati all&apos;esecuzione di appalti pubblici e grandi commesse residenziali.</p>
                     </div>
                   </div>
                 </div>
@@ -208,6 +210,7 @@ export default function ServicesPage() {
                     src={protocolloImg.imageUrl}
                     alt="Protocollo L.I-Costruzioni"
                     fill
+                    sizes="(max-width: 1024px) 100vw, 55vw"
                     className="object-cover transition-transform duration-700 hover:scale-105 opacity-80"
                   />
                 )}

@@ -46,31 +46,32 @@ export function Navbar() {
         className={cn(
           "fixed top-0 left-0 right-0 z-[100] transition-all duration-500 px-4 sm:px-6 w-full max-w-[100vw]",
           isTransparent
-            ? "bg-gradient-to-b from-black/40 to-transparent py-7" // Aggiunto gradiente per leggibilità
-            : "bg-white/90 backdrop-blur-xl border-b border-slate-200/50 shadow-md py-4",
+            ? "bg-gradient-to-b from-black/50 to-transparent py-4 sm:py-5"
+            : "bg-white/90 backdrop-blur-xl border-b border-slate-200/50 shadow-md py-3",
         )}
       >
         <div className="max-w-7xl mx-auto flex items-center justify-between w-full">
           {/* LOGO */}
           <Link
             href="/"
-            className="flex items-center gap-3 sm:gap-4 group shrink min-w-0 pr-4"
+            className="flex items-center gap-2.5 sm:gap-3.5 group shrink min-w-0 pr-4"
             aria-label="Torna alla Home"
           >
             <div
               className={cn(
-                "relative rounded-xl overflow-hidden shadow-2xl ring-1 ring-slate-200/50 group-hover:rotate-3 transition-all duration-500 bg-white shrink-0",
+                "relative rounded-xl overflow-hidden shadow-md ring-1 ring-slate-200/50 group-hover:scale-105 transition-all duration-300 bg-white shrink-0",
                 isTransparent
-                  ? "h-16 w-16 md:h-24 md:w-24" // Ingrandito
-                  : "h-14 w-14 md:h-20 md:w-20", // Ingrandito
+                  ? "h-11 w-11 sm:h-12 sm:w-12"
+                  : "h-10 w-10 sm:h-11 sm:w-11",
               )}
             >
               {logo && (
                 <Image
                   src={logo.imageUrl}
-                  alt="L.I-Costruzioni - Ristrutturazioni Terracina"
+                  alt="L.I-Costruzioni"
                   fill
-                  className="object-contain p-2"
+                  sizes="(max-width: 640px) 44px, 48px"
+                  className="object-contain p-1.5"
                   priority
                 />
               )}
@@ -78,10 +79,10 @@ export function Navbar() {
             <div className="flex flex-col min-w-0">
               <span
                 className={cn(
-                  "font-black tracking-tighter transition-all leading-none truncate",
+                  "font-black tracking-tight transition-all leading-tight truncate",
                   isTransparent
-                    ? "text-xl md:text-2xl text-white"
-                    : "text-lg md:text-xl text-slate-900",
+                    ? "text-base sm:text-lg md:text-xl text-white"
+                    : "text-base sm:text-lg text-slate-900",
                 )}
               >
                 L.I - Costruzioni <span className="text-amber-500">SRL</span>
@@ -89,8 +90,8 @@ export function Navbar() {
 
               <div
                 className={cn(
-                  "flex items-center gap-2 transition-all duration-500",
-                  isTransparent ? "text-slate-200 mt-2" : "text-slate-500 mt-1",
+                  "flex items-center gap-2 transition-all duration-300",
+                  isTransparent ? "text-slate-300 mt-0.5" : "text-slate-500 mt-0.5",
                   isScrolled && "opacity-0 h-0 invisible",
                 )}
               >
@@ -216,7 +217,7 @@ export function Navbar() {
             <p className="text-slate-500">licostruzioni.luca@gmail.com</p>
           </div>
           <Button
-            className="w-full bg-amber-500 text-slate-900 font-black py-8 rounded-2xl text-lg shadow-lg shadow-amber-200/50 hover:bg-slate-900 hover:text-amber-500 active:scale-95 transition-all duration-300 border-none"
+            className="w-full bg-amber-500 text-slate-950 font-black h-14 rounded-2xl text-base shadow-lg shadow-amber-500/20 hover:bg-amber-400 hover:text-slate-950 active:scale-95 transition-all duration-300 border-none flex items-center justify-center"
             asChild
           >
             <Link href="/contatti">Richiedi Sopralluogo</Link>

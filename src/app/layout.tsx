@@ -74,6 +74,8 @@ export const metadata: Metadata = {
   },
 };
 
+import { MobileStickyBar } from "@/components/MobileStickyBar";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -158,7 +160,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="font-sans antialiased flex flex-col min-h-screen selection:bg-amber-100 selection:text-amber-900">
+      <body className="font-sans antialiased flex flex-col min-h-screen selection:bg-amber-100 selection:text-amber-900 pb-16 md:pb-0">
         <Navbar />
         <main className="flex-grow">
           {children}
@@ -166,6 +168,7 @@ export default function RootLayout({
         </main>
         <Footer />
         <Chatbot />
+        <MobileStickyBar />
         <Toaster />
       </body>
     </html>

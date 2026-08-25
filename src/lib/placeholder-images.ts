@@ -66,8 +66,8 @@ export const PlaceHolderImages: ImagePlaceholder[] = [
   // TERRACINA
   {
     id: "project-terracina-1",
-    description: "Terracina - Vista 1",
-    imageUrl: "/progetti/terracina-1.webp",
+    description: "Struttura Ricettiva & Sala Ristorante Vista Mare",
+    imageUrl: "/progetti/terracina-sala-hd.jpg",
     imageHint: "exterior",
   },
   {
@@ -212,21 +212,21 @@ export const PlaceHolderImages: ImagePlaceholder[] = [
   // FROSINONE - Ristrutturazione Locale Commerciale
   {
     id: "project-frosinone-1",
-    description: "Frosinone - Cantiere Locale Commerciale",
-    imageUrl: "/progetti/frosinone-ristorante.webp",
-    imageHint: "site construction",
-  },
-  {
-    id: "project-frosinone-2",
-    description: "Frosinone - Interni Ristorante Design",
-    imageUrl: "/progetti/frosinone-dettaglio.webp",
+    description: "Interni Ristorante & Lounge Design",
+    imageUrl: "/progetti/frosinone-ristorante-hd.jpg",
     imageHint: "restaurant interior",
   },
   {
-    id: "project-frosinone-3",
-    description: "Frosinone - Dettaglio Illuminazione e Finiture",
-    imageUrl: "/progetti/frosinone-cantiere.webp",
+    id: "project-frosinone-2",
+    description: "Dettaglio Illuminazione e Finiture",
+    imageUrl: "/progetti/frosinone-dettaglio.webp",
     imageHint: "interior detail",
+  },
+  {
+    id: "project-frosinone-3",
+    description: "Cantiere e Strutture in Fase di Lavori",
+    imageUrl: "/progetti/frosinone-cantiere-hd.jpg",
+    imageHint: "site construction",
   },
   // ITRI - Ristrutturazione Soluzione Indipendente
   {

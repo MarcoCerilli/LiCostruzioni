@@ -28,6 +28,7 @@ export function Footer() {
                   src={logo.imageUrl} 
                   alt="L.I-Costruzioni SRL" 
                   fill 
+                  sizes="48px"
                   className="object-contain p-2"
                 />
               )}
@@ -43,11 +44,12 @@ export function Footer() {
           
           <div className="flex flex-col gap-3">
             {/* BADGE SOA */}
-            <div className="inline-flex items-center gap-3 bg-white/5 border border-white/10 p-3 rounded-2xl">
-              <ShieldCheck className="text-amber-500 h-5 w-5" />
+            <div className="inline-flex items-start gap-3 bg-white/5 border border-white/10 p-3.5 rounded-2xl">
+              <ShieldCheck className="text-amber-500 h-5 w-5 shrink-0 mt-0.5" />
               <div>
                 <p className="text-[9px] font-black uppercase text-white tracking-widest">Qualificazione</p>
                 <p className="text-[11px] font-bold text-amber-500 uppercase">Certificazione SOA</p>
+                <p className="text-[10px] text-slate-400 font-mono font-medium mt-0.5 tracking-tight">N. 8148/69/07 del 20/07/2026</p>
               </div>
             </div>
           </div>
