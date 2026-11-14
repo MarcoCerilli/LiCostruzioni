@@ -144,7 +144,13 @@ export function Chatbot() {
                 placeholder="Scrivi una domanda o richiedi info..."
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
-                onKeyDown={(e) => e.key === "Enter" && handleSend()}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" && !e.nativeEvent.isComposing) {
+                    e.preventDefault();
+                    handleSend();
+                  }
+                }}
+                maxLength={1000}
                 aria-label="Messaggio per il consulente tecnico"
                 className="bg-transparent border-none focus-visible:ring-0 h-8 text-xs text-slate-800 p-0 placeholder:text-slate-400"
               />

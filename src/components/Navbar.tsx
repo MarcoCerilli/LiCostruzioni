@@ -15,7 +15,8 @@ export function Navbar() {
   const pathname = usePathname();
   const logo = PlaceHolderImages.find((img) => img.id === "logo-aziendale");
 
-  const isDarkHeroPage = pathname === "/" || pathname.startsWith("/servizi/");
+  // Solo la home ha un hero scuro: le pagine /servizi/[city] hanno sfondo chiaro (bg-slate-100)
+  const isDarkHeroPage = pathname === "/";
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20);

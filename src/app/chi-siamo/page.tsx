@@ -163,7 +163,7 @@ export default function AboutPage() {
   ];
 
   return (
-    <main className="pt-28 md:pt-36 pb-20 px-6 min-h-screen bg-slate-50/50">
+    <div className="pt-28 md:pt-36 pb-20 px-6 min-h-screen bg-slate-50/50">
       <div className="max-w-6xl mx-auto">
         {/* SEZIONE 1: STORIA */}
         <section className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-24">
@@ -279,6 +279,6 @@ export default function AboutPage() {
           </div>
         </section>
       </div>
-    </main>
+    </div>
   );
 }

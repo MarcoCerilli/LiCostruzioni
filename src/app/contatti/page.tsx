@@ -62,7 +62,7 @@ export default function ContactsPage() {
   }
 
   return (
-    <main className="pt-32 pb-24 px-6 min-h-screen bg-slate-50/50">
+    <div className="pt-32 pb-24 px-6 min-h-screen bg-slate-50/50">
       <div className="max-w-7xl mx-auto">
         <header className="text-center mb-20">
           <span className="text-amber-700 font-black uppercase tracking-[0.3em] text-[10px] mb-4 block">
@@ -235,6 +235,6 @@ export default function ContactsPage() {
           </section>
         </div>
       </div>
-    </main>
+    </div>
   );
 }

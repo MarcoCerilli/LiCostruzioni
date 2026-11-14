@@ -175,7 +175,7 @@ export default function ProjectsPage() {
       : projects.filter((p) => p.categoryGroup === filter);
 
   return (
-    <main className="pt-32 pb-24 px-6 min-h-screen bg-slate-50/30">
+    <div className="pt-32 pb-24 px-6 min-h-screen bg-slate-50/30">
       <div className="max-w-7xl mx-auto">
         {/* Header Portfolio */}
         <header className="text-center mb-12">
@@ -303,6 +303,6 @@ export default function ProjectsPage() {
         plugins={[Zoom]}
         animation={{ fade: 300, swipe: 500 }}
       />
-    </main>
+    </div>
   );
 }

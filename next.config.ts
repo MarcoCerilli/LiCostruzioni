@@ -6,14 +6,9 @@ const nextConfig: NextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
-  // Usiamo il casting per "ingannare" TypeScript sulle proprietà rimosse
-  ...({
-    eslint: {
-      ignoreDuringBuilds: true,
-    },
-  } as any),
   images: {
-    // IL TRUCCO PER IL 100/100: Attiva formati ultra-compressi
+    // Piano Hobby Vercel: evita Image Transformations e errori 402.
+    unoptimized: true,
     formats: ['image/avif', 'image/webp'],
     
     // Ottimizzazione del caching (opzionale ma consigliata)

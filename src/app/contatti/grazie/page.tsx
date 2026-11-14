@@ -3,7 +3,7 @@ import { CheckCircle, ArrowLeft, Calendar, PhoneCall } from "lucide-react";
 
 export default function ThankYouPage() {
   return (
-    <main className="relative pt-40 pb-24 px-6 min-h-screen flex items-center justify-center bg-slate-50/50 overflow-hidden">
+    <div className="relative pt-40 pb-24 px-6 min-h-screen flex items-center justify-center bg-slate-50/50 overflow-hidden">
       {/* Elementi decorativi di sfondo */}
       <div className="absolute top-1/4 -left-20 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl -z-10" aria-hidden="true" />
       <div className="absolute bottom-1/4 -right-20 w-96 h-96 bg-slate-200/50 rounded-full blur-3xl -z-10" aria-hidden="true" />
@@ -64,6 +64,6 @@ export default function ThankYouPage() {
           </Link>
         </div>
       </div>
-    </main>
+    </div>
   );
 }

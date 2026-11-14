@@ -11,6 +11,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import Link from "next/link";
+import { notFound } from "next/navigation";
 import React from "react";
 
 // --- DATI DELLE LOCALITÀ ---
@@ -56,8 +57,8 @@ const formatCityName = (slug: string): string =>
 // --- 1. METADATI DINAMICI (LATO SERVER) ---
 export async function generateMetadata({ params }: { params: Promise<{ city: string }> }): Promise<Metadata> {
   const { city: citySlug } = await params;
-  const city = formatCityName(citySlug || "terracina");
-  const content = cityContent[citySlug] || cityContent["terracina"];
+  const content = cityContent[citySlug];
+  if (!content) return {};
 
   return {
     title: `${content.name} | Li Costruzioni`,
@@ -68,6 +69,9 @@ export async function generateMetadata({ params }: { params: Promise<{ city: str
   };
 }
 
+// Solo le città definite sopra: le altre restituiscono 404 (evita contenuti duplicati)
+export const dynamicParams = false;
+
 // --- 2. GENERAZIONE STATICA DEI PERCORSI (OTTIMO PER SEO) ---
 export async function generateStaticParams() {
   return Object.keys(cityContent).map((city) => ({
@@ -77,7 +81,8 @@ export async function generateStaticParams() {
 
 export default async function  LocalServicePage({ params }: { params: Promise<{ city: string }> }) {
   const {city: citySlug} = await params;
-  const cityKey = cityContent[citySlug] ? citySlug : "terracina";
+  if (!cityContent[citySlug]) notFound();
+  const cityKey = citySlug;
   const city = formatCityName(cityKey);
   const specificContent = cityContent[cityKey];
 
