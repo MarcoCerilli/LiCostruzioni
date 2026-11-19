@@ -35,7 +35,7 @@ export default function PrivacyPolicyPage() {
               Il Titolare del trattamento dei dati personali è{" "}
               <strong>L.I-Costruzioni SRL</strong>, con sede legale e operativa in{" "}
               <strong>Via Appia Antica 22, 04019 Terracina (LT)</strong>, P.IVA{" "}
-              <strong>01234567890</strong>.
+              <strong>03144440595</strong>.
             </p>
             <p>
               Contatti del Titolare: telefono{" "}

@@ -84,7 +84,7 @@ export default function CookiePolicyPage() {
             <h2 className="text-xl font-black text-slate-900">5. Titolare del trattamento</h2>
             <p>
               Per qualsiasi chiarimento è possibile contattare <strong>L.I-Costruzioni SRL</strong> (Via Appia Antica 22,
-              04019 Terracina LT, P.IVA 01234567890) all&apos;indirizzo email{" "}
+              04019 Terracina LT, P.IVA 03144440595) all&apos;indirizzo email{" "}
               <a href="mailto:licostruzioni.luca@gmail.com" className="text-amber-700 font-semibold hover:underline">
                 licostruzioni.luca@gmail.com
               </a>{" "}

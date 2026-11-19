@@ -149,7 +149,7 @@ export function Footer() {
       {/* BOTTOM STRIP */}
       <div className="max-w-7xl mx-auto px-6 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6 text-[9px] font-bold text-slate-600 uppercase tracking-[0.2em]">
         <div className="text-center md:text-left">
-          © {new Date().getFullYear()} L.I-Costruzioni SRL • P.IVA 01234567890 • International Standard Quality
+          © {new Date().getFullYear()} L.I-Costruzioni SRL • P.IVA 03144440595 • International Standard Quality
         </div>
         <div className="flex gap-8">
           <Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
