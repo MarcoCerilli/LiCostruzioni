@@ -40,9 +40,6 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "L.I-Costruzioni SRL" }],
   category: "Construction and Renovation",
-  alternates: {
-    canonical: "/",
-  },
   icons: {
     icon: [
       { url: "/favicon.ico?v=2" },
